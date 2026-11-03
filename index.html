@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f0ed">
+  <meta name="description" content="C.O.T.A. — Crónicas de los Cinco Reinos. Portal de bienvenida, lore y comunidad del team.">
+  <title>C.O.T.A. — Crónicas de los Cinco Reinos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#inicio" data-section="inicio" aria-label="COTA inicio">
+      <span class="brand-seal"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27"/><path d="M32 8 38 25 56 25 42 36 47 54 32 43 17 54 22 36 8 25 26 25Z"/><circle cx="32" cy="32" r="5"/></svg></span>
+      <span><strong>C.O.T.A.</strong><small>Crónicas de los Cinco Reinos</small></span>
+    </a>
+    <nav class="topnav" aria-label="Navegación principal">
+      <button class="nav-link active" data-section="inicio">Inicio</button>
+      <button class="nav-link" data-section="historia">Historia</button>
+      <button class="nav-link" data-section="reinos">Reinos</button>
+      <button class="nav-link" data-section="razas">Razas</button>
+      <button class="nav-link" data-section="comunidad">Comunidad</button>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema"><span class="icon-moon"></span></button>
+      <button class="button button-soft button-small" id="presentationButton" aria-label="Activar modo presentación"><span class="eye-icon"></span> Presentación</button>
+      <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <button data-section="inicio">Inicio</button>
+    <button data-section="historia">Historia</button>
+    <button data-section="reinos">Reinos</button>
+    <button data-section="razas">Razas</button>
+    <button data-section="comunidad">Comunidad</button>
+  </div>
+
+  <main id="appMain">
+    <!-- INICIO -->
+    <section class="view active" id="view-inicio" data-view="inicio">
+      ...
+    </section>
+    
+    <!-- HISTORIA -->
+    <section class="view" id="view-historia" data-view="historia">
+      ...
+    </section>
+    
+    <!-- REINOS -->
+    <section class="view" id="view-reinos" data-view="reinos">
+      ...
+    </section>
+    
+    <!-- RAZAS -->
+    <section class="view" id="view-razas" data-view="razas">
+      ...
+    </section>
+    
+    <!-- COMUNIDAD -->
+    <section class="view" id="view-comunidad" data-view="comunidad">
+      ... (sin staff tab)
+    </section>
+  </main>
+  
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="genericModal" hidden><div class="modal" role="dialog" aria-modal="true"><button class="modal-close" data-close-modal aria-label="Cerrar">×</button><div id="genericModalContent"></div></div></div>
+</body>
+</html>
