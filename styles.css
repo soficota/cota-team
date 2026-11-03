@@ -2066,3 +2066,67 @@ body.modal-open {
     transition-duration: 0.01ms !important;
   }
 }
+/* ==========================================================
+   PARCHE DE EMERGENCIA: ARREGLO DE LÍNEA TEMPORAL
+   ========================================================== */
+
+.timeline-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 30px !important;
+  margin-top: 30px !important;
+  padding-left: 20px !important;
+  position: relative !important;
+}
+
+.timeline-item {
+  display: block !important; /* Elimina la cuadrícula que aplasta el texto */
+  position: relative !important;
+  padding-left: 50px !important;
+  margin-bottom: 20px !important;
+}
+
+.timeline-item .year {
+  display: inline-block !important;
+  margin-bottom: 10px !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  background: rgba(185, 149, 84, 0.1) !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+}
+
+.timeline-item h3 {
+  display: block !important;
+  font-family: var(--display) !important;
+  font-size: 24px !important;
+  margin: 10px 0 !important;
+  color: var(--ink) !important;
+  width: 100% !important;
+}
+
+.timeline-item p {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  color: var(--muted) !important;
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  text-align: justify !important;
+  white-space: normal !important; /* Rompe cualquier columna forzada */
+}
+
+/* Letra capital para el mito */
+.creation-card .prose::first-letter {
+  font-family: var(--display) !important;
+  font-size: 4.5em !important;
+  font-weight: 700 !important;
+  float: left !important;
+  line-height: 0.8 !important;
+  margin-right: 15px !important;
+  margin-top: 8px !important;
+  color: var(--gold) !important;
+  text-shadow: 0 4px 15px rgba(185, 149, 84, 0.4) !important;
+}
