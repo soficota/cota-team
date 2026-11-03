@@ -104,7 +104,7 @@
       "lore": "Su monarca debe ser querido y justo. Su Marca es una hoja con espinas. Es una nación custodiada por todas las criaturas terrestres y aéreas. Atacan sin piedad y tienen conocimiento suficiente para destruir a su objetivo como si nada.",
       "secrets": ["El conocimiento mágico de Avalon es tan antiguo como el mundo mismo."],
       "territory": "Árboles gigantes",
-      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/4a/6e/e8/4a6ee8e96601342fded75600c10a0cc9.jpg" }, "illustration": { "url": "" } }
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/4a/6e/e8/4a6ee8e96601342fded75600c10a0cc9.jpg" }, "illustration": { "url": "https://i.pinimg.com/736x/d7/a2/cd/d7a2cda34b34d89011fe7f1ad32d2384.jpg" } }
     },
     {
       "id": "emberia",
