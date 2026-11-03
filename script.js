@@ -1,405 +1,1160 @@
-console.log("✅ Script de C.O.T.A. v2 cargado correctamente.");
+/* C.O.T.A. — Sitio estático */
+(() => {
+  'use strict';
 
-try {
-  (() => {
-    'use strict';
-    const STORAGE = { theme: 'cota_theme_v1' };
-    let data;
-    let selectedKingdom = 'all';
-    let selectedRule = 'general';
-    let toastTimer;
+  const STORAGE_KEY = 'cota_theme_v2';
 
-    const $ = (selector, root = document) => root.querySelector(selector);
-    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-    const safe = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const isPending = v => v === 'PENDIENTE' || v === '' || v == null;
-    const kingdomById = id => data?.kingdoms?.find(k => k.id === id);
-    const kingdomColor = id => data?.palette?.kingdoms?.[id] || data?.palette?.kingdoms?.elyndra;
-    const kingdomGlyph = id => ({hadalith:'≈',avalon:'❧',emberia:'♨',bryrius:'⌁',elyndra:'✧'}[id] || '✦');
-    
-    const showToast = msg => {
-      const node = $('#toast');
-      if (!node) return;
-      node.textContent = msg;
-      node.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => node.classList.remove('show'), 2400);
+  const $ = (selector, root = document) =>
+    root.querySelector(selector);
+
+  const $$ = (selector, root = document) =>
+    Array.from(root.querySelectorAll(selector));
+
+  let data = null;
+  let selectedKingdom = 'all';
+  let selectedRule = 'general';
+  let toastTimer = null;
+  let lastFocusedElement = null;
+
+  const escapeHTML = value =>
+    String(value ?? '').replace(/[&<>"']/g, character => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[character]);
+
+  const isPending = value =>
+    value === 'PENDIENTE' || value === '' || value == null;
+
+  const emptyState = message =>
+    `<div class="empty-inline">${escapeHTML(message)}</div>`;
+
+  const kingdomById = id =>
+    data.kingdoms.find(kingdom => kingdom.id === id);
+
+  const kingdomColor = id =>
+    data.palette?.kingdoms?.[id] ||
+    data.palette?.kingdoms?.elyndra || {};
+
+  const kingdomGlyph = id => ({
+    hadalith: '≈',
+    avalon: '❧',
+    emberia: '♨',
+    bryrius: '⌁',
+    elyndra: '✧'
+  })[id] || '✦';
+
+  const pendingBlock = message => `
+    <div class="pending-box">
+      <b>CONTENIDO PENDIENTE</b>
+      <span>${escapeHTML(message || 'El staff completará este apartado más adelante.')}</span>
+    </div>
+  `;
+
+  // NOTIFICACIONES PEQUEÑAS
+
+  function toast(message) {
+    const node = $('#toast');
+    if (!node) return;
+
+    node.textContent = message;
+    node.classList.add('show');
+
+    window.clearTimeout(toastTimer);
+
+    toastTimer = window.setTimeout(() => {
+      node.classList.remove('show');
+    }, 2600);
+  }
+
+  // TEMA CLARO Y OSCURO
+
+  function readTheme() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) || 'light';
+    } catch {
+      return 'light';
+    }
+  }
+
+  function setTheme(theme) {
+    const dark = theme === 'dark';
+
+    document.body.classList.toggle('dark', dark);
+
+    const button = $('#themeToggle');
+    const icon = $('#themeIcon');
+
+    if (icon) {
+      icon.textContent = dark ? '☀' : '☾';
+    }
+
+    if (button) {
+      button.setAttribute(
+        'aria-label',
+        dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
+      );
+
+      button.title = dark
+        ? 'Cambiar a modo claro'
+        : 'Cambiar a modo oscuro';
+    }
+
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        dark ? 'dark' : 'light'
+      );
+    } catch {
+      // El tema permanece activo durante esta sesión.
+    }
+  }
+
+  // CARGAR INFORMACIÓN
+
+  async function loadData() {
+    const response = await fetch('./cota.json', {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `No se pudo leer cota.json (HTTP ${response.status}).`
+      );
+    }
+
+    const json = await response.json();
+
+    if (
+      !json ||
+      !Array.isArray(json.kingdoms) ||
+      !json.roles ||
+      !json.rules
+    ) {
+      throw new Error(
+        'cota.json no tiene la estructura esperada.'
+      );
+    }
+
+    return json;
+  }
+
+  // INICIO DE LA APLICACIÓN
+
+  async function init() {
+    try {
+      data = await loadData();
+
+      document.title =
+        `${data.identity?.name || 'C.O.T.A.'} — Crónicas de los Cinco Reinos`;
+
+      const description = data.identity?.description;
+
+      $('#identityDescription').textContent =
+        isPending(description)
+          ? 'Un mundo dividido por antiguas marcas, unido por historias que todavía esperan ser contadas.'
+          : description;
+
+      setTheme(readTheme());
+
+      renderAll();
+      bindEvents();
+      restoreInitialSection();
+
+    } catch (error) {
+      console.error(error);
+
+      document.body.innerHTML = `
+        <main class="fatal-error">
+          <h1>No se pudo cargar C.O.T.A.</h1>
+          <p>${escapeHTML(error.message)}</p>
+          <p>
+            Comprueba que <strong>cota.json</strong> esté junto a
+            index.html, styles.css y script.js.
+          </p>
+          <p>
+            Para probar localmente, utiliza Live Server
+            o ejecuta <code>python -m http.server 8000</code>
+            desde la carpeta del proyecto.
+          </p>
+        </main>
+      `;
+    }
+  }
+
+  // RENDERIZAR TODO
+
+  function renderAll() {
+    renderHome();
+    renderHistory();
+    renderKingdoms();
+    renderRaces();
+    renderRoles();
+    renderGroups();
+    renderRules();
+    renderActivities();
+    renderRewards();
+  }
+
+  // PORTADA
+
+  function renderHome() {
+    const totals = [
+      [data.kingdoms.length, 'Reinos por descubrir'],
+      [(data.races || []).length, 'Pueblos y linajes'],
+      [(data.roles?.general || []).length, 'Oficios generales'],
+      [(data.groups || []).length, 'Espacios del team']
+    ];
+
+    $('#homeStats').innerHTML = totals.map(([number, label]) => `
+      <div class="stat-item">
+        <span class="stat-number">${number}</span>
+        <span class="stat-label">${escapeHTML(label)}</span>
+      </div>
+    `).join('');
+
+    $('#homeKingdoms').innerHTML = data.kingdoms.map(kingdom => {
+      const colors = kingdomColor(kingdom.id);
+
+      return `
+        <button
+          class="kingdom-card"
+          type="button"
+          data-open-kingdom="${escapeHTML(kingdom.id)}"
+          style="
+            --kingdom-accent:${escapeHTML(colors.accent || '#b99554')};
+            --kingdom-light:${escapeHTML(colors.light || '#f7f0ed')};
+            --kingdom-deep:${escapeHTML(colors.deep || '#5d5360')}
+          "
+        >
+          <span class="kingdom-symbol">
+            ${kingdomGlyph(kingdom.id)}
+          </span>
+
+          <span class="kingdom-card-copy">
+            <strong>${escapeHTML(kingdom.name)}</strong>
+            <small>${escapeHTML(kingdom.mark)}</small>
+          </span>
+
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  // HISTORIA
+
+  function renderHistory() {
+    const myth = data.lore?.creationMyth;
+
+    $('#creationMyth').innerHTML = isPending(myth)
+      ? pendingBlock(
+          'El mito de creación está reservado para que el staff incorpore la versión definitiva del lore.'
+        )
+      : `<p>${escapeHTML(myth).replace(/\n/g, '<br>')}</p>`;
+
+    const timeline = data.lore?.timeline || [];
+
+    $('#timelineList').innerHTML = timeline.length
+      ? timeline.map(event => `
+          <article class="timeline-item">
+            <span class="year">${escapeHTML(event.year)}</span>
+
+            <div>
+              <h3>${escapeHTML(event.title)}</h3>
+
+              ${
+                isPending(event.description)
+                  ? pendingBlock(
+                      'La descripción de este acontecimiento está pendiente.'
+                    )
+                  : `<p>${escapeHTML(event.description)}</p>`
+              }
+            </div>
+          </article>
+        `).join('')
+      : emptyState(
+          'Todavía no hay acontecimientos registrados en la línea temporal.'
+        );
+  }
+
+  // LISTA DE REINOS
+
+  function renderKingdoms() {
+    const filter = $('#kingdomFilter');
+
+    filter.innerHTML = `
+      <button
+        class="filter-chip ${selectedKingdom === 'all' ? 'active' : ''}"
+        type="button"
+        data-kingdom="all"
+        aria-pressed="${selectedKingdom === 'all'}"
+      >
+        Todos
+      </button>
+    ` + data.kingdoms.map(kingdom => `
+      <button
+        class="filter-chip ${selectedKingdom === kingdom.id ? 'active' : ''}"
+        type="button"
+        data-kingdom="${escapeHTML(kingdom.id)}"
+        aria-pressed="${selectedKingdom === kingdom.id}"
+      >
+        ${escapeHTML(kingdom.name)}
+      </button>
+    `).join('');
+
+    const kingdoms = selectedKingdom === 'all'
+      ? data.kingdoms
+      : data.kingdoms.filter(item => item.id === selectedKingdom);
+
+    $('#kingdomGrid').innerHTML = kingdoms.map(kingdom => {
+      const colors = kingdomColor(kingdom.id);
+
+      const race = (data.races || []).find(
+        item => item.kingdom === kingdom.id
+      );
+
+      return `
+        <button
+          class="kingdom-detail-card"
+          type="button"
+          data-open-kingdom="${escapeHTML(kingdom.id)}"
+          style="
+            --kingdom-base:${escapeHTML(colors.base || '#eee')};
+            --kingdom-light:${escapeHTML(colors.light || '#fff')};
+            --kingdom-deep:${escapeHTML(colors.deep || '#555')}
+          "
+        >
+          <span class="kingdom-cover">
+            <span>${kingdomGlyph(kingdom.id)}</span>
+          </span>
+
+          <span class="kingdom-info">
+            <span class="eyebrow">
+              ${escapeHTML(kingdom.element)} · ${escapeHTML(kingdom.mark)}
+            </span>
+
+            <strong>${escapeHTML(kingdom.name)}</strong>
+
+            <span class="kingdom-tagline">
+              ${escapeHTML(kingdom.tagline)}
+            </span>
+
+            <span class="kingdom-meta">
+              <span>${escapeHTML(kingdom.guardian)}</span>
+              ${race ? `<span>${escapeHTML(race.name)}</span>` : ''}
+            </span>
+          </span>
+
+          <span class="kingdom-open-label">
+            Descubrir reino ↗
+          </span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  // IMÁGENES DE LOS REINOS
+
+  function visualSlot(label, visual) {
+    const url = String(visual?.url || '').trim();
+
+    const safeUrl =
+      /^(https?:\/\/|\.\.?\/|assets\/)/i.test(url)
+        ? url
+        : '';
+
+    return `
+      <div class="image-slot">
+
+        ${
+          safeUrl
+            ? `
+              <img
+                src="${escapeHTML(safeUrl)}"
+                alt="${escapeHTML(visual?.alt || label)}"
+                loading="lazy"
+              >
+            `
+            : `
+              <span class="slot-symbol">✧</span>
+              <strong>${escapeHTML(label)}</strong>
+              <small>Imagen pendiente</small>
+            `
+        }
+
+        ${
+          safeUrl && visual?.credit
+            ? `<small class="image-credit">${escapeHTML(visual.credit)}</small>`
+            : ''
+        }
+
+      </div>
+    `;
+  }
+
+  // ABRIR INFORMACIÓN COMPLETA DE UN REINO
+
+  function openKingdom(id) {
+    const kingdom = kingdomById(id);
+
+    if (!kingdom) return;
+
+    const colors = kingdomColor(id);
+    const visuals = kingdom.visuals || {};
+
+    const slots = [
+      ['Portada', visuals.hero],
+      ['Fondo', visuals.background],
+      ['Ilustración', visuals.illustration],
+      ['Emblema', visuals.emblem],
+      ...(visuals.gallery || []).map(
+        (visual, index) => [`Galería ${index + 1}`, visual]
+      ),
+      ['Decorativo', visuals.decorative]
+    ];
+
+    const secrets = (kingdom.secrets || []).length
+      ? `
+        <ul class="secret-list">
+          ${kingdom.secrets.map(secret => `
+            <li>
+              ${
+                isPending(secret)
+                  ? 'Pendiente de completar'
+                  : escapeHTML(secret)
+              }
+            </li>
+          `).join('')}
+        </ul>
+      `
+      : '<p class="muted">No hay secretos registrados.</p>';
+
+    const race = (data.races || []).find(
+      item => item.kingdom === id
+    );
+
+    $('#kingdomModalContent').innerHTML = `
+      <div
+        class="kingdom-modal-head"
+        style="
+          --kingdom-light:${escapeHTML(colors.light || '#eee')};
+          --kingdom-deep:${escapeHTML(colors.deep || '#555')}
+        "
+      >
+        <span class="modal-kingdom-symbol">
+          ${kingdomGlyph(id)}
+        </span>
+
+        <span class="eyebrow">
+          ${escapeHTML(kingdom.element)} · ${escapeHTML(kingdom.mark)}
+        </span>
+
+        <h2 id="kingdomModalTitle">
+          ${escapeHTML(kingdom.name)}
+        </h2>
+
+        <p>${escapeHTML(kingdom.tagline)}</p>
+      </div>
+
+      <div class="kingdom-facts">
+
+        <div>
+          <small>Guardianes</small>
+          <strong>${escapeHTML(kingdom.guardian)}</strong>
+        </div>
+
+        <div>
+          <small>Gobierno</small>
+          <strong>${escapeHTML(kingdom.monarchTitle || 'Sin especificar')}</strong>
+        </div>
+
+        <div>
+          <small>Territorio</small>
+          <strong>${escapeHTML(kingdom.territory)}</strong>
+        </div>
+
+        ${
+          race
+            ? `
+              <div>
+                <small>Raza asociada</small>
+                <strong>${escapeHTML(race.name)}</strong>
+              </div>
+            `
+            : ''
+        }
+
+      </div>
+
+      <h3>Descripción</h3>
+
+      ${
+        isPending(kingdom.description)
+          ? pendingBlock('La descripción del reino está pendiente de completar.')
+          : `<p>${escapeHTML(kingdom.description)}</p>`
+      }
+
+      <h3>Historia del reino</h3>
+
+      ${
+        isPending(kingdom.lore)
+          ? pendingBlock('El lore específico de este reino está pendiente.')
+          : `<p>${escapeHTML(kingdom.lore)}</p>`
+      }
+
+      <h3>Secretos y particularidades</h3>
+
+      ${secrets}
+
+      <h3>Galería y recursos visuales</h3>
+
+      <div class="image-slots">
+        ${slots.map(([label, visual]) => visualSlot(label, visual)).join('')}
+      </div>
+
+      <p class="muted modal-note">
+        Las imágenes están vacías en cota.json para que el propietario
+        añada sus enlaces y créditos.
+      </p>
+    `;
+
+    lastFocusedElement = document.activeElement;
+
+    $('#kingdomModal').hidden = false;
+
+    document.body.classList.add('modal-open');
+
+    $('.modal-close', $('#kingdomModal'))?.focus();
+  }
+
+  // RAZAS
+
+  function renderRaces() {
+    $('#racesGrid').innerHTML = (data.races || []).map(race => {
+      const kingdom = kingdomById(race.kingdom);
+
+      return `
+        <article class="race-card">
+
+          <span class="eyebrow">
+            ${escapeHTML(kingdom?.name || '')} · ${escapeHTML(race.element)}
+          </span>
+
+          <h3>${escapeHTML(race.name)}</h3>
+
+          ${
+            isPending(race.description)
+              ? pendingBlock(
+                  'La descripción de esta raza se completará más adelante.'
+                )
+              : `<p>${escapeHTML(race.description)}</p>`
+          }
+
+          <p class="race-blessing">
+            <b>Bendición:</b> ${escapeHTML(race.blessing)}
+          </p>
+
+          <div class="tag-list">
+            ${(race.traits || []).map(trait => `
+              <span class="tag">${escapeHTML(trait)}</span>
+            `).join('')}
+          </div>
+
+        </article>
+      `;
+    }).join('') || emptyState('Todavía no hay razas registradas.');
+  }
+
+  // OFICIOS
+
+  function renderRoles() {
+    const select = $('#roleKingdomFilter');
+
+    select.innerHTML =
+      '<option value="all">Todos los reinos</option>' +
+      data.kingdoms.map(kingdom => `
+        <option value="${escapeHTML(kingdom.id)}">
+          ${escapeHTML(kingdom.name)}
+        </option>
+      `).join('');
+
+    drawRoles('all');
+  }
+
+  function roleGlyph(icon) {
+    const map = {
+      wheat: '✣',
+      flask: '⚗',
+      herb: '✚',
+      book: '▤',
+      letter: '✉',
+      scale: '⚖',
+      eye: '◎',
+      compass: '⌖',
+      hammer: '⚒',
+      anvil: '◇',
+      saw: '⌁',
+      scissors: '✂',
+      bread: '◒',
+      cleaver: '⌑',
+      bow: '⌒',
+      chisel: '◆',
+      mask: '◉',
+      palette: '◈',
+      chalkboard: '▧',
+      bell: '♧',
+      dagger: '†',
+      dash: '—',
+      sword: '⚔',
+      'wave-note': '♫',
+      trident: '♆',
+      leaf: '❧',
+      flower: '❀',
+      flame: '♨',
+      wing: '⌁',
+      shield: '⬡',
+      star: '✧',
+      feather: '❋'
     };
-    const pendingBlock = text => `<div class="pending-box"><b>CONTENIDO PENDIENTE</b>${safe(text || 'El staff completará este apartado más adelante.')}</div>`;
-    const emptyState = text => `<div class="empty-inline">${safe(text)}</div>`;
 
-    async function init() {
-      try {
-        const response = await fetch('./cota.json', { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        data = await response.json();
-      } catch (error) {
-        document.body.innerHTML = `<main style="max-width:760px;margin:10vh auto;padding:24px;font-family:Arial"><h1>No se pudo cargar cota.json</h1><p>Comprueba que <b>cota.json</b> esté junto a index.html y abre el sitio mediante un servidor local o GitHub Pages.</p><p>Detalle: ${safe(error.message)}</p></main>`;
+    return map[icon] || '✦';
+  }
+
+  function drawRoles(kingdomId = 'all') {
+    const general = (data.roles?.general || []).filter(role =>
+      !role.restricted ||
+      kingdomId === 'all' ||
+      role.restricted.includes(kingdomId)
+    );
+
+    let html = `
+      <h3 class="role-section-title">Oficios generales</h3>
+
+      <div class="role-grid">
+
+        ${general.map(role => `
+          <article class="role-card">
+            <span class="role-icon">
+              ${roleGlyph(role.icon)}
+            </span>
+
+            <span>
+              ${escapeHTML(role.name)}
+
+              ${
+                role.restricted
+                  ? '<small class="restricted-note">Solo Bryrius y Elyndra</small>'
+                  : ''
+              }
+            </span>
+          </article>
+        `).join('')}
+
+      </div>
+    `;
+
+    const specific = kingdomId === 'all'
+      ? Object.entries(data.roles?.kingdomSpecific || {})
+      : [[
+          kingdomId,
+          data.roles?.kingdomSpecific?.[kingdomId] || []
+        ]];
+
+    html += specific
+      .filter(([, roles]) => roles.length)
+      .map(([id, roles]) => `
+        <h3 class="role-section-title">
+          Oficios de ${escapeHTML(kingdomById(id)?.name || id)}
+        </h3>
+
+        <div class="role-grid">
+
+          ${roles.map(role => `
+            <article class="role-card">
+              <span class="role-icon">
+                ${roleGlyph(role.icon)}
+              </span>
+
+              <span>${escapeHTML(role.name)}</span>
+            </article>
+          `).join('')}
+
+        </div>
+      `).join('');
+
+    const titles = data.roles?.titles || [];
+
+    if (titles.length) {
+      html += `
+        <h3 class="role-section-title">Títulos adicionales</h3>
+
+        <div class="role-grid">
+
+          ${titles.map(title => `
+            <article class="role-card">
+              <span class="role-icon">♕</span>
+
+              <span>
+                ${escapeHTML(title.name)}
+                <small class="restricted-note">
+                  ${escapeHTML(title.grantedBy)}
+                </small>
+              </span>
+            </article>
+          `).join('')}
+
+        </div>
+      `;
+    }
+
+    $('#rolesContent').innerHTML = html;
+  }
+
+  // GRUPOS
+
+  function renderGroups() {
+    const kindLabels = {
+      staff: 'Organización del team',
+      roleplay: 'Espacio de roleplay',
+      adult: 'Espacio restringido',
+      ooc: 'Fuera de personaje'
+    };
+
+    $('#groupsContent').innerHTML =
+      (data.groups || []).map(group => `
+        <article class="group-card">
+
+          <span class="group-kind">
+            ${escapeHTML(kindLabels[group.type] || group.type)}
+          </span>
+
+          <h3>${escapeHTML(group.name)}</h3>
+          <p>${escapeHTML(group.description)}</p>
+
+        </article>
+      `).join('') || emptyState('Todavía no hay grupos registrados.');
+  }
+
+  // NORMAS
+
+  function renderRules() {
+    drawRules(selectedRule);
+  }
+
+  function drawRules(type) {
+    const list = data.rules?.[type] || [];
+
+    $('#rulesContent').innerHTML = list.length
+      ? list.map(rule => `
+          <article class="rule-item">
+
+            <span class="rule-mark">✧</span>
+
+            <div>
+              <h3>${escapeHTML(rule.title)}</h3>
+
+              ${
+                isPending(rule.description)
+                  ? pendingBlock(
+                      'El staff añadirá aquí la explicación de esta norma.'
+                    )
+                  : `<p>${escapeHTML(rule.description)}</p>`
+              }
+            </div>
+
+          </article>
+        `).join('')
+      : emptyState('No hay normas registradas en esta categoría.');
+  }
+
+  // ACTIVIDADES
+
+  function renderActivities() {
+    $('#activitiesContent').innerHTML =
+      (data.activities || []).map(activity => `
+        <article class="activity-card">
+
+          <span class="eyebrow">ACTIVIDAD</span>
+
+          <h3>${escapeHTML(activity.name)}</h3>
+
+          ${
+            isPending(activity.description)
+              ? pendingBlock('Descripción pendiente de completar.')
+              : `<p>${escapeHTML(activity.description)}</p>`
+          }
+
+          <span class="points">
+            ${escapeHTML(activity.points)} puntos
+          </span>
+
+        </article>
+      `).join('') || emptyState('Todavía no hay actividades registradas.');
+  }
+
+  // RECOMPENSAS
+
+  function renderRewards() {
+    $('#rewardsContent').innerHTML =
+      (data.rewards || []).map(reward => `
+        <article class="reward-card">
+
+          <span class="eyebrow">RECOMPENSA</span>
+
+          <h3>${escapeHTML(reward.name)}</h3>
+
+          ${
+            isPending(reward.description)
+              ? pendingBlock(
+                  'Las condiciones de esta recompensa están pendientes.'
+                )
+              : `<p>${escapeHTML(reward.description)}</p>`
+          }
+
+          <span class="points">
+            Duración: ${escapeHTML(reward.duration)}
+          </span>
+
+        </article>
+      `).join('') || emptyState('Todavía no hay recompensas registradas.');
+  }
+
+  // NAVEGACIÓN
+
+  function showSection(section) {
+    const target = $(`#view-${section}`);
+
+    if (!target) return;
+
+    $$('.view').forEach(view => {
+      view.classList.toggle('active', view === target);
+    });
+
+    $$('[data-section].nav-link').forEach(button => {
+      const active = button.dataset.section === section;
+
+      button.classList.toggle('active', active);
+
+      if (active) {
+        button.setAttribute('aria-current', 'page');
+      } else {
+        button.removeAttribute('aria-current');
+      }
+    });
+
+    $('#mobileNav').classList.remove('open');
+
+    $('#mobileMenuButton').setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches ? 'auto' : 'smooth'
+    });
+
+    try {
+      history.replaceState(null, '', `#${section}`);
+    } catch {
+      // Navegación local disponible sin historial.
+    }
+  }
+
+  function restoreInitialSection() {
+    const section = (location.hash || '').replace('#', '');
+
+    if (section && $(`#view-${CSS.escape(section)}`)) {
+      showSection(section);
+    }
+  }
+
+  // PESTAÑAS DE COMUNIDAD
+
+  function setCommunityTab(name) {
+    const target = $(`#community-${name}`);
+
+    if (!target) return;
+
+    $$('#communityTabs [data-community]').forEach(button => {
+      const active = button.dataset.community === name;
+
+      button.classList.toggle('active', active);
+
+      button.setAttribute(
+        'aria-selected',
+        String(active)
+      );
+    });
+
+    $$('.community-panel').forEach(panel => {
+      panel.classList.toggle('active', panel === target);
+    });
+  }
+
+  // MODO PRESENTACIÓN
+
+  function setPresentation(active) {
+    document.body.classList.toggle(
+      'presentation-active',
+      active
+    );
+
+    $('#presentationExit').hidden = !active;
+
+    $('#presentationButton').setAttribute(
+      'aria-pressed',
+      String(active)
+    );
+
+    if (active) {
+      closeKingdomModal();
+
+      $('#mobileNav').classList.remove('open');
+
+      $('#mobileMenuButton').setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+      toast('Modo presentación activado · Esc para salir');
+
+    } else {
+      toast('Modo presentación desactivado');
+    }
+  }
+
+  // CERRAR VENTANA DE REINO
+
+  function closeKingdomModal() {
+    $('#kingdomModal').hidden = true;
+
+    document.body.classList.remove('modal-open');
+
+    if (
+      lastFocusedElement &&
+      typeof lastFocusedElement.focus === 'function'
+    ) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  // EVENTOS
+
+  function bindEvents() {
+
+    document.addEventListener('click', event => {
+
+      const target = event.target instanceof Element
+        ? event.target
+        : event.target.parentElement;
+
+      if (!target) return;
+
+      // Navegación
+      const sectionButton = target.closest('[data-section]');
+
+      if (sectionButton) {
+        event.preventDefault();
+        showSection(sectionButton.dataset.section);
         return;
       }
-      applyTheme(localStorage.getItem(STORAGE.theme) || 'light');
-      renderAll();
-      bindAllEvents();
-      
-      const desc = $('#identityDescription');
-      if (desc) desc.textContent = data.identity.description || 'Un mundo dividido por antiguas marcas, unido por historias que todavía esperan ser contadas.';
-    }
 
-    function renderAll() {
-      document.title = `${data.identity.name} — Crónicas de los Cinco Reinos`;
-      renderHome();
-      renderHistory();
-      renderKingdoms();
-      renderRaces();
-      renderRoles();
-      renderGroups();
-      renderRules();
-      renderActivities();
-      renderRewards();
-      renderFaq();
-    }
+      // Abrir reino
+      const kingdomButton = target.closest('[data-open-kingdom]');
 
-    function renderHome() {
-      const statsEl = $('#homeStats');
-      if (statsEl) {
-        const totals = [
-          [data.kingdoms.length, 'Reinos por descubrir'],
-          [data.races.length, 'Pueblos y linajes'],
-          [data.roles.general.length, 'Oficios generales'],
-          [data.groups.length, 'Espacios del team']
-        ];
-        statsEl.innerHTML = totals.map(([n, label]) => `<div class="stat-item"><span class="stat-number">${n}</span><span class="stat-label">${safe(label)}</span></div>`).join('');
-      }
-
-      const kingdomsEl = $('#homeKingdoms');
-      if (kingdomsEl) {
-        kingdomsEl.innerHTML = data.kingdoms.map(k => {
-          const c = kingdomColor(k.id);
-          return `<article class="kingdom-card" data-open-kingdom="${safe(k.id)}" style="--kingdom-accent:${c.accent};--kingdom-light:${c.light};--kingdom-deep:${c.deep}"><div class="kingdom-symbol">${kingdomGlyph(k.id)}</div><h3>${safe(k.name)}</h3><p>${safe(k.mark)}</p><span class="card-arrow">↗</span></article>`;
-        }).join('');
-      }
-    }
-
-    function renderHistory() {
-      const mythEl = $('#creationMyth');
-      if (mythEl) {
-        mythEl.innerHTML = isPending(data.lore.creationMyth)
-          ? pendingBlock('El mito de creación está reservado para que el staff incorpore la versión definitiva del lore.')
-          : `<p>${safe(data.lore.creationMyth)}</p>`;
-      }
-
-      const timelineEl = $('#timelineList');
-      if (timelineEl) {
-        timelineEl.innerHTML = (data.lore.timeline || []).map(item => `
-          <div class="timeline-item">
-            <span class="year">${safe(item.year)}</span>
-            <h3>${safe(item.title)}</h3>
-            ${isPending(item.description) ? pendingBlock('Descripción pendiente.') : `<p>${safe(item.description)}</p>`}
-          </div>
-        `).join('') || emptyState('Todavía no hay eventos en la línea temporal.');
-      }
-    }
-
-    function renderKingdoms() {
-      const filter = $('#kingdomFilter');
-      const grid = $('#kingdomGrid');
-      if (!filter || !grid) return;
-
-      filter.innerHTML = `<button class="filter-chip ${selectedKingdom === 'all' ? 'active' : ''}" data-kingdom="all">Todos</button>` +
-        data.kingdoms.map(k => `<button class="filter-chip ${selectedKingdom === k.id ? 'active' : ''}" data-kingdom="${safe(k.id)}">${safe(k.name)}</button>`).join('');
-
-      const items = selectedKingdom === 'all' ? data.kingdoms : data.kingdoms.filter(k => k.id === selectedKingdom);
-      grid.innerHTML = items.map(k => {
-        const c = kingdomColor(k.id);
-        return `<article class="kingdom-detail-card" data-open-kingdom="${safe(k.id)}" style="--kingdom-base:${c.base};--kingdom-light:${c.light};--kingdom-deep:${c.deep}">
-          <div class="kingdom-cover"><span>${kingdomGlyph(k.id)}</span></div>
-          <div class="kingdom-info">
-            <span class="eyebrow">${safe(k.element)} · ${safe(k.mark)}</span>
-            <h3>${safe(k.name)}</h3>
-            <p>${safe(k.tagline)}</p>
-            <div class="kingdom-meta"><span>${safe(k.guardian)}</span><span>${safe(k.monarchTitle || 'Sin título')}</span></div>
-          </div>
-        </article>`;
-      }).join('');
-    }
-
-    function openKingdom(id) {
-      const k = kingdomById(id); if (!k) return;
-      const c = kingdomColor(id);
-      const modalContent = $('#kingdomModalContent');
-      const modal = $('#kingdomModal');
-      if (!modalContent || !modal) return;
-
-      const slots = [
-        ['hero', 'Portada'], ['background', 'Fondo'], ['illustration', 'Ilustración'], ['emblem', 'Emblema'],
-        ...(k.visuals.gallery || []).map((x, i) => [`gallery-${i}`, x.alt]),
-        ['decorative', 'Decorativo']
-      ];
-      const secrets = (k.secrets || []).filter(s => !isPending(s)).length
-        ? `<ul>${k.secrets.map(s => `<li>${isPending(s) ? 'Pendiente de completar' : safe(s)}</li>`).join('')}</ul>`
-        : '<p class="muted">No hay secretos registrados.</p>';
-
-      modalContent.innerHTML = `
-        <div class="kingdom-modal-head" style="--kingdom-light:${c.light};--kingdom-deep:${c.deep}">
-          <span class="eyebrow">${safe(k.element)} · ${safe(k.mark)}</span>
-          <h2 id="kingdomModalTitle">${safe(k.name)}</h2>
-          <p>${safe(k.tagline)}</p>
-        </div>
-        <div class="panel-kicker">DATOS DEL REINO</div>
-        <p><b>Guardianes:</b> ${safe(k.guardian)}</p>
-        <p><b>Gobierno:</b> ${safe(k.monarchTitle || 'Sin especificar')}</p>
-        <p><b>Territorio:</b> ${safe(k.territory)}</p>
-        <h3>Descripción</h3>
-        ${isPending(k.description) ? pendingBlock('La descripción del reino está pendiente de completar.') : `<p>${safe(k.description)}</p>`}
-        <h3>Historia del reino</h3>
-        ${isPending(k.lore) ? pendingBlock('El lore específico de este reino está pendiente.') : `<p>${safe(k.lore)}</p>`}
-        <h3>Secretos y particularidades</h3>
-        ${secrets}
-        <h3>Ranuras visuales</h3>
-        <div class="image-slots">
-          ${slots.map(([key, label]) => `<div class="image-slot"><span>✧</span>${safe(label)}<small>Imagen pendiente</small></div>`).join('')}
-        </div>
-        <p class="muted">Las imágenes están vacías en cota.json para que el propietario añada sus enlaces y créditos.</p>
-      `;
-      modal.hidden = false;
-    }
-
-    function renderRaces() {
-      const el = $('#racesGrid');
-      if (!el) return;
-      el.innerHTML = data.races.map(r => `
-        <article class="race-card">
-          <span class="eyebrow">${safe(kingdomById(r.kingdom)?.name || '')} · ${safe(r.element)}</span>
-          <h3>${safe(r.name)}</h3>
-          ${isPending(r.description) ? pendingBlock('La descripción de esta raza se completará después.') : `<p>${safe(r.description)}</p>`}
-          <p><b>Bendición:</b> ${safe(r.blessing)}</p>
-          <div class="tag-list">${r.traits.map(t => `<span class="tag">${safe(t)}</span>`).join('')}</div>
-        </article>
-      `).join('');
-    }
-
-    function roleGlyph(icon) {
-      const map = { wheat:'✣', flask:'⚗', herb:'✚', book:'▤', letter:'✉', scale:'⚖', eye:'◎', compass:'⌖', hammer:'⚒', anvil:'◇', saw:'⌁', scissors:'✂', bread:'◒', cleaver:'⌑', bow:'⌒', chisel:'◆', mask:'◉', palette:'◈', chalkboard:'▧', bell:'♧', dagger:'†', dash:'—', sword:'⚔', 'wave-note':'♫', trident:'♆', leaf:'❧', flower:'❀', flame:'♨', wing:'⌁', shield:'⬡', star:'✧', feather:'❋' };
-      return map[icon] || '✦';
-    }
-
-    function renderRoles() {
-      const sel = $('#roleKingdomFilter');
-      if (sel) {
-        sel.innerHTML = '<option value="all">Todos los reinos</option>' + data.kingdoms.map(k => `<option value="${safe(k.id)}">${safe(k.name)}</option>`).join('');
-      }
-      drawRoles('all');
-    }
-
-    function drawRoles(kingdom = 'all') {
-      const el = $('#rolesContent');
-      if (!el) return;
-
-      const general = data.roles.general.filter(r => !r.restricted || kingdom === 'all' || r.restricted.includes(kingdom));
-      let html = `<h3 class="role-section-title">Oficios generales</h3>
-        <div class="role-grid">${general.map(r => `<div class="role-card"><span class="role-icon">${roleGlyph(r.icon)}</span><span>${safe(r.name)}</span>${r.restricted ? `<small class="restricted-note">Bryrius · Elyndra</small>` : ''}</div>`).join('')}</div>`;
-
-      const specific = kingdom === 'all' ? Object.entries(data.roles.kingdomSpecific) : [[kingdom, data.roles.kingdomSpecific[kingdom] || []]];
-      html += specific.filter(([, arr]) => arr.length).map(([id, arr]) => `
-        <h3 class="role-section-title">Oficios de ${safe(kingdomById(id)?.name || id)}</h3>
-        <div class="role-grid">${arr.map(r => `<div class="role-card"><span class="role-icon">${roleGlyph(r.icon)}</span><span>${safe(r.name)}</span></div>`).join('')}</div>
-      `).join('');
-
-      html += `<h3 class="role-section-title">Títulos adicionales</h3>
-        <div class="role-grid">${data.roles.titles.map(r => `<div class="role-card"><span class="role-icon">♕</span><span>${safe(r.name)}<small style="display:block;color:var(--muted)">${safe(r.grantedBy)}</small></span></div>`).join('')}</div>`;
-
-      el.innerHTML = html;
-    }
-
-    function renderGroups() {
-      const el = $('#groupsContent');
-      if (!el) return;
-      el.innerHTML = data.groups.map(g => `
-        <article class="group-card">
-          <span class="group-kind">${safe(g.type)}</span>
-          <h3>${safe(g.name)}</h3>
-          <p>${safe(g.description)}</p>
-        </article>
-      `).join('');
-    }
-
-    function renderRules() { drawRules(selectedRule); }
-
-    function drawRules(type) {
-      const el = $('#rulesContent');
-      if (!el) return;
-      const list = data.rules[type] || [];
-      el.innerHTML = list.map(r => `
-        <article class="rule-item">
-          <h3>${safe(r.title)}</h3>
-          ${isPending(r.description) ? pendingBlock('El staff añadirá aquí la explicación de esta norma.') : `<p>${safe(r.description)}</p>`}
-        </article>
-      `).join('');
-    }
-
-    function renderActivities() {
-      const el = $('#activitiesContent');
-      if (!el) return;
-      el.innerHTML = data.activities.map(a => `
-        <article class="activity-card">
-          <span class="eyebrow">ACTIVIDAD</span>
-          <h3>${safe(a.name)}</h3>
-          ${isPending(a.description) ? pendingBlock('Descripción pendiente de completar.') : `<p>${safe(a.description)}</p>`}
-          <span class="points">${safe(a.points)} puntos</span>
-        </article>
-      `).join('');
-    }
-
-    function renderRewards() {
-      const el = $('#rewardsContent');
-      if (!el) return;
-      el.innerHTML = data.rewards.map(r => `
-        <article class="reward-card">
-          <span class="eyebrow">RECOMPENSA</span>
-          <h3>${safe(r.name)}</h3>
-          ${isPending(r.description) ? pendingBlock('Condiciones pendientes de completar.') : `<p>${safe(r.description)}</p>`}
-          <span class="points">Duración: ${safe(r.duration)}</span>
-        </article>
-      `).join('');
-    }
-
-    function renderFaq() {
-      const el = $('#faqContent');
-      if (!el) return;
-      el.innerHTML = data.faq.map((f, i) => `
-        <article class="faq-item">
-          <button class="faq-question" aria-expanded="false" data-faq="${i}">${safe(f.question)}<span>＋</span></button>
-          <div class="faq-answer" hidden>${isPending(f.answer) ? pendingBlock('Respuesta pendiente de completar.') : safe(f.answer)}</div>
-        </article>
-      `).join('');
-    }
-
-    function bindAllEvents() {
-      // Navegación general
-      document.addEventListener('click', e => {
-        const btn = e.target.closest('[data-section]');
-        if (btn) {
-          const section = btn.dataset.section;
-          if ($('#view-' + section)) {
-            showSection(section);
-            const mob = $('#mobileNav');
-            if (mob) mob.classList.remove('open');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-          return;
-        }
-
-        const filterBtn = e.target.closest('[data-kingdom]');
-        if (filterBtn) {
-          selectedKingdom = filterBtn.dataset.kingdom;
-          renderKingdoms();
-          return;
-        }
-        
-        const openBtn = e.target.closest('[data-open-kingdom]');
-        if (openBtn) {
-          if (openBtn.closest('#homeKingdoms')) showSection('reinos');
-          openKingdom(openBtn.dataset.openKingdom);
-        }
-      });
-      
-      const mobBtn = $('#mobileMenuButton');
-      const mobNav = $('#mobileNav');
-      if (mobBtn && mobNav) mobBtn.addEventListener('click', () => mobNav.classList.toggle('open'));
-
-      // Pestañas comunidad
-      const tabs = $('#communityTabs');
-      if (tabs) {
-        tabs.addEventListener('click', e => {
-          const b = e.target.closest('[data-community]');
-          if (!b) return;
-          $$('#communityTabs .tab-button').forEach(x => x.classList.toggle('active', x === b));
-          $$('.community-panel').forEach(p => p.classList.toggle('active', p.id === 'community-' + b.dataset.community));
-        });
+      if (kingdomButton) {
+        openKingdom(kingdomButton.dataset.openKingdom);
+        return;
       }
 
       // Cerrar modal
-      const modal = $('#kingdomModal');
-      if (modal) {
-        modal.addEventListener('click', e => {
-          if (e.target === e.currentTarget || e.target.closest('[data-close-modal]')) e.currentTarget.hidden = true;
-        });
+      if (
+        target.closest('[data-close-modal]') ||
+        target === $('#kingdomModal')
+      ) {
+        closeKingdomModal();
+      }
+    });
+
+    // MENÚ MÓVIL
+
+    $('#mobileMenuButton').addEventListener('click', () => {
+
+      const open = $('#mobileNav').classList.toggle('open');
+
+      $('#mobileMenuButton').setAttribute(
+        'aria-expanded',
+        String(open)
+      );
+
+    });
+
+    // CAMBIAR TEMA
+
+    $('#themeToggle').addEventListener('click', () => {
+
+      setTheme(
+        document.body.classList.contains('dark')
+          ? 'light'
+          : 'dark'
+      );
+
+    });
+
+    // FILTRO DE REINOS
+
+    $('#kingdomFilter').addEventListener('click', event => {
+
+      const target = event.target instanceof Element
+        ? event.target
+        : event.target.parentElement;
+
+      const button = target.closest('[data-kingdom]');
+
+      if (!button) return;
+
+      selectedKingdom = button.dataset.kingdom;
+
+      renderKingdoms();
+
+    });
+
+    // PESTAÑAS PRINCIPALES DE COMUNIDAD
+
+    $('#communityTabs').addEventListener('click', event => {
+
+      const target = event.target instanceof Element
+        ? event.target
+        : event.target.parentElement;
+
+      const button = target.closest('[data-community]');
+
+      if (button) {
+        setCommunityTab(button.dataset.community);
       }
 
-      // Selectores y tabs internas
-      const roleSel = $('#roleKingdomFilter');
-      if (roleSel) roleSel.addEventListener('change', e => drawRoles(e.target.value));
+    });
 
-      const rulesTab = $('#community-rules');
-      if (rulesTab) {
-        rulesTab.addEventListener('click', e => {
-          const b = e.target.closest('[data-rule]');
-          if (!b) return;
-          selectedRule = b.dataset.rule;
-          $$('[data-rule]').forEach(x => x.classList.toggle('active', x === b));
-          drawRules(selectedRule);
-        });
-      }
+    // FILTRO DE OFICIOS
 
-      const faqEl = $('#faqContent');
-      if (faqEl) {
-        faqEl.addEventListener('click', e => {
-          const b = e.target.closest('[data-faq]');
-          if (!b) return;
-          const answer = b.nextElementSibling;
-          const isHidden = answer.hidden;
-          answer.hidden = !isHidden;
-          b.setAttribute('aria-expanded', String(isHidden));
-          b.querySelector('span').textContent = isHidden ? '−' : '＋';
-        });
-      }
+    $('#roleKingdomFilter').addEventListener('change', event => {
+      drawRoles(event.target.value);
+    });
 
-      // Tema y presentación
-      const themeBtn = $('#themeToggle');
-      if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-          const next = document.body.classList.contains('dark') ? 'light' : 'dark';
-          applyTheme(next);
-          localStorage.setItem(STORAGE.theme, next);
-        });
-      }
+    // PESTAÑAS DE NORMAS
 
-      const presBtn = $('#presentationButton');
-      if (presBtn) presBtn.addEventListener('click', togglePresentation);
-      
-      document.addEventListener('keydown', e => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-          e.preventDefault();
-          togglePresentation();
-        }
-        if (e.key === 'Escape' && document.body.classList.contains('presentation-active')) {
-          togglePresentation();
-        }
+    $('#rulesTabs').addEventListener('click', event => {
+
+      const target = event.target instanceof Element
+        ? event.target
+        : event.target.parentElement;
+
+      const button = target.closest('[data-rule]');
+
+      if (!button) return;
+
+      selectedRule = button.dataset.rule;
+
+      $$('#rulesTabs [data-rule]').forEach(item => {
+
+        const active = item === button;
+
+        item.classList.toggle('active', active);
+
+        item.setAttribute(
+          'aria-pressed',
+          String(active)
+        );
+
       });
-    }
 
-    function showSection(name) {
-      $$('.view').forEach(v => v.classList.toggle('active', v.dataset.view === name));
-      $$('.nav-link').forEach(n => n.classList.toggle('active', n.dataset.section === name));
-    }
+      drawRules(selectedRule);
 
-    function applyTheme(theme) {
-      document.body.classList.toggle('dark', theme === 'dark');
-    }
+    });
 
-    function togglePresentation() {
-      const active = document.body.classList.toggle('presentation-active');
-      if (active) {
-        showToast('Modo presentación activo · Esc para salir');
-        if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
-      } else {
-        showToast('Modo presentación desactivado');
-        if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(() => {});
+    // PRESENTACIÓN EN ESCRITORIO
+
+    $('#presentationButton').addEventListener('click', () => {
+
+      setPresentation(
+        !document.body.classList.contains('presentation-active')
+      );
+
+    });
+
+    // PRESENTACIÓN EN MÓVIL
+
+    $('#mobilePresentationButton').addEventListener('click', () => {
+
+      $('#mobileNav').classList.remove('open');
+
+      $('#mobileMenuButton').setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+      setPresentation(
+        !document.body.classList.contains('presentation-active')
+      );
+
+    });
+
+    // BOTÓN PARA SALIR
+
+    $('#exitPresentation').addEventListener('click', () => {
+      setPresentation(false);
+    });
+
+    // ATAJOS DE TECLADO
+
+    document.addEventListener('keydown', event => {
+
+      if (event.key === 'Escape') {
+
+        if (!$('#kingdomModal').hidden) {
+          closeKingdomModal();
+
+        } else if (
+          document.body.classList.contains('presentation-active')
+        ) {
+          setPresentation(false);
+
+        } else if ($('#mobileNav').classList.contains('open')) {
+
+          $('#mobileNav').classList.remove('open');
+
+          $('#mobileMenuButton').setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+        }
+
       }
-    }
 
-    init();
-  })();
-} catch (e) {
-  console.error("Error en el script:", e);
-}
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        event.key.toLowerCase() === 'p'
+      ) {
+        event.preventDefault();
+
+        setPresentation(
+          !document.body.classList.contains('presentation-active')
+        );
+      }
+
+    });
+
+  }
+
+  // INICIAR
+
+  init();
+
+})();
