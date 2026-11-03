@@ -90,7 +90,38 @@
       "lore": "Su monarca sonríe siempre, habla con voz suave y recibe a los extranjeros con cortesía. Su Marca es una ola que se cierra sobre un ojo abierto. Toda sirena y tritón esconden un secreto oscuro: usan su belleza para engañar y manipular a sus presas. Su fuente de alimento no son los humanos, pero sí son su juguete favorito.",
       "secrets": ["El Leviathan custodia el reino desde las profundidades."],
       "territory": "70% bajo el agua",
-      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/3e/f5/f6/3ef5f685e044c83453d592ee4c6b85de.jpg" }, "illustration": { "url": "https://i.pinimg.com/736x/54/38/00/543800f9446c5b6b6efe15b455d84972.jpg" } }
+      "visuals": {
+  "hero": {
+    "url": "https://i.pinimg.com/1200x/3e/f5/f6/3ef5f685e044c83453d592ee4c6b85de.jpg",
+    "alt": "Portada de Hadalith",
+    "credit": ""
+  },
+  "background": {
+    "url": "https://i.pinimg.com/736x/33/bd/ea/33bdea7d68f07162660c17099fd4a951.jpg",
+    "alt": "Fondo submarino de Hadalith",
+    "credit": ""
+  },
+  "illustration": {
+    "url": "https://i.pinimg.com/736x/54/38/00/543800f9446c5b6b6efe15b455d84972.jpg",
+    "alt": "Ilustración de Hadalith",
+    "credit": ""
+  },
+  "emblem": {
+    "url": "https://i.pinimg.com/736x/ce/d5/11/ced511cf10b499ac8471e0b6e64dff9c.jpg",
+    "alt": "Emblema de Hadalith",
+    "credit": ""
+  },
+  "gallery": [
+    {"url":"https://i.pinimg.com/736x/5b/f7/68/5bf7686d0e73f3ad27b8a7898a2e0fc7.jpg","alt":"Ciudad sumergida","credit":""},
+    {"url":"https://i.pinimg.com/736x/d2/61/32/d26132f090c8041b9c95466d89387042.jpg","alt":"Sirenas bajo la luna","credit":""},
+    {"url":"https://i.pinimg.com/736x/66/4f/87/664f87241faca74457ad750f88c5127e.jpg","alt":"Templo de perlas","credit":""}
+  ],
+  "decorative": {
+    "url": "https://i.pinimg.com/736x/11/79/f2/1179f20bdf15ef9eea01f23f8a3e8963.jpg",
+    "alt": "Ornamento marino",
+    "credit": ""
+  }
+}
     },
     {
       "id": "avalon",
