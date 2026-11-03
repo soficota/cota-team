@@ -1,4 +1,4 @@
-/* C.O.T.A. — Script con soporte completo para imágenes */
+/* C.O.T.A. — Script completo con encabezado de imagen integrado */
 (() => {
   'use strict';
   const STORAGE = { theme: 'cota_theme_v1' };
@@ -143,9 +143,16 @@
     const modal = $('#kingdomModal');
     if (!modalContent || !modal) return;
 
-    const heroImg = k.visuals?.hero?.url 
-      ? `<img src="${k.visuals.hero.url}" style="width:100%; height:250px; object-fit:cover; border-radius:16px; margin-bottom:20px;">` 
-      : '';
+    const hasHeroImg = k.visuals?.hero?.url;
+
+    // MAGIA AQUÍ: Si hay imagen, la usamos de fondo con un filtro oscuro para que se lea la letra blanca.
+    const headerStyle = hasHeroImg
+      ? `background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('${k.visuals.hero.url}'); background-size: cover; background-position: center; color: #fff;`
+      : `background: linear-gradient(120deg, ${c.light}, var(--paper-2)); color: ${c.deep};`;
+
+    const textColor = hasHeroImg ? '#fff' : c.deep;
+    const textShadow = hasHeroImg ? 'text-shadow: 0 2px 10px rgba(0,0,0,0.6);' : '';
+    const eyebrowColor = hasHeroImg ? 'rgba(255,255,255,0.9)' : c.deep;
 
     const illustration = k.visuals?.illustration?.url
       ? `<h3>Ilustración</h3><img src="${k.visuals.illustration.url}" style="width:100%; border-radius:16px; margin-bottom:15px;">`
@@ -162,22 +169,26 @@
       : '<p class="muted">No hay secretos registrados.</p>';
 
     modalContent.innerHTML = `
-      ${heroImg}
-      <div class="kingdom-modal-head" style="--kingdom-light:${c.light};--kingdom-deep:${c.deep}">
-        <span class="eyebrow">${safe(k.element)} · ${safe(k.mark)}</span>
-        <h2 id="kingdomModalTitle">${safe(k.name)}</h2>
-        <p>${safe(k.tagline)}</p>
+      <div class="kingdom-modal-head" style="${headerStyle}">
+        <span class="eyebrow" style="color: ${eyebrowColor}">${safe(k.element)} · ${safe(k.mark)}</span>
+        <h2 id="kingdomModalTitle" style="color: ${textColor}; ${textShadow}">${safe(k.name)}</h2>
+        <p style="color: ${textColor}; ${textShadow}">${safe(k.tagline)}</p>
       </div>
-      <div class="panel-kicker">DATOS DEL REINO</div>
+      
+      <div class="panel-kicker" style="padding: 0 40px; margin-top: 20px;">DATOS DEL REINO</div>
       <p><b>Guardianes:</b> ${safe(k.guardian)}</p>
       <p><b>Gobierno:</b> ${safe(k.monarchTitle || 'Sin especificar')}</p>
       <p><b>Territorio:</b> ${safe(k.territory)}</p>
+      
       <h3>Descripción</h3>
       ${isPending(k.description) ? pendingBlock('La descripción del reino está pendiente de completar.') : `<p>${safe(k.description)}</p>`}
+      
       <h3>Historia del reino</h3>
       ${isPending(k.lore) ? pendingBlock('El lore específico de este reino está pendiente.') : `<p>${safe(k.lore)}</p>`}
+      
       <h3>Secretos y particularidades</h3>
       ${secrets}
+      
       ${illustration}
       ${gallery}
     `;
