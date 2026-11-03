@@ -108,7 +108,7 @@
     }
   }
 
-  function renderKingdoms() {
+   function renderKingdoms() {
     const filter = $('#kingdomFilter');
     const grid = $('#kingdomGrid');
     if (!filter || !grid) return;
@@ -117,20 +117,35 @@
       data.kingdoms.map(k => `<button class="filter-chip ${selectedKingdom === k.id ? 'active' : ''}" data-kingdom="${safe(k.id)}">${safe(k.name)}</button>`).join('');
 
     const items = selectedKingdom === 'all' ? data.kingdoms : data.kingdoms.filter(k => k.id === selectedKingdom);
+    
     grid.innerHTML = items.map(k => {
       const c = kingdomColor(k.id);
-      const bgImg = k.visuals?.hero?.url ? `background-image: url('${k.visuals.hero.url}'); background-size: cover; background-position: center;` : '';
-      const fallbackBg = `background: linear-gradient(145deg,${c.light},${c.base});`;
+      const bgImg = k.visuals?.hero?.url ? `background-image: url('${k.visuals.hero.url}');` : '';
+      const fallbackBg = `background: linear-gradient(145deg, ${c.light}, ${c.base});`;
       
       return `<article class="kingdom-detail-card" data-open-kingdom="${safe(k.id)}">
         <div class="kingdom-cover" style="${bgImg || fallbackBg}">
-          ${!k.visuals?.hero?.url ? `<span>${kingdomGlyph(k.id)}</span>` : ''}
+          <div class="kingdom-cover-overlay"></div>
+          ${!k.visuals?.hero?.url ? `<span class="kingdom-glyph">${kingdomGlyph(k.id)}</span>` : ''}
         </div>
+        
         <div class="kingdom-info">
-          <span class="eyebrow">${safe(k.element)} · ${safe(k.mark)}</span>
+          <div class="kingdom-badge">${safe(k.element)} · ${safe(k.mark)}</div>
           <strong>${safe(k.name)}</strong>
           <p class="kingdom-tagline">${safe(k.tagline)}</p>
-          <div class="kingdom-meta"><span>${safe(k.guardian)}</span><span>${safe(k.monarchTitle || 'Sin título')}</span></div>
+          
+          <div class="kingdom-meta">
+            <div class="meta-item">
+              <small>Guardián</small>
+              <span>${safe(k.guardian)}</span>
+            </div>
+            <div class="meta-item">
+              <small>Gobierno</small>
+              <span>${safe(k.monarchTitle || 'Sin título')}</span>
+            </div>
+          </div>
+          
+          <button class="kingdom-open-btn">Abrir grimorio <span>↗</span></button>
         </div>
       </article>`;
     }).join('');
