@@ -206,12 +206,12 @@
     {"url":"https://i.pinimg.com/1200x/1c/29/30/1c2930c76e8c04916739a5e690454826.jpg","alt":"Guerreros de Emberia","credit":""},
     {"url":"https://i.pinimg.com/736x/ef/55/66/ef5566206a025d6fe9b412a2cb1b1193.jpg","alt":"Renacimiento del Phoenix","credit":""}
   ],
-  "decorative": {
-    "url": "https://i.pinimg.com/1200x/9a/93/a9/9a93a9aa43424e91df778d37600c0f19.jpg",
-    "alt": "Ornamento de llamas",
-    "credit": ""
-  }
-}
+      "decorative": {
+        "url": "URL_DE_LA_IMAGEN",
+        "alt": "Ornamento de llamas",
+        "credit": ""
+      }
+    },
     {
       "id": "bryrius",
       "name": "Bryrius",
@@ -301,7 +301,7 @@
     "credit": ""
   }
 }
-  ],
+      ],
   "roles": {
     "general": [
       { "name": "Agricultor/a o Granjero/a", "icon": "wheat" },
