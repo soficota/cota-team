@@ -1,7 +1,7 @@
 {
   "meta": {
     "teamName": "C.O.T.A.",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "language": "es",
     "theme": "reinos de fantasía mágica medieval",
     "lastUpdated": "2026-11-03",
@@ -91,37 +91,17 @@
       "secrets": ["El Leviathan custodia el reino desde las profundidades."],
       "territory": "70% bajo el agua",
       "visuals": {
-  "hero": {
-    "url": "https://i.pinimg.com/1200x/3e/f5/f6/3ef5f685e044c83453d592ee4c6b85de.jpg",
-    "alt": "Portada de Hadalith",
-    "credit": ""
-  },
-  "background": {
-    "url": "https://i.pinimg.com/736x/33/bd/ea/33bdea7d68f07162660c17099fd4a951.jpg",
-    "alt": "Fondo submarino de Hadalith",
-    "credit": ""
-  },
-  "illustration": {
-    "url": "https://i.pinimg.com/736x/54/38/00/543800f9446c5b6b6efe15b455d84972.jpg",
-    "alt": "Ilustración de Hadalith",
-    "credit": ""
-  },
-  "emblem": {
-    "url": "https://i.pinimg.com/736x/ce/d5/11/ced511cf10b499ac8471e0b6e64dff9c.jpg",
-    "alt": "Emblema de Hadalith",
-    "credit": ""
-  },
-  "gallery": [
-    {"url":"https://i.pinimg.com/736x/5b/f7/68/5bf7686d0e73f3ad27b8a7898a2e0fc7.jpg","alt":"Ciudad sumergida","credit":""},
-    {"url":"https://i.pinimg.com/736x/d2/61/32/d26132f090c8041b9c95466d89387042.jpg","alt":"Sirenas bajo la luna","credit":""},
-    {"url":"https://i.pinimg.com/736x/66/4f/87/664f87241faca74457ad750f88c5127e.jpg","alt":"Templo de perlas","credit":""}
-  ],
-  "decorative": {
-    "url": "https://i.pinimg.com/736x/11/79/f2/1179f20bdf15ef9eea01f23f8a3e8963.jpg",
-    "alt": "Ornamento marino",
-    "credit": ""
-  }
-}
+        "hero": { "url": "https://i.pinimg.com/1200x/3e/f5/f6/3ef5f685e044c83453d592ee4c6b85de.jpg" },
+        "background": { "url": "https://i.pinimg.com/736x/33/bd/ea/33bdea7d68f07162660c17099fd4a951.jpg" },
+        "illustration": { "url": "https://i.pinimg.com/736x/54/38/00/543800f9446c5b6b6efe15b455d84972.jpg" },
+        "emblem": { "url": "https://i.pinimg.com/736x/ce/d5/11/ced511cf10b499ac8471e0b6e64dff9c.jpg" },
+        "gallery": [
+          {"url":"https://i.pinimg.com/736x/5b/f7/68/5bf7686d0e73f3ad27b8a7898a2e0fc7.jpg"},
+          {"url":"https://i.pinimg.com/736x/d2/61/32/d26132f090c8041b9c95466d89387042.jpg"},
+          {"url":"https://i.pinimg.com/736x/66/4f/87/664f87241faca74457ad750f88c5127e.jpg"}
+        ],
+        "decorative": { "url": "https://i.pinimg.com/736x/11/79/f2/1179f20bdf15ef9eea01f23f8a3e8963.jpg" }
+      }
     },
     {
       "id": "avalon",
@@ -135,38 +115,18 @@
       "lore": "Su monarca debe ser querido y justo. Su Marca es una hoja con espinas. Es una nación custodiada por todas las criaturas terrestres y aéreas. Atacan sin piedad y tienen conocimiento suficiente para destruir a su objetivo como si nada.",
       "secrets": ["El conocimiento mágico de Avalon es tan antiguo como el mundo mismo."],
       "territory": "Árboles gigantes",
- "visuals": {
-  "hero": {
-    "url": "https://i.pinimg.com/736x/4a/6e/e8/4a6ee8e96601342fded75600c10a0cc9.jpg",
-    "alt": "Portada de Avalon",
-    "credit": ""
-  },
-  "background": {
-    "url": "https://i.pinimg.com/736x/00/1b/5d/001b5d881bac67e223dc58597df57694.jpg",
-    "alt": "Bosques de Avalon",
-    "credit": ""
-  },
-  "illustration": {
-    "url": "https://i.pinimg.com/736x/d7/a2/cd/d7a2cda34b34d89011fe7f1ad32d2384.jpg",
-    "alt": "Ilustración de Avalon",
-    "credit": ""
-  },
-  "emblem": {
-    "url": "https://i.pinimg.com/736x/0f/7e/37/0f7e37c31fac9c8cf5a50a0bf07831dc.jpg",
-    "alt": "Emblema de Avalon",
-    "credit": ""
-  },
-  "gallery": [
-    {"url":"https://i.pinimg.com/736x/54/64/40/546440ff8cceb3018bf9df54dff18725.jpg","alt":"Ciudad entre árboles gigantes","credit":""},
-    {"url":"https://i.pinimg.com/1200x/c2/b1/ae/c2b1aeae1a80fd8c7052df62a722d71b.jpg","alt":"Hadas entre flores","credit":""},
-    {"url":"https://i.pinimg.com/1200x/21/63/74/216374e94cdc1fcdc968d2d48c5d70d8.jpg","alt":"Grifos del bosque","credit":""}
-  ],
-  "decorative": {
-    "url": "https://i.pinimg.com/736x/9b/d5/72/9bd5728efebee85eb5d9eddfa490c214.jpg",
-    "alt": "Ornamento de hojas",
-    "credit": ""
-  }
-}
+      "visuals": {
+        "hero": { "url": "https://i.pinimg.com/736x/4a/6e/e8/4a6ee8e96601342fded75600c10a0cc9.jpg" },
+        "background": { "url": "https://i.pinimg.com/736x/00/1b/5d/001b5d881bac67e223dc58597df57694.jpg" },
+        "illustration": { "url": "https://i.pinimg.com/736x/d7/a2/cd/d7a2cda34b34d89011fe7f1ad32d2384.jpg" },
+        "emblem": { "url": "https://i.pinimg.com/736x/0f/7e/37/0f7e37c31fac9c8cf5a50a0bf07831dc.jpg" },
+        "gallery": [
+          {"url":"https://i.pinimg.com/736x/54/64/40/546440ff8cceb3018bf9df54dff18725.jpg"},
+          {"url":"https://i.pinimg.com/1200x/c2/b1/ae/c2b1aeae1a80fd8c7052df62a722d71b.jpg"},
+          {"url":"https://i.pinimg.com/1200x/21/63/74/216374e94cdc1fcdc968d2d48c5d70d8.jpg"}
+        ],
+        "decorative": { "url": "https://i.pinimg.com/736x/9b/d5/72/9bd5728efebee85eb5d9eddfa490c214.jpg" }
+      }
     },
     {
       "id": "emberia",
@@ -180,38 +140,19 @@
       "lore": "Su monarca debe ser firme y decidido. Su Marca es una llama con una pluma dentro, y no se apaga nunca. Los nacidos de las cenizas son personas amables. Todos son leales y se ayudan unos a otros. No importa cuántas veces se caigan: siempre se levantan. Tienen la fuerza de 10 hombres musculosos juntos, incluso los niños y las mujeres.",
       "secrets": ["Llevan dentro la llama del Phoenix."],
       "territory": "Cueva del Phoenix",
-"visuals": {
-  "hero": {
-    "url": "https://i.pinimg.com/1200x/87/61/6d/87616de1d1ca8cb574704291f1dba82b.jpg",
-    "alt": "Portada de Emberia",
-    "credit": ""
-  },
-  "background": {
-    "url": "https://i.pinimg.com/736x/ce/d4/f7/ced4f76231a239c7f2eb35da972d1301.jpg",
-    "alt": "Paisaje volcánico de Emberia",
-    "credit": ""
-  },
-  "illustration": {
-    "url": "https://i.pinimg.com/736x/0e/da/6e/0eda6ea43e08c201c8548595fcef9bed.jpg",
-    "alt": "Ilustración de Emberia",
-    "credit": ""
-  },
-  "emblem": {
-    "url": "https://i.pinimg.com/736x/a7/00/ef/a700ef43d4b55db50a938e5be1bc3c86.jpg",
-    "alt": "Emblema de Emberia",
-    "credit": ""
-  },
-  "gallery": [
-    {"url":"https://i.pinimg.com/1200x/dd/46/1b/dd461b9a3a9bb333e078afe096cb7907.jpg","alt":"Cueva del Phoenix","credit":""},
-    {"url":"https://i.pinimg.com/1200x/1c/29/30/1c2930c76e8c04916739a5e690454826.jpg","alt":"Guerreros de Emberia","credit":""},
-    {"url":"https://i.pinimg.com/736x/ef/55/66/ef5566206a025d6fe9b412a2cb1b1193.jpg","alt":"Renacimiento del Phoenix","credit":""}
-  ],
-  "decorative": {
-    "url": "https://i.pinimg.com/1200x/9a/93/a9/9a93a9aa43424e91df778d37600c0f19.jpg",
-    "alt": "Ornamento de llamas",
-    "credit": ""
-  }
-},
+      "visuals": {
+        "hero": { "url": "https://i.pinimg.com/1200x/87/61/6d/87616de1d1ca8cb574704291f1dba82b.jpg" },
+        "background": { "url": "https://i.pinimg.com/736x/ce/d4/f7/ced4f76231a239c7f2eb35da972d1301.jpg" },
+        "illustration": { "url": "https://i.pinimg.com/736x/0e/da/6e/0eda6ea43e08c201c8548595fcef9bed.jpg" },
+        "emblem": { "url": "https://i.pinimg.com/736x/a7/00/ef/a700ef43d4b55db50a938e5be1bc3c86.jpg" },
+        "gallery": [
+          {"url":"https://i.pinimg.com/1200x/dd/46/1b/dd461b9a3a9bb333e078afe096cb7907.jpg"},
+          {"url":"https://i.pinimg.com/1200x/1c/29/30/1c2930c76e8c04916739a5e690454826.jpg"},
+          {"url":"https://i.pinimg.com/736x/ef/55/66/ef5566206a025d6fe9b412a2cb1b1193.jpg"}
+        ],
+        "decorative": { "url": "https://i.pinimg.com/1200x/9a/93/a9/9a93a9aa43424e91df778d37600c0f19.jpg" }
+      }
+    },
     {
       "id": "bryrius",
       "name": "Bryrius",
@@ -224,38 +165,18 @@
       "lore": "Actualmente, el reino se encuentra sin monarca, pues la anterior reina falleció sin herederos. El reino pudo superar esto con el surgimiento de una república, regida por la unión de los diversos clanes dracónicos. La Marca de Bryrius es una escama partida por un rayo. No tiene dueño fijo.",
       "secrets": ["Los más experimentados pueden convertirse en Dragones o semi Dragones."],
       "territory": "Montañas altas",
-"visuals": {
-  "hero": {
-    "url": "https://i.pinimg.com/736x/6e/8c/a0/6e8ca08ae2b60ec29f43e2f11bc49d0e.jpg",
-    "alt": "Portada de Bryrius",
-    "credit": "https://i.pinimg.com/1200x/ff/cf/09/ffcf09ca1cf2cf81d3ebdf334173ac34.jpg"
-  },
-  "background": {
-    "url": "https://i.pinimg.com/736x/3e/fb/10/3efb10c357fce35a12f191ded1053af8.jpg",
-    "alt": "Montañas de Bryrius",
-    "credit": ""
-  },
-  "illustration": {
-    "url": "https://i.pinimg.com/736x/51/97/a1/5197a1f215360a9564b99df3d969e258.jpg",
-    "alt": "Ilustración de Bryrius",
-    "credit": ""
-  },
-  "emblem": {
-    "url": "https://i.pinimg.com/736x/35/af/b3/35afb3d2d8a28283aa53bf836faaff7c.jpg",
-    "alt": "Emblema de Bryrius",
-    "credit": ""
-  },
-  "gallery": [
-    {"url":"https://i.pinimg.com/736x/1b/14/b7/1b14b70309f29d8cc32929dd38dae917.jpg","alt":"Consejo de clanes","credit":""},
-    {"url":"https://i.pinimg.com/736x/ad/e1/2f/ade12f65dc59b8d090b8060a500f0e93.jpg","alt":"Jinete de dragón","credit":""},
-    {"url":"https://i.pinimg.com/736x/3d/08/ab/3d08ab3e311c4d5d8663d44acd7351e7.jpg","alt":"Forja de armas","credit":""}
-  ],
-  "decorative": {
-    "url": "",
-    "alt": "Ornamento de escamas",
-    "credit": ""
-  }
-}
+      "visuals": {
+        "hero": { "url": "https://i.pinimg.com/736x/6e/8c/a0/6e8ca08ae2b60ec29f43e2f11bc49d0e.jpg" },
+        "background": { "url": "https://i.pinimg.com/736x/3e/fb/10/3efb10c357fce35a12f191ded1053af8.jpg" },
+        "illustration": { "url": "https://i.pinimg.com/736x/51/97/a1/5197a1f215360a9564b99df3d969e258.jpg" },
+        "emblem": { "url": "https://i.pinimg.com/736x/35/af/b3/35afb3d2d8a28283aa53bf836faaff7c.jpg" },
+        "gallery": [
+          {"url":"https://i.pinimg.com/736x/1b/14/b7/1b14b70309f29d8cc32929dd38dae917.jpg"},
+          {"url":"https://i.pinimg.com/736x/ad/e1/2f/ade12f65dc59b8d090b8060a500f0e93.jpg"},
+          {"url":"https://i.pinimg.com/736x/3d/08/ab/3d08ab3e311c4d5d8663d44acd7351e7.jpg"}
+        ],
+        "decorative": { "url": "" }
+      }
     },
     {
       "id": "elyndra",
@@ -269,36 +190,17 @@
       "lore": "Tenían alas de luz, cuerpos etéreos. Su bendición es caminar entre las nubes y ver lo que otros no ven. Su monarca, nadie conoce su aspecto. Su Marca es una estrella con alas de luz. Dependiendo de su estatus, pueden ser ángeles, Seraphines, y su monarca es un Querubín.",
       "secrets": ["Los cinco reinos se representan con una estrella de cinco puntas dentro de un círculo."],
       "territory": "Montañas flotantes",
-"visuals": {
-  "hero": {
-    "url": "https://i.pinimg.com/736x/14/4d/24/144d2400582abfe4db2f8c57f0e84bda.jpg",
-    "alt": "Portada de Elyndra",
-    "credit": ""
-  },
-  "background": {
-    "url": "https://i.pinimg.com/736x/1d/8e/90/1d8e907f3d56e9b58b9859f0977c2360.jpg",
-    "alt": "Cielo celestial de Elyndra",
-    "credit": ""
-  },
-  "illustration": {
-    "url": "https://i.pinimg.com/736x/77/75/da/7775da2cf07c5c64ec8030d2d0701b52.jpg",
-    "alt": "Ilustración de Elyndra",
-    "credit": ""
-  },
-  "emblem": {
-    "url": "https://i.pinimg.com/1200x/27/c3/23/27c32350439ed6bf83933b2acd0c6391.jpg",
-    "alt": "Emblema de Elyndra",
-    "credit": ""
-  },
-  "gallery": [
-    {"url":"https://i.pinimg.com/736x/0a/31/ed/0a31ed8c8c9b19a580b783220cd56e33.jpg","alt":"El Querubín en su trono","credit":""},
-    {"url":"https://i.pinimg.com/1200x/d5/0d/b9/d50db9e52e5070a1aa7c6c48f96d6a99.jpg","alt":"Astrónomos leyendo el cielo","credit":""},
-    {"url":"https://i.pinimg.com/736x/59/ce/87/59ce87fe7256b725475be4c50cc185ae.jpg","alt":"Mensajeros astrales","credit":""}
-  ],
-       "decorative": {
-        "url": "URL_DE_LA_IMAGEN",
-        "alt": "Ornamento de estrellas",
-        "credit": ""
+      "visuals": {
+        "hero": { "url": "https://i.pinimg.com/736x/14/4d/24/144d2400582abfe4db2f8c57f0e84bda.jpg" },
+        "background": { "url": "https://i.pinimg.com/736x/1d/8e/90/1d8e907f3d56e9b58b9859f0977c2360.jpg" },
+        "illustration": { "url": "https://i.pinimg.com/736x/77/75/da/7775da2cf07c5c64ec8030d2d0701b52.jpg" },
+        "emblem": { "url": "https://i.pinimg.com/1200x/27/c3/23/27c32350439ed6bf83933b2acd0c6391.jpg" },
+        "gallery": [
+          {"url":"https://i.pinimg.com/736x/0a/31/ed/0a31ed8c8c9b19a580b783220cd56e33.jpg"},
+          {"url":"https://i.pinimg.com/1200x/d5/0d/b9/d50db9e52e5070a1aa7c6c48f96d6a99.jpg"},
+          {"url":"https://i.pinimg.com/736x/59/ce/87/59ce87fe7256b725475be4c50cc185ae.jpg"}
+        ],
+        "decorative": { "url": "" }
       }
     }
   ],
