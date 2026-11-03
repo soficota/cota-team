@@ -4,224 +4,452 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f0ed">
-  <meta name="description" content="C.O.T.A. — Crónicas de los Cinco Reinos. Portal de bienvenida, lore y comunidad del team.">
+  <meta name="description" content="C.O.T.A. — Crónicas de los Cinco Reinos. Historia, reinos y comunidad.">
   <title>C.O.T.A. — Crónicas de los Cinco Reinos</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
+
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
   <header class="topbar" id="topbar">
-    <a class="brand" href="#inicio" data-section="inicio" aria-label="COTA inicio">
-      <span class="brand-seal"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27"/><path d="M32 8 38 25 56 25 42 36 47 54 32 43 17 54 22 36 8 25 26 25Z"/><circle cx="32" cy="32" r="5"/></svg></span>
-      <span><strong>C.O.T.A.</strong><small>Crónicas de los Cinco Reinos</small></span>
-    </a>
+
+    <button class="brand" type="button" data-section="inicio" aria-label="Ir al inicio">
+      <span class="brand-seal" aria-hidden="true">
+        <svg viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="27"/>
+          <path d="M32 8 38 25 56 25 42 36 47 54 32 43 17 54 22 36 8 25 26 25Z"/>
+          <circle cx="32" cy="32" r="5"/>
+        </svg>
+      </span>
+
+      <span>
+        <strong>C.O.T.A.</strong>
+        <small>Crónicas de los Cinco Reinos</small>
+      </span>
+    </button>
+
     <nav class="topnav" aria-label="Navegación principal">
-      <button class="nav-link active" data-section="inicio">Inicio</button>
-      <button class="nav-link" data-section="historia">Historia</button>
-      <button class="nav-link" data-section="reinos">Reinos</button>
-      <button class="nav-link" data-section="razas">Razas</button>
-      <button class="nav-link" data-section="comunidad">Comunidad</button>
+      <button class="nav-link active" type="button" data-section="inicio">Portada</button>
+      <button class="nav-link" type="button" data-section="historia">Historia</button>
+      <button class="nav-link" type="button" data-section="reinos">Reinos</button>
+      <button class="nav-link" type="button" data-section="comunidad">Comunidad</button>
     </nav>
+
     <div class="top-actions">
-      <button class="icon-button" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema"><span class="icon-moon"></span></button>
-      <button class="button button-soft button-small" id="presentationButton" aria-label="Activar modo presentación"><span class="eye-icon"></span> Presentación</button>
-      <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Abrir menú">☰</button>
+
+      <button class="icon-button" id="themeToggle" type="button"
+        aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+        <span id="themeIcon" aria-hidden="true">☾</span>
+      </button>
+
+      <button class="button button-soft button-small" id="presentationButton" type="button">
+        <span class="eye-icon" aria-hidden="true"></span>
+        Presentación
+      </button>
+
+      <button class="mobile-menu-button" id="mobileMenuButton"
+        type="button" aria-label="Abrir menú" aria-expanded="false">
+        ☰
+      </button>
+
     </div>
   </header>
 
-  <div class="mobile-nav" id="mobileNav">
-    <button data-section="inicio">Inicio</button>
-    <button data-section="historia">Historia</button>
-    <button data-section="reinos">Reinos</button>
-    <button data-section="razas">Razas</button>
-    <button data-section="comunidad">Comunidad</button>
-  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil">
+    <button type="button" data-section="inicio">Portada</button>
+    <button type="button" data-section="historia">Historia</button>
+    <button type="button" data-section="reinos">Reinos</button>
+    <button type="button" data-section="comunidad">Comunidad</button>
+    <button type="button" id="mobilePresentationButton">Presentación</button>
+  </nav>
 
   <main id="appMain">
-    <!-- INICIO -->
+
+    <!-- PORTADA -->
+
     <section class="view active" id="view-inicio" data-view="inicio">
+
       <div class="hero-shell">
+
         <div class="hero-copy">
-          <span class="eyebrow"><span class="eyebrow-line"></span> UN MUNDO · CINCO DESTINOS</span>
-          <h1>Las crónicas<br><em>de los cinco reinos</em></h1>
-          <p class="hero-lead" id="identityDescription">Un mundo dividido por antiguas marcas, unido por historias que todavía esperan ser contadas.</p>
+
+          <span class="eyebrow">
+            <span class="eyebrow-line"></span>
+            UN MUNDO · CINCO DESTINOS
+          </span>
+
+          <h1>
+            Las crónicas
+            <br>
+            <em>de los cinco reinos</em>
+          </h1>
+
+          <p class="hero-lead" id="identityDescription">
+            Un mundo dividido por antiguas marcas,
+            unido por historias que todavía esperan ser contadas.
+          </p>
+
           <div class="hero-actions">
-            <button class="button button-primary" data-section="reinos">Explorar los reinos <span>↗</span></button>
-            <button class="text-button" data-section="historia">Leer la historia <span>→</span></button>
+
+            <button class="button button-primary" type="button" data-section="reinos">
+              Explorar los reinos <span>↗</span>
+            </button>
+
+            <button class="text-button" type="button" data-section="historia">
+              Leer la historia <span>→</span>
+            </button>
+
           </div>
-          <div class="hero-footnote"><span class="small-star">✧</span> «Cada reino guarda una parte de aquello que fuimos.»</div>
+
+          <div class="hero-footnote">
+            <span class="small-star">✧</span>
+            «Cada reino guarda una parte de aquello que fuimos.»
+          </div>
+
         </div>
-        <div class="hero-art" aria-label="Emblema de COTA">
-          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="hero-star">✧</div>
-          <div class="crest"><div class="crest-inner"><span class="crest-crown">♕</span><span class="crest-name">C.O.T.A.</span><span class="crest-sub">Cinco marcas · Un origen</span><span class="crest-divider">✦ ─ ✦ ─ ✦</span></div></div>
+
+        <div class="hero-art" aria-label="Emblema de C.O.T.A.">
+
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="hero-star">✧</div>
+
+          <div class="crest">
+            <div class="crest-inner">
+              <span class="crest-crown">♕</span>
+              <span class="crest-name">C.O.T.A.</span>
+              <span class="crest-sub">Cinco marcas · Un origen</span>
+              <span class="crest-divider">✦ ─ ✦ ─ ✦</span>
+            </div>
+          </div>
+
           <span class="orbit-label label-water">HADALITH</span>
           <span class="orbit-label label-earth">AVALON</span>
           <span class="orbit-label label-fire">EMBERIA</span>
           <span class="orbit-label label-air">BRYRIUS</span>
           <span class="orbit-label label-star">ELYNDRA</span>
+
         </div>
+
       </div>
 
-      <div class="stat-strip" id="homeStats"></div>
+      <div class="stat-strip" id="homeStats" aria-label="Resumen del mundo"></div>
 
       <div class="section-heading compact-heading">
-        <div><span class="eyebrow">DESCUBRE EL MUNDO</span><h2>Un legado en cinco marcas</h2></div>
-        <button class="text-button" data-section="reinos">Ver todos <span>→</span></button>
+        <div>
+          <span class="eyebrow">DESCUBRE EL MUNDO</span>
+          <h2>Un legado en cinco marcas</h2>
+        </div>
+
+        <button class="text-button" type="button" data-section="reinos">
+          Ver todos <span>→</span>
+        </button>
       </div>
+
       <div class="kingdom-grid" id="homeKingdoms"></div>
 
       <div class="home-lower-grid">
+
         <article class="quote-panel">
           <span class="panel-kicker">FRAGMENTO DE LAS CRÓNICAS</span>
           <p>«Hubo un tiempo en que el mundo era una sola tierra completa y unida.»</p>
           <span class="quote-credit">— El relato del origen</span>
         </article>
+
         <article class="welcome-panel">
           <span class="panel-kicker">PARA QUIENES LLEGAN</span>
           <h3>Tu historia también tiene un lugar aquí.</h3>
-          <p>Conoce las razas, elige un reino, descubre los oficios y prepara a tu personaje antes de comenzar.</p>
-          <button class="button button-outline" data-section="comunidad">Conocer el team</button>
+          <p>
+            Conoce las razas, elige un reino y descubre
+            los oficios disponibles para tu personaje.
+          </p>
+          <button class="button button-outline" type="button" data-section="comunidad">
+            Conocer el team
+          </button>
         </article>
+
       </div>
 
       <footer class="site-footer">
         <span>✧ C.O.T.A. · Crónicas de los Cinco Reinos</span>
         <span>Un universo en construcción, muchas historias por descubrir.</span>
       </footer>
+
     </section>
 
     <!-- HISTORIA -->
+
     <section class="view" id="view-historia" data-view="historia">
+
       <div class="page-heading">
         <span class="eyebrow">EL PRINCIPIO DE TODO</span>
         <h1>La historia <em>del origen</em></h1>
-        <p>Las páginas antiguas conservan fragmentos de una historia que todavía se está escribiendo.</p>
+        <p>
+          Las páginas antiguas conservan fragmentos de una historia
+          que todavía se está escribiendo.
+        </p>
       </div>
+
       <div class="lore-layout">
+
         <aside class="lore-index">
           <span class="panel-kicker">EN ESTE CAPÍTULO</span>
           <a href="#creationStory">El mito de creación</a>
           <a href="#timelineBlock">Línea temporal</a>
-          <div class="lore-note">Los campos marcados como <b>PENDIENTE</b> quedan reservados para que el staff complete el canon.</div>
+
+          <div class="lore-note">
+            Los campos marcados como <b>PENDIENTE</b>
+            quedan reservados para que el staff complete el canon.
+          </div>
         </aside>
+
         <div class="lore-main">
+
           <article class="paper-card creation-card" id="creationStory">
             <span class="eyebrow">PRÓLOGO</span>
             <h2>Cuando el mundo era uno</h2>
             <div id="creationMyth" class="prose"></div>
           </article>
+
           <article class="paper-card" id="timelineBlock">
             <span class="eyebrow">MEMORIA DEL MUNDO</span>
             <h2>Línea temporal</h2>
             <div id="timelineList" class="timeline-list"></div>
           </article>
+
         </div>
       </div>
+
     </section>
 
     <!-- REINOS -->
+
     <section class="view" id="view-reinos" data-view="reinos">
+
       <div class="page-heading">
         <span class="eyebrow">CINCO MARCAS · CINCO CULTURAS</span>
         <h1>Los <em>reinos</em></h1>
-        <p>Explora los territorios, sus guardianes y las criaturas que los llaman hogar.</p>
+        <p>
+          Explora los territorios, sus guardianes
+          y las criaturas que los llaman hogar.
+        </p>
       </div>
-      <div class="kingdom-filter" id="kingdomFilter">
-        <button class="filter-chip active" data-kingdom="all">Todos</button>
-      </div>
+
+      <div class="kingdom-filter" id="kingdomFilter" aria-label="Filtrar reinos"></div>
+
       <div class="kingdom-detail-grid" id="kingdomGrid"></div>
+
       <div class="modal-backdrop" id="kingdomModal" hidden>
-        <div class="modal kingdom-modal" role="dialog" aria-modal="true" aria-labelledby="kingdomModalTitle">
-          <button class="modal-close" data-close-modal aria-label="Cerrar">×</button>
+
+        <div class="modal kingdom-modal" role="dialog"
+          aria-modal="true" aria-labelledby="kingdomModalTitle">
+
+          <button class="modal-close" type="button"
+            data-close-modal aria-label="Cerrar">
+            ×
+          </button>
+
           <div id="kingdomModalContent"></div>
+
         </div>
       </div>
-    </section>
 
-    <!-- RAZAS -->
-    <section class="view" id="view-razas" data-view="razas">
-      <div class="page-heading">
-        <span class="eyebrow">LOS PUEBLOS DEL MUNDO</span>
-        <h1>Las <em>razas</em></h1>
-        <p>Cinco linajes nacidos de la madre tierra, cada uno con su don y su carga.</p>
-      </div>
-      <div id="racesGrid" class="race-grid"></div>
     </section>
 
     <!-- COMUNIDAD -->
+
     <section class="view" id="view-comunidad" data-view="comunidad">
+
       <div class="page-heading">
         <span class="eyebrow">LA VIDA DENTRO DEL TEAM</span>
         <h1>Comunidad <em>y pertenencia</em></h1>
-        <p>Una guía para conocer los espacios, las normas y las actividades de C.O.T.A.</p>
+        <p>
+          Una guía para conocer los pueblos, oficios,
+          espacios y actividades de C.O.T.A.
+        </p>
       </div>
 
-      <div class="community-tabs" id="communityTabs">
-        <button class="tab-button active" data-community="roles">Oficios y títulos</button>
-        <button class="tab-button" data-community="groups">Grupos</button>
-        <button class="tab-button" data-community="rules">Normas</button>
-        <button class="tab-button" data-community="activities">Actividades</button>
-        <button class="tab-button" data-community="rewards">Recompensas</button>
-        <button class="tab-button" data-community="faq">Preguntas frecuentes</button>
+      <div class="community-tabs" id="communityTabs"
+        role="tablist" aria-label="Secciones de comunidad">
+
+        <button class="tab-button active" type="button"
+          data-community="races-roles" role="tab" aria-selected="true">
+          Razas y oficios
+        </button>
+
+        <button class="tab-button" type="button"
+          data-community="groups" role="tab" aria-selected="false">
+          Grupos
+        </button>
+
+        <button class="tab-button" type="button"
+          data-community="rules" role="tab" aria-selected="false">
+          Normas
+        </button>
+
+        <button class="tab-button" type="button"
+          data-community="activities" role="tab" aria-selected="false">
+          Actividades
+        </button>
+
+        <button class="tab-button" type="button"
+          data-community="rewards" role="tab" aria-selected="false">
+          Recompensas
+        </button>
+
       </div>
 
-      <div class="community-panel active" id="community-roles">
+      <!-- RAZAS Y OFICIOS -->
+
+      <div class="community-panel active"
+        id="community-races-roles" role="tabpanel">
+
+        <article class="paper-card community-intro">
+          <span class="eyebrow">LOS PUEBLOS</span>
+          <h2>Razas de los cinco reinos</h2>
+          <p>
+            Conoce las criaturas y bendiciones
+            que forman parte de cada territorio.
+          </p>
+          <div id="racesGrid" class="race-grid"></div>
+        </article>
+
+        <article class="paper-card roles-paper">
+
+          <div class="panel-heading-row">
+
+            <div>
+              <span class="eyebrow">ELIGE TU CAMINO</span>
+              <h2>Oficios y títulos</h2>
+            </div>
+
+            <label class="filter-label" for="roleKingdomFilter">
+              Filtrar por reino
+            </label>
+
+            <select id="roleKingdomFilter" class="select-control">
+              <option value="all">Todos los reinos</option>
+            </select>
+
+          </div>
+
+          <div id="rolesContent"></div>
+
+        </article>
+
+      </div>
+
+      <!-- GRUPOS -->
+
+      <div class="community-panel" id="community-groups" role="tabpanel">
+
         <div class="panel-heading-row">
-          <div><span class="eyebrow">ELIGE TU CAMINO</span><h2>Oficios y títulos</h2></div>
-          <select id="roleKingdomFilter" class="select-control">
-            <option value="all">Todos los reinos</option>
-          </select>
+          <div>
+            <span class="eyebrow">ESPACIOS DEL TEAM</span>
+            <h2>Grupos</h2>
+            <p class="panel-description">
+              Cada espacio tiene un propósito para mantener organizada
+              la convivencia y el roleplay.
+            </p>
+          </div>
         </div>
-        <div id="rolesContent"></div>
-      </div>
 
-      <div class="community-panel" id="community-groups">
-        <div class="panel-heading-row">
-          <div><span class="eyebrow">ESPACIOS DEL TEAM</span><h2>Grupos</h2></div>
-        </div>
         <div class="group-grid" id="groupsContent"></div>
+
       </div>
 
-      <div class="community-panel" id="community-rules">
+      <!-- NORMAS -->
+
+      <div class="community-panel" id="community-rules" role="tabpanel">
+
         <div class="panel-heading-row">
-          <div><span class="eyebrow">CONVIVENCIA</span><h2>Normas del team</h2></div>
+          <div>
+            <span class="eyebrow">CONVIVENCIA</span>
+            <h2>Normas del team</h2>
+            <p class="panel-description">
+              Consulta las pautas generales y las normas para cada modalidad.
+            </p>
+          </div>
         </div>
-        <div class="rules-tabs">
-          <button class="filter-chip active" data-rule="general">Generales</button>
-          <button class="filter-chip" data-rule="onRol">En rol</button>
-          <button class="filter-chip" data-rule="off">Fuera de rol</button>
+
+        <div class="rules-tabs" id="rulesTabs">
+
+          <button class="filter-chip active" type="button" data-rule="general">
+            Generales
+          </button>
+
+          <button class="filter-chip" type="button" data-rule="onRol">
+            En rol
+          </button>
+
+          <button class="filter-chip" type="button" data-rule="off">
+            Fuera de rol
+          </button>
+
         </div>
+
         <div class="rules-list" id="rulesContent"></div>
+
       </div>
 
-      <div class="community-panel" id="community-activities">
+      <!-- ACTIVIDADES -->
+
+      <div class="community-panel" id="community-activities" role="tabpanel">
+
         <div class="panel-heading-row">
-          <div><span class="eyebrow">PARTICIPA Y CREA</span><h2>Actividades</h2></div>
+          <div>
+            <span class="eyebrow">PARTICIPA Y CREA</span>
+            <h2>Actividades</h2>
+            <p class="panel-description">
+              Dinámicas y propuestas para compartir historias con el team.
+            </p>
+          </div>
         </div>
+
         <div class="activity-grid" id="activitiesContent"></div>
+
       </div>
 
-      <div class="community-panel" id="community-rewards">
+      <!-- RECOMPENSAS -->
+
+      <div class="community-panel" id="community-rewards" role="tabpanel">
+
         <div class="panel-heading-row">
-          <div><span class="eyebrow">RECONOCIMIENTOS</span><h2>Recompensas</h2></div>
+          <div>
+            <span class="eyebrow">RECONOCIMIENTOS</span>
+            <h2>Recompensas</h2>
+            <p class="panel-description">
+              Beneficios vinculados a la participación y las actividades.
+            </p>
+          </div>
         </div>
+
         <div class="reward-grid" id="rewardsContent"></div>
+
       </div>
 
-      <div class="community-panel" id="community-faq">
-        <div class="panel-heading-row">
-          <div><span class="eyebrow">¿TIENES DUDAS?</span><h2>Preguntas frecuentes</h2></div>
-        </div>
-        <div class="faq-list" id="faqContent"></div>
-      </div>
     </section>
+
   </main>
 
+  <div class="presentation-exit" id="presentationExit" hidden>
+    <span>Modo presentación · Esc para salir</span>
+    <button class="presentation-exit-button" id="exitPresentation" type="button">
+      Salir ×
+    </button>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 </body>
 </html>
