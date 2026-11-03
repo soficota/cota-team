@@ -1241,10 +1241,10 @@ body.dark .quote-panel {
 }
 
 .modal-close {
-  position: sticky;
-  float: right;
+  position: absolute; 
+   /* Lo hacemos absoluto para que flote sobre la foto */
   top: 16px;
-  margin: 16px 16px 0 0;
+  right: 16px;
   z-index: 10;
   border: 0;
   background: rgba(0,0,0,0.4);
@@ -1263,11 +1263,16 @@ body.dark .quote-panel {
 
 .kingdom-modal-head {
   clear: both;
-  padding: 60px 40px 30px;
-  border-radius: 0;
+  padding: 80px 40px 40px; /* Espacio extra arriba para que respire el texto */
+  border-radius: 30px 30px 0 0; /* Bordes redondeados solo arriba */
   margin: 0 0 24px;
-  background: linear-gradient(120deg, var(--kingdom-light), var(--paper-2));
-  color: var(--kingdom-deep);
+  text-align: center; /* Centramos todo el texto */
+  min-height: 250px; /* Altura mínima para que se vea la foto */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Empuja el texto hacia abajo */
+  align-items: center;
+  position: relative;
 }
 
 .modal-kingdom-symbol {
