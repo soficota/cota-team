@@ -118,7 +118,7 @@
       "lore": "Su monarca debe ser firme y decidido. Su Marca es una llama con una pluma dentro, y no se apaga nunca. Los nacidos de las cenizas son personas amables. Todos son leales y se ayudan unos a otros. No importa cuántas veces se caigan: siempre se levantan. Tienen la fuerza de 10 hombres musculosos juntos, incluso los niños y las mujeres.",
       "secrets": ["Llevan dentro la llama del Phoenix."],
       "territory": "Cueva del Phoenix",
-      "visuals": { "hero": { "url": "" }, "illustration": { "url": "" } }
+      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/87/61/6d/87616de1d1ca8cb574704291f1dba82b.jpg" }, "illustration": { "url": "https://i.pinimg.com/736x/0e/da/6e/0eda6ea43e08c201c8548595fcef9bed.jpg" } }
     },
     {
       "id": "bryrius",
@@ -132,7 +132,7 @@
       "lore": "Actualmente, el reino se encuentra sin monarca, pues la anterior reina falleció sin herederos. El reino pudo superar esto con el surgimiento de una república, regida por la unión de los diversos clanes dracónicos. La Marca de Bryrius es una escama partida por un rayo. No tiene dueño fijo.",
       "secrets": ["Los más experimentados pueden convertirse en Dragones o semi Dragones."],
       "territory": "Montañas altas",
-      "visuals": { "hero": { "url": "" }, "illustration": { "url": "" } }
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/6e/8c/a0/6e8ca08ae2b60ec29f43e2f11bc49d0e.jpg" }, "illustration": { "url": "https://i.pinimg.com/736x/51/97/a1/5197a1f215360a9564b99df3d969e258.jpg" } }
     },
     {
       "id": "elyndra",
@@ -146,7 +146,7 @@
       "lore": "Tenían alas de luz, cuerpos etéreos. Su bendición es caminar entre las nubes y ver lo que otros no ven. Su monarca, nadie conoce su aspecto. Su Marca es una estrella con alas de luz. Dependiendo de su estatus, pueden ser ángeles, Seraphines, y su monarca es un Querubín.",
       "secrets": ["Los cinco reinos se representan con una estrella de cinco puntas dentro de un círculo."],
       "territory": "Montañas flotantes",
-      "visuals": { "hero": { "url": "" }, "illustration": { "url": "" } }
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/14/4d/24/144d2400582abfe4db2f8c57f0e84bda.jpg" }, "illustration": { "url": "https://i.pinimg.com/736x/77/75/da/7775da2cf07c5c64ec8030d2d0701b52.jpg" } }
     }
   ],
   "roles": {
@@ -191,7 +191,6 @@
     { "name": "INGRESO", "type": "staff", "description": "Bienvenida a nuevos miembros." },
     { "name": "PRESENTACIONES", "type": "roleplay", "description": "Presenta a tu personaje." },
     { "name": "GENERAL", "type": "staff", "description": "Conversación general y anuncios." },
-    { "name": "ROL", "type": "roleplay", "description": "Rol serio con tu personaje." },
     { "name": "ROLEPLAY", "type": "roleplay", "description": "Rol largo y detallado." },
     { "name": "PARALELOS", "type": "roleplay", "description": "Tramas alternativas." },
     { "name": "LETTERS", "type": "roleplay", "description": "Cartas entre personajes." },
