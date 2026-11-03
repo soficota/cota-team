@@ -1,1 +1,262 @@
-<escape>{"meta":{"teamName":"C.O.T.A.","version":"1.1.0","language":"es","theme":"reinos de fantasía mágica medieval","lastUpdated":"2026-11-03","author":"Staff de C.O.T.A.","license":"CC BY-NC-SA 4.0","repository":{"platform":"github","owner":"","repo":"cota-team","branch":"main"}},"stack":{"backend":"ninguno","database":"ninguna","baas":"ninguno (NO Supabase, NO Firebase, NO PocketBase, NO Appwrite)","storage":"archivo cota.json versionado con Git","hosting":"GitHub Pages (estático)","userData":"preferencia visual de tema en localStorage del navegador","collaboration":"Pull Requests en GitHub para cambios de contenido","dataFlow":{"public":"cota.json — contenido del team versionado en el repositorio","private":"localStorage — preferencia de tema claro u oscuro","sharing":"actualizaciones públicas mediante commits y Pull Requests","sync":"manual (el contenido se actualiza al publicar una nueva versión del sitio)"},"note":"Portal informativo estático sin backend ni almacenamiento de contenido personal."},"identity":{"name":"C.O.T.A.","tagline":"Team Hoyoverse · Reinos de Gacha","description":"","logo":{"type":"svg","id":"cota-logo","description":"Monograma con las 4 letras + corona + estrella de 5 puntas.","imageUrl":"","alt":"Logo de C.O.T.A.","credit":""},"symbol":{"type":"svg","id":"five-point-star","description":"Estrella de 5 puntas dentro de un círculo; cada punta = un reino.","imageUrl":"","alt":"Estrella de cinco puntas de C.O.T.A.","credit":""}},"palette":{"primary":{"pearl":"#FFF8FA","cream":"#FDF2F5","ivory":"#FAF0E6","goldLight":"#F7D98C","gold":"#D4AF37","rose":"#F8BBD0","celeste":"#CDE7F0","lavender":"#E8D8F0","mint":"#C8E8C8","peach":"#FFD9B0"},"kingdoms":{"hadalith":{"base":"#A8D0E8","light":"#CDE7F0","deep":"#2A5A8A","accent":"#4A9EFF","glow":"rgba(74,158,255,0.4)"},"avalon":{"base":"#C8E8C8","light":"#E0F0E0","deep":"#2A6A2A","accent":"#5CD65C","glow":"rgba(92,214,92,0.4)"},"emberia":{"base":"#FFD9B0","light":"#FFE8CC","deep":"#8A4A00","accent":"#FF8C00","glow":"rgba(255,140,0,0.4)"},"bryrius":{"base":"#D8D8E0","light":"#E8E8F0","deep":"#4A4A5A","accent":"#A8A0B8","glow":"rgba(168,160,184,0.4)"},"elyndra":{"base":"#FDF8F0","light":"#FFF8FA","deep":"#D8C8B0","accent":"#F7D98C","glow":"rgba(247,217,140,0.45)"}}},"typography":{"display":"Cinzel","body":"Quicksand","quote":"Playfair Display Italic","scale":{"xs":"12px","sm":"14px","base":"16px","lg":"18px","xl":"22px","2xl":"28px","3xl":"36px","4xl":"48px","5xl":"64px"}},"lore":{"creationMyth":"PENDIENTE","chapters":[{"id":"prologo","title":"PENDIENTE","content":"PENDIENTE"}],"quotes":[{"text":"PENDIENTE","author":"PENDIENTE"}],"timeline":[{"id":"evento-1","year":"PENDIENTE","title":"PENDIENTE","description":"PENDIENTE"}],"map":{"type":"svg","id":"world-map","description":"Mapa de los 5 reinos.","imageUrl":"","alt":"Mapa del mundo de C.O.T.A.","credit":""}},"races":[{"id":"sirenas","name":"Sirenas","kingdom":"hadalith","element":"agua","blessing":"belleza eterna y cambio de forma","description":"PENDIENTE","traits":["híbridos","viven en tierra y agua","pueden cambiar de forma"],"icon":"siren","image":{"url":"","alt":"Ilustración de una sirena de Hadalith","credit":""}},{"id":"hadas","name":"Hadas","kingdom":"avalon","element":"tierra","blessing":"naturaleza y magia","description":"PENDIENTE","traits":["vuelan","maestras en hechizos","alas otorgadas por la madre tierra"],"icon":"fairy","image":{"url":"","alt":"Ilustración de un hada de Avalon","credit":""}},{"id":"fenix","name":"Fénix","kingdom":"emberia","element":"fuego","blessing":"protección del ave Fénix y fuerza de 10 humanos","description":"PENDIENTE","traits":["fuerza extrema","llevan la llama del Fénix","siempre se levantan"],"icon":"phoenix","image":{"url":"","alt":"Ilustración de un fénix de Emberia","credit":""}},{"id":"dragones","name":"Dragones","kingdom":"bryrius","element":"aire","blessing":"sangre draconiana, piel dura, idioma draconiano","description":"PENDIENTE","traits":["entienden a los dragones","pueden transformarse en dragones o semidragones"],"icon":"dragon","image":{"url":"","alt":"Ilustración de un dragón de Bryrius","credit":""}},{"id":"astrales","name":"Seres astrales","kingdom":"elyndra","element":"luz astral","blessing":"caminar entre las nubes y leer el cielo","description":"PENDIENTE","traits":["alas de luz","cuerpos etéreos","pueden transformarse en luz pura"],"icon":"astral","image":{"url":"","alt":"Ilustración de un ser astral de Elyndra","credit":""}}],"kingdoms":[{"id":"hadalith","name":"Hadalith","mark":"La Marca del Abismo","element":"agua","monarch":null,"monarchTitle":"el/la monarca","guardian":"El Leviathan","tagline":"La nación entre la tierra y el agua.","description":"PENDIENTE","lore":"PENDIENTE","secrets":["PENDIENTE"],"territory":"70% bajo el agua","color":"hadalith","icon":"hadalith-icon","visuals":{"hero":{"url":"","alt":"Portada de Hadalith","credit":""},"background":{"url":"","alt":"Fondo de Hadalith","credit":""},"illustration":{"url":"","alt":"El Leviathan bajo las olas","credit":""},"emblem":{"url":"","alt":"Emblema de la Marca del Abismo","credit":""},"gallery":[{"url":"","alt":"Ciudad sumergida","credit":""},{"url":"","alt":"Sirenas bajo la luna","credit":""},{"url":"","alt":"Templo de perlas","credit":""}],"decorative":{"url":"","alt":"Ornamento marino","credit":""}}},{"id":"avalon","name":"Avalon","mark":"La Marca de la Raíz","element":"tierra","monarch":null,"monarchTitle":"el/la monarca","guardian":"Centauros, grifos y criaturas del bosque","tagline":"El reino más vasto en poder y conocimiento mágico.","description":"PENDIENTE","lore":"PENDIENTE","secrets":[],"territory":"Continente con más vegetación; ciudades en árboles gigantes","color":"avalon","icon":"avalon-icon","visuals":{"hero":{"url":"","alt":"Portada de Avalon","credit":""},"background":{"url":"","alt":"Fondo de Avalon","credit":""},"illustration":{"url":"","alt":"El gran árbol de Avalon","credit":""},"emblem":{"url":"","alt":"Emblema de la Marca de la Raíz","credit":""},"gallery":[{"url":"","alt":"Ciudad en las ramas","credit":""},{"url":"","alt":"Hadas entre flores","credit":""},{"url":"","alt":"Grifos custodiando","credit":""}],"decorative":{"url":"","alt":"Ornamento de hojas","credit":""}}},{"id":"emberia","name":"Emberia","mark":"La Marca de la Ceniza","element":"fuego","monarch":null,"monarchTitle":"el/la monarca","guardian":"El gran Phoenix","tagline":"La nación nacida de las cenizas.","description":"PENDIENTE","lore":"PENDIENTE","secrets":["PENDIENTE"],"territory":"Enorme; cueva del Phoenix bajo el castillo","color":"emberia","icon":"emberia-icon","visuals":{"hero":{"url":"","alt":"Portada de Emberia","credit":""},"background":{"url":"","alt":"Fondo de Emberia","credit":""},"illustration":{"url":"","alt":"El gran Phoenix renaciendo","credit":""},"emblem":{"url":"","alt":"Emblema de la Marca de la Ceniza","credit":""},"gallery":[{"url":"","alt":"Cueva del Phoenix","credit":""},{"url":"","alt":"Guerreros con llama interior","credit":""},{"url":"","alt":"Renacimiento de un fénix","credit":""}],"decorative":{"url":"","alt":"Ornamento de llamas","credit":""}}},{"id":"bryrius","name":"Bryrius","mark":"La Marca del Yunque","element":"aire","monarch":null,"monarchTitle":"Consejo de clanes (república)","guardian":"Los grandes dragones ancestros","tagline":"La nación de las escamas y las montañas altas.","description":"PENDIENTE","lore":"PENDIENTE","secrets":["PENDIENTE"],"territory":"Montañas flotantes y picos altos","color":"bryrius","icon":"bryrius-icon","visuals":{"hero":{"url":"","alt":"Portada de Bryrius","credit":""},"background":{"url":"","alt":"Fondo de Bryrius","credit":""},"illustration":{"url":"","alt":"Dragón dormido","credit":""},"emblem":{"url":"","alt":"Emblema de la Marca del Yunque","credit":""},"gallery":[{"url":"","alt":"Consejo de clanes","credit":""},{"url":"","alt":"Jinete de dragón","credit":""},{"url":"","alt":"Forja de armas","credit":""}],"decorative":{"url":"","alt":"Ornamento de escamas","credit":""}}},{"id":"elyndra","name":"Elyndra","mark":"La Marca del Resplandor","element":"luz astral","monarch":null,"monarchTitle":"El Querubín (misterioso)","guardian":"Los seraphines y ángeles astrales","tagline":"El quinto reino, nacido de las estrellas.","description":"PENDIENTE","lore":"PENDIENTE","secrets":["PENDIENTE"],"territory":"Montañas flotantes en el cielo","color":"elyndra","icon":"elyndra-icon","visuals":{"hero":{"url":"","alt":"Portada de Elyndra","credit":""},"background":{"url":"","alt":"Fondo de Elyndra","credit":""},"illustration":{"url":"","alt":"Seraphines entre estrellas","credit":""},"emblem":{"url":"","alt":"Emblema de la Marca del Resplandor","credit":""},"gallery":[{"url":"","alt":"El Querubín en su trono","credit":""},{"url":"","alt":"Astrónomos leyendo el cielo","credit":""},{"url":"","alt":"Mensajeros astrales","credit":""}],"decorative":{"url":"","alt":"Ornamento de estrellas","credit":""}}}],"roles":{"general":[{"id":"agricultor","name":"Agricultor/a","icon":"wheat"},{"id":"alquimista","name":"Alquimista","icon":"flask"},{"id":"sanador","name":"Sanador/a","icon":"herb"},{"id":"bibliotecario","name":"Bibliotecari@","icon":"book"},{"id":"mensajero","name":"Mensajer@","icon":"letter"},{"id":"mercader","name":"Mercader","icon":"scale"},{"id":"espia","name":"Espía","icon":"eye"},{"id":"arquitecto","name":"Arquitecto/a","icon":"compass"},{"id":"obrero","name":"Obrero/a","icon":"hammer"},{"id":"herrero","name":"Herrero/a","icon":"anvil"},{"id":"carpintero","name":"Carpintero/a","icon":"saw"},{"id":"sastre","name":"Sastre","icon":"scissors"},{"id":"panadero","name":"Panadero/a","icon":"bread"},{"id":"carnicero","name":"Carnicero/a","icon":"cleaver"},{"id":"cazador","name":"Cazador/a","icon":"bow"},{"id":"artesano","name":"Artesano/a","icon":"chisel"},{"id":"artista","name":"Artista escénico","icon":"mask"},{"id":"pintor","name":"Pintor/a","icon":"palette"},{"id":"profesor","name":"Profesor/a","icon":"chalkboard"},{"id":"criado","name":"Criada / Sirviente / Mayordomo","icon":"bell"},{"id":"ladron","name":"Ladrón/a","icon":"dagger"},{"id":"sin-oficio","name":"Sin oficio","icon":"dash"},{"id":"soldado","name":"Soldado / Guerrero","icon":"sword","restricted":["bryrius","elyndra"]}],"kingdomSpecific":{"hadalith":[{"id":"cantante-mareas","name":"Cantante de mareas","icon":"wave-note"},{"id":"guardia-leviatan","name":"Guardia del Leviatán","icon":"trident"}],"avalon":[{"id":"guardian-bosque","name":"Guardián/a del bosque","icon":"leaf"},{"id":"encantador-plantas","name":"Encantador/a de plantas","icon":"flower"}],"emberia":[{"id":"guardian-fenix","name":"Guardián/a del Fénix","icon":"flame"}],"bryrius":[{"id":"jinete-dragon","name":"Jinete de dragón","icon":"wing"},{"id":"armero","name":"Armero/a","icon":"shield"}],"elyndra":[{"id":"astronomo","name":"Astrónomo/a","icon":"star"},{"id":"mensajero-astral","name":"Mensajero/a astral","icon":"feather"}]},"titles":[{"id":"damas-nobles","name":"Damas y nobles","grantedBy":"monarcas"},{"id":"herederos","name":"Herederos al trono, princesas o príncipes","grantedBy":"adopción o sangre"}]},"groups":[{"id":"ingreso","name":"INGRESO","type":"staff","description":"Bienvenida a nuevos miembros."},{"id":"presentaciones","name":"PRESENTACIONES","type":"roleplay","description":"Presenta a tu personaje."},{"id":"general","name":"GENERAL","type":"staff","description":"Conversación general y anuncios."},{"id":"rol","name":"ROL","type":"roleplay","description":"Rol serio con tu personaje."},{"id":"roleplay","name":"ROLEPLAY","type":"roleplay","description":"Rol largo y detallado."},{"id":"paralelos","name":"PARALELOS","type":"roleplay","description":"Tramas alternativas."},{"id":"letters","name":"LETTERS","type":"roleplay","description":"Cartas entre personajes."},{"id":"dff-rol","name":"DFF ROL","type":"roleplay","description":"Coordinación de roles y tramas."},{"id":"adultos","name":"+18","type":"adult","description":"Contenido adulto."},{"id":"off","name":"OFF","type":"ooc","description":"Charla casual como usuarios."},{"id":"reactions","name":"REACTIONS","type":"ooc","description":"Reacciones, memes y contenido ligero."},{"id":"actividades","name":"ACTIVIDADES","type":"staff","description":"Juegos, dinámicas y retos."}],"rules":{"general":[{"id":"leer-descripciones","title":"Lee las descripciones de los grupos","description":"PENDIENTE"},{"id":"respeto","title":"Respeto ante todo","description":"PENDIENTE"},{"id":"roles-personajes","title":"Roles y personajes","description":"PENDIENTE"},{"id":"contenido-orden","title":"Contenido apropiado y organización","description":"PENDIENTE"},{"id":"participacion","title":"Participación en dinámicas y juegos","description":"PENDIENTE"},{"id":"consultar-staff","title":"Consulta a los administradores","description":"PENDIENTE"},{"id":"sanciones","title":"Sanciones","description":"PENDIENTE"}],"onRol":[{"id":"solo-personaje","title":"Solo en personaje","description":"PENDIENTE"},{"id":"coherencia","title":"Coherencia de personaje","description":"PENDIENTE"},{"id":"contenido-apropiado","title":"Contenido apropiado","description":"PENDIENTE"},{"id":"cero-spam","title":"Cero spam","description":"PENDIENTE"}],"off":[{"id":"fuera-personaje","title":"Mantente off rol","description":"PENDIENTE"},{"id":"privacidad","title":"Privacidad","description":"PENDIENTE"},{"id":"respeto-off","title":"Respeto ante todo","description":"PENDIENTE"},{"id":"conducta","title":"Conducta apropiada","description":"PENDIENTE"}]},"activities":[{"id":"retos-rol","name":"Retos de rol","description":"PENDIENTE","points":4},{"id":"cartas-semanales","name":"Cartas semanales","description":"PENDIENTE","points":4},{"id":"juegos-mesa","name":"Juegos de mesa","description":"PENDIENTE","points":3},{"id":"concursos-escritura","name":"Concursos de escritura","description":"PENDIENTE","points":5},{"id":"retos-artisticos","name":"Retos artísticos","description":"PENDIENTE","points":5}],"rewards":[{"id":"inmunidad","name":"Inmunidad a eliminación","description":"PENDIENTE","duration":"no caduca"},{"id":"inmunidad-ajena","name":"Inmunidad a eliminación ajena","description":"PENDIENTE","duration":"no caduca"},{"id":"segundo-rol","name":"Desbloquear un segundo rol","description":"PENDIENTE","duration":"permanente con condiciones"},{"id":"mas-advertencias","name":"Aumento de advertencias","description":"PENDIENTE","duration":"permanente"}],"presentationMode":{"description":"Modo de presentación del portal C.O.T.A.","purpose":"Mostrar la sección actual con una interfaz despejada, sin navegación principal.","features":{"hideNavigation":true,"hideSettings":true,"hideUnnecessaryControls":true,"showCurrentSection":true,"fullscreenLayout":true,"noDistractions":true,"cleanBackground":true},"toggle":{"shortcut":"Ctrl + P","button":"botón Presentación en la cabecera","confirmation":false,"exitShortcut":"Esc"}},"ui":{"sections":[{"id":"hero","title":"Portada y presentación de C.O.T.A.","order":1},{"id":"historia","title":"Historia","order":2},{"id":"reinos","title":"Cinco reinos","order":3},{"id":"razas-oficios","title":"Razas y oficios","order":4},{"id":"grupos","title":"Grupos","order":5},{"id":"normas","title":"Normas","order":6},{"id":"actividades","title":"Actividades","order":7},{"id":"recompensas","title":"Recompensas","order":8}],"animations":{"loader":true,"particles":true,"tilt3d":true,"scrollReveal":true,"cursor":"magic-wand"},"theme":{"mode":"light","fallback":"pastel"},"imageSettings":{"ownerOnly":true,"allowedDomains":["i.imgur.com","cdn.discordapp.com","raw.githubusercontent.com","i.ibb.co","imgur.com"],"maxSizeMb":5,"recommendedFormats":["webp","png","jpg"],"recommendedDimensions":"1920x1080 (hero) / 800x800 (gallery) / 256x256 (emblem)"},"responsive":{"enabled":true,"targets":["desktop","tablet","mobile"],"mobileNavigation":"menu desplegable adaptable"}},"github":{"repoName":"cota-team","visibility":"public","branch":"main","noBackend":true,"noSupabase":true,"noDatabase":true,"noServer":true,"hostingType":"GitHub Pages (estático)","note":"Sitio estático publicado con GitHub Pages. El contenido público se organiza en cota.json y se actualiza mediante Git.","collaboration":{"method":"Pull Requests","steps":["1. Hacer fork del repo","2. Clonar en local","3. Editar cota.json","4. Hacer commit y push","5. Abrir Pull Request","6. El staff revisa y aprueba"]},"structure":{"root":["index.html","styles.css","script.js","cota.json","README.md","LICENSE",".gitignore"],"folders":["assets/","assets/images/","assets/images/kingdoms/","assets/images/kingdoms/hadalith/","assets/images/kingdoms/avalon/","assets/images/kingdoms/emberia/","assets/images/kingdoms/bryrius/","assets/images/kingdoms/elyndra/","assets/svg/","assets/fonts/","docs/"]},"steps":["1. Crear cuenta en github.com","2. Crear repositorio público llamado 'cota-team'","3. Instalar Git (git-scm.com)","4. Abrir terminal en la carpeta del proyecto","5. Ejecutar: git init","6. Ejecutar: git add .","7. Ejecutar: git commit -m \"Primer commit de C.O.T.A.\"","8. Ejecutar: git branch -M main","9. Ejecutar: git remote add origin https://github.com/TU-USUARIO/cota-team.git","10. Ejecutar: git push -u origin main","11. Ir a Settings > Pages","12. En 'Source', elegir rama 'main' y carpeta '/ (root)'","13. Guardar y esperar 1-2 minutos","14. La web estará en: https://TU-USUARIO.github.io/cota-team/"],"images":{"howToUpload":["Opción 1: Subir imágenes en assets/images/kingdoms/<reino>/","Opción 2: Usar links directos de Imgur, Discord CDN o GitHub raw","Opción 3: Convertir a WebP para menor peso"],"recommendations":["WebP para mejor rendimiento","Máximo 5 MB por imagen","Hero: 1920x1080 px","Galería: 800x800 px","Emblema: 256x256 px"],"credits":"Siempre dar crédito al artista en el campo 'credit' del JSON"}}}</escape>
+{
+  "meta": {
+    "teamName": "C.O.T.A.",
+    "version": "1.2.0",
+    "language": "es",
+    "theme": "reinos de fantasía mágica medieval",
+    "lastUpdated": "2026-11-03",
+    "author": "Staff de C.O.T.A."
+  },
+  "identity": {
+    "name": "C.O.T.A.",
+    "tagline": "Team Hoyoverse · Reinos de Gacha",
+    "description": "Un mundo dividido por antiguas marcas, unido por historias que todavía esperan ser contadas."
+  },
+  "palette": {
+    "kingdoms": {
+      "hadalith": { "base": "#A8D0E8", "light": "#CDE7F0", "deep": "#2A5A8A", "accent": "#4A9EFF" },
+      "avalon": { "base": "#C8E8C8", "light": "#E0F0E0", "deep": "#2A6A2A", "accent": "#5CD65C" },
+      "emberia": { "base": "#FFD9B0", "light": "#FFE8CC", "deep": "#8A4A00", "accent": "#FF8C00" },
+      "bryrius": { "base": "#D8D8E0", "light": "#E8E8F0", "deep": "#4A4A5A", "accent": "#A8A0B8" },
+      "elyndra": { "base": "#FDF8F0", "light": "#FFF8FA", "deep": "#D8C8B0", "accent": "#F7D98C" }
+    }
+  },
+  "lore": {
+    "creationMyth": "Cuentan los antiguos que hubo un tiempo en que el mundo era una sola tierra completa y unida. No había fronteras ni reinos. En el centro gobernaba un gran rey, y a su lado había cinco consejeros, cada uno portador de un poder distinto: el agua, la tierra, el fuego, el aire y la luz del alba.\n\nA cada habitante se le marcaba con un sello otorgado por el consejero de su elemento. Esa marca no era un adorno: era una promesa. Mientras la gente viviera en armonía y se amara unos a otros, la marca del rey se mantenía viva, y con ella, la vida del propio rey.\n\nAsí vivieron durante generaciones: mezclados, sin importar la raza, compartiendo el mismo cielo y la misma tierra. Pero el tiempo pasa, y las ideas cambian. Los cinco consejeros comenzaron a tener opiniones distintas sobre cómo debía gobernarse el mundo. Cada uno creía tener la razón. Discutían por el poder, por el territorio, por quien era más importante. Y en medio de sus peleas, olvidaron la opinión más importante: la del rey.\n\nLa gente notó esa discordia. Y como el pueblo siempre imita a sus líderes, los habitantes comenzaron a dividirse. Unos decían ser mejores que otros. Unos humillaban a los de otra raza. El amor que antes mantenía viva la marca del rey empezó a apagarse.\n\nEl rey, viendo que ya no podía mantener unida a su gente, tomó una decisión terrible: dividió a los cinco consejeros y a sus pueblos. Los arrojó hacia las cinco esquinas del mundo, cada uno con su propia gente.\n\nPero algo salió mal. Cuatro consejeros y sus pueblos cayeron a la tierra y formaron sus reinos. El quinto consejero, el de la luz del alba, fue lanzado tan alto que desapareció en el cielo. Su pueblo no cayó con él. Durante 50 años, el quinto rincón del mundo quedó vacío.\n\nY así, cada consejero se volvió rey de su propia tierra. Cuatro reinos nacieron aquel día. El quinto tendría que esperar. Con el paso del tiempo, cada reino desarrolló su propia cultura, su propia forma de ver el mundo. Hoy se dice que hay cierta armonía entre ellos, pero las viejas heridas siguen abiertas. Cada reino tiene su propio monarca, portador de una Marca heredada de aquel primer consejero. La marca brilla mientras su pueblo le sea leal. Si el amor se apaga, la marca se debilita. Y si la marca muere, el monarca muere con ella.\n\nNadie sabe qué pasó con el rey original. Unos dicen que murió cuando su marca se apagó.",
+    "timeline": [
+      { "year": "El origen", "title": "La tierra unida", "description": "El gran rey y sus cinco consejeros gobiernan en armonía. Las marcas de los habitantes brillan." },
+      { "year": "La discordia", "title": "La división de los consejeros", "description": "El poder corrompe a los consejeros. El pueblo se divide y el amor se apaga." },
+      { "year": "El exilio", "title": "La separación de los reinos", "description": "El rey divide a los consejeros y los arroja a las cinco esquinas del mundo. Cuatro caen a la tierra, uno al cielo." },
+      { "year": "50 años después", "title": "El descenso de Elyndra", "description": "El cielo se abre y los seres astrales descienden a las montañas flotantes, formando el quinto reino." }
+    ]
+  },
+  "races": [
+    {
+      "id": "sirenas",
+      "name": "Sirenas",
+      "kingdom": "hadalith",
+      "element": "agua",
+      "blessing": "Belleza eterna y cambio de forma",
+      "description": "Los hijos del océano y la luna. Criaturas híbridas entre humanos y seres marinos, capaces de vivir en tierra y agua sin complicación alguna debido a su habilidad de cambiar de forma.",
+      "traits": ["Híbridos", "Respiran bajo el agua", "Cambiaformas"]
+    },
+    {
+      "id": "hadas",
+      "name": "Hadas",
+      "kingdom": "avalon",
+      "element": "tierra",
+      "blessing": "Naturaleza y magia",
+      "description": "Los hijos de la tierra y las plantas. Maestros en cualquier tipo de hechizo, desde los más simples hasta los más mortales. Poseen el don de volar debido a las preciosas alas otorgadas por la madre tierra.",
+      "traits": ["Vuelan", "Maestras en hechizos", "Alas naturales"]
+    },
+    {
+      "id": "fenix",
+      "name": "Fénix",
+      "kingdom": "emberia",
+      "element": "fuego",
+      "blessing": "Fuerza colosal y renacimiento",
+      "description": "Los hijos nacidos de las cenizas. Su bendición es el cuidado del gran ave Phoenix. Tienen una fuerza increíble, equivalente a la de 10 humanos normales. Llevan dentro la llama del Phoenix.",
+      "traits": ["Fuerza extrema", "Llama interior", "Siempre se levantan"]
+    },
+    {
+      "id": "dragones",
+      "name": "Dragones",
+      "kingdom": "bryrius",
+      "element": "aire",
+      "blessing": "Sangre draconiana y piel dura",
+      "description": "Los hijos de las escamas y la lava. Tienen un poco de sangre draconiana, lo que hace su piel más dura. Entienden el idioma draconiano. Los más experimentados pueden transformarse en Dragones o semi Dragones.",
+      "traits": ["Piel dura", "Hablan draconiano", "Metamorfosis parcial"]
+    },
+    {
+      "id": "astrales",
+      "name": "Seres astrales",
+      "kingdom": "elyndra",
+      "element": "luz astral",
+      "blessing": "Caminar entre las nubes",
+      "description": "Hijos de las estrellas, nacidos del alba. Tienen alas de luz y cuerpos etéreos. Sus ojos fueron hechos para mirar el cielo y leer sus señales. Los más experimentados pueden convertirse en formas de pura luz.",
+      "traits": ["Alas de luz", "Cuerpos etéreos", "Visión celestial"]
+    }
+  ],
+  "kingdoms": [
+    {
+      "id": "hadalith",
+      "name": "Hadalith",
+      "mark": "La Marca del Abismo",
+      "element": "Agua",
+      "monarchTitle": "el/la monarca",
+      "guardian": "El Leviathan",
+      "tagline": "La nación entre la tierra y el agua.",
+      "description": "Hadalith es la nación entre la tierra y el agua. A simple vista parecería un continente pequeño, el más pequeño de todos visto en un mapa, pero la realidad es que es gigante: el 70% de su territorio está por debajo del agua, donde se encuentran sus grandes ciudades y toda su población.",
+      "lore": "Su monarca sonríe siempre, habla con voz suave y recibe a los extranjeros con cortesía. Su Marca es una ola que se cierra sobre un ojo abierto. Toda sirena y tritón esconden un secreto oscuro: usan su belleza para engañar y manipular a sus presas. Su fuente de alimento no son los humanos, pero sí son su juguete favorito.",
+      "secrets": ["El Leviathan custodia el reino desde las profundidades."],
+      "territory": "70% bajo el agua",
+      "visuals": {
+        "hero": { "url": "" },
+        "illustration": { "url": "" }
+      }
+    },
+    {
+      "id": "avalon",
+      "name": "Avalon",
+      "mark": "La Marca de la Raíz",
+      "element": "Tierra",
+      "monarchTitle": "el/la monarca",
+      "guardian": "Centauros y grifos",
+      "tagline": "El reino más vasto en poder y conocimiento mágico.",
+      "description": "Avalon ocupa el continente con más vegetación. Sus ciudades se encuentran en los árboles gigantes que crecen por toda su extensión. Las hadas son criaturas tranquilas y pacíficas, pero cuando se trata de un enemigo son de las más mortales.",
+      "lore": "Su monarca debe ser querido y justo. Su Marca es una hoja con espinas. Es una nación custodiada por todas las criaturas terrestres y aéreas. Atacan sin piedad y tienen conocimiento suficiente para destruir a su objetivo como si nada.",
+      "secrets": ["El conocimiento mágico de Avalon es tan antiguo como el mundo mismo."],
+      "territory": "Árboles gigantes",
+      "visuals": {
+        "hero": { "url": "" },
+        "illustration": { "url": "" }
+      }
+    },
+    {
+      "id": "emberia",
+      "name": "Emberia",
+      "mark": "La Marca de la Ceniza",
+      "element": "Fuego",
+      "monarchTitle": "el/la monarca",
+      "guardian": "El gran Phoenix",
+      "tagline": "La nación nacida de las cenizas.",
+      "description": "Emberia es custodiada las 24 horas del día, los 7 días de la semana, por el gran ave Phoenix, que descansa dentro de su cueva debajo del castillo real. Su territorio es increíblemente grande y sus estructuras son grandes y fuertes.",
+      "lore": "Su monarca debe ser firme y decidido. Su Marca es una llama con una pluma dentro, y no se apaga nunca. Los nacidos de las cenizas son personas amables. Todos son leales y se ayudan unos a otros. No importa cuántas veces se caigan: siempre se levantan. Tienen la fuerza de 10 hombres musculosos juntos, incluso los niños y las mujeres.",
+      "secrets": ["Llevan dentro la llama del Phoenix."],
+      "territory": "Cueva del Phoenix",
+      "visuals": {
+        "hero": { "url": "" },
+        "illustration": { "url": "" }
+      }
+    },
+    {
+      "id": "bryrius",
+      "name": "Bryrius",
+      "mark": "La Marca del Yunque",
+      "element": "Aire",
+      "monarchTitle": "Consejo de clanes (República)",
+      "guardian": "Grandes dragones ancestros",
+      "tagline": "La nación de las escamas y las montañas altas.",
+      "description": "Los dragones formaron su territorio en la punta más alta del cielo. Se cuenta que salieron del infierno a la tierra para llevar todo a la ruina. La realidad es que son criaturas tranquilas, con un poder colosal que había estado en las manos equivocadas.",
+      "lore": "Actualmente, el reino se encuentra sin monarca, pues la anterior reina falleció sin herederos. El reino pudo superar esto con el surgimiento de una república, regida por la unión de los diversos clanes dracónicos. La Marca de Bryirius es una escama partida por un rayo. No tiene dueño fijo.",
+      "secrets": ["Los más experimentados pueden convertirse en Dragones o semi Dragones."],
+      "territory": "Montañas altas",
+      "visuals": {
+        "hero": { "url": "" },
+        "illustration": { "url": "" }
+      }
+    },
+    {
+      "id": "elyndra",
+      "name": "Elyndra",
+      "mark": "La Marca del Albor",
+      "element": "Luz Astral",
+      "monarchTitle": "El Querubín (Misterioso)",
+      "guardian": "Ángeles y Seraphines",
+      "tagline": "El quinto reino, nacido de las estrellas.",
+      "description": "Pasaron 50 años desde la separación. Entonces, una noche, el cielo se abrió y de las estrellas descendieron los seres astrales. Llegaron a las montañas flotantes que solo ellos podían alcanzar. Allí formaron Elyndra.",
+      "lore": "Tenían alas de luz, cuerpos etéreos. Su bendición es caminar entre las nubes y ver lo que otros no ven. Su monarca, nadie conoce su aspecto. Su Marca es una estrella con alas de luz. Dependiendo de su estatus, pueden ser ángeles, Seraphines, y su monarca es un Querubín.",
+      "secrets": ["Los cinco reinos se representan con una estrella de cinco puntas dentro de un círculo."],
+      "territory": "Montañas flotantes",
+      "visuals": {
+        "hero": { "url": "" },
+        "illustration": { "url": "" }
+      }
+    }
+  ],
+  "roles": {
+    "general": [
+      { "name": "Agricultor/a o Granjero/a", "icon": "wheat" },
+      { "name": "Alquimista", "icon": "flask" },
+      { "name": "Sanador/a", "icon": "herb" },
+      { "name": "Bibliotecari@", "icon": "book" },
+      { "name": "Mensajer@", "icon": "letter" },
+      { "name": "Mercader", "icon": "scale" },
+      { "name": "Espía", "icon": "eye" },
+      { "name": "Arquitecto/a", "icon": "compass" },
+      { "name": "Obrero/a", "icon": "hammer" },
+      { "name": "Herrero/a", "icon": "anvil" },
+      { "name": "Carpintero/a", "icon": "saw" },
+      { "name": "Sastre", "icon": "scissors" },
+      { "name": "Panadero/a", "icon": "bread" },
+      { "name": "Carnicero/a", "icon": "cleaver" },
+      { "name": "Cazador/a", "icon": "bow" },
+      { "name": "Artesano/a", "icon": "chisel" },
+      { "name": "Artista escénico", "icon": "mask" },
+      { "name": "Pintor/a", "icon": "palette" },
+      { "name": "Profesor/a", "icon": "chalkboard" },
+      { "name": "Criada/Sirviente/Mayordomo", "icon": "bell" },
+      { "name": "Ladrón/a", "icon": "dagger" },
+      { "name": "Sin oficio", "icon": "dash" },
+      { "name": "Soldado/Guerrero", "icon": "sword", "restricted": ["bryrius", "elyndra"] }
+    ],
+    "kingdomSpecific": {
+      "hadalith": [ { "name": "Cantante de mareas (magia musical)", "icon": "wave-note" }, { "name": "Guardia del Leviatán", "icon": "trident" } ],
+      "avalon": [ { "name": "Guardián/a del bosque", "icon": "leaf" }, { "name": "Encantador/a de plantas", "icon": "flower" } ],
+      "emberia": [ { "name": "Guardián/a del Fénix", "icon": "flame" } ],
+      "bryrius": [ { "name": "Jinete de dragón", "icon": "wing" }, { "name": "Armero/a", "icon": "shield" } ],
+      "elyndra": [ { "name": "Astrónomo/a", "icon": "star" }, { "name": "Mensajero/a astral", "icon": "feather" } ]
+    },
+    "titles": [
+      { "name": "Damas y nobles", "grantedBy": "Monarcas" },
+      { "name": "Herederos al trono, princesas o príncipes", "grantedBy": "Adopción o sangre" }
+    ]
+  },
+  "groups": [
+    { "name": "INGRESO", "type": "staff", "description": "Bienvenida a nuevos miembros." },
+    { "name": "PRESENTACIONES", "type": "roleplay", "description": "Presenta a tu personaje." },
+    { "name": "GENERAL", "type": "staff", "description": "Conversación general y anuncios." },
+    { "name": "ROL", "type": "roleplay", "description": "Rol serio con tu personaje." },
+    { "name": "ROLEPLAY", "type": "roleplay", "description": "Rol largo y detallado." },
+    { "name": "PARALELOS", "type": "roleplay", "description": "Tramas alternativas." },
+    { "name": "LETTERS", "type": "roleplay", "description": "Cartas entre personajes." },
+    { "name": "DFF ROL", "type": "roleplay", "description": "Coordinación de roles y tramas." },
+    { "name": "+18", "type": "adult", "description": "Contenido adulto." },
+    { "name": "OFF", "type": "ooc", "description": "Charla casual como usuarios." },
+    { "name": "REACTIONS", "type": "ooc", "description": "Reacciones, memes y contenido ligero." },
+    { "name": "ACTIVIDADES", "type": "staff", "description": "Juegos, dinámicas y retos." }
+  ],
+  "rules": {
+    "general": [
+      { "title": "Lee las descripciones", "description": "Al entrar a cada grupo, lee su descripción para entender cómo participar." },
+      { "title": "Respeto ante todo", "description": "No se permiten insultos, discriminación, acoso ni comentarios ofensivos." },
+      { "title": "Roles y personajes", "description": "Mantén coherencia con el mundo y separa a tu personaje de ti. Conflictos personales quedan fuera." },
+      { "title": "Contenido y organización", "description": "Evita spam y temas fuera de lugar. Usa cada grupo para su función." },
+      { "title": "Participación", "description": "Las actividades son voluntarias, pero te alentamos a participar." },
+      { "title": "Consulta a admins", "description": "Si algo te incomoda, contacta al staff." },
+      { "title": "Sanciones", "description": "Habrá advertencias o expulsión según la gravedad de la falta." }
+    ],
+    "onRol": [
+      { "title": "Solo en personaje", "description": "No hables como usuario (fuera de personaje) en este chat." },
+      { "title": "Coherencia", "description": "Sé fiel a la personalidad e historia de tu personaje." },
+      { "title": "Contenido apropiado", "description": "Roles casuales aquí. Para explícito ve a +18. Para largo ve a ROLEPLAY." },
+      { "title": "Cero spam", "description": "No abuses de stickers ni mensajes fuera de contexto." }
+    ],
+    "off": [
+      { "title": "Fuera de personaje", "description": "Aquí puedes hablar como usuario, coordinar tramas y compartir ideas." },
+      { "title": "Privacidad", "description": "No compartas datos personales sensibles tuyos ni de otros." },
+      { "title": "Respeto", "description": "Cero insultos, burlas o discriminación." },
+      { "title": "Conducta", "description": "Mantén un ambiente agradable para todos." }
+    ]
+  },
+  "activities": [
+    { "name": "Retos de rol", "description": "Situaciones creativas para interpretar a tu personaje.", "points": 4 },
+    { "name": "Cartas semanales", "description": "Escribe una carta a otro personaje según un tema.", "points": 4 },
+    { "name": "Juegos de mesa", "description": "Partidas virtuales de D&D u otros juegos.", "points": 3 },
+    { "name": "Concursos de escritura", "description": "Demuestra tu pluma con historias o cartas.", "points": 5 },
+    { "name": "Retos artísticos", "description": "Dibuja, edita o crea algo sobre tu personaje.", "points": 5 }
+  ],
+  "rewards": [
+    { "name": "Inmunidad a eliminación", "description": "No caduca. Te salva de una lista de eliminación.", "duration": "No caduca" },
+    { "name": "Inmunidad ajena", "description": "Salva a otro usuario de la eliminación.", "duration": "No caduca" },
+    { "name": "Segundo rol", "description": "Desbloquea otro personaje (con condiciones de actividad).", "duration": "Permanente condicional" },
+    { "name": "Aumento de advertencias", "description": "Sube tu límite de 3 a 4 advertencias antes de ser expulsado.", "duration": "Permanente" }
+  ],
+  "faq": [
+    { "question": "¿Cómo entro al rol?", "answer": "Lee las normas, presenta a tu personaje en PRESENTACIONES y únete a los chats." },
+    { "question": "¿Cómo me presento?", "answer": "En el grupo de PRESENTACIONES, cuenta la historia, reino y oficio de tu personaje." },
+    { "question": "¿Cómo gano puntos?", "answer": "Participando en las actividades semanales. El Top 3 gana recompensas." },
+    { "question": "¿Puedo tener dos personajes?", "answer": "Sí, si ganas la recompensa de Segundo Rol en el Top 3." },
+    { "question": "¿Cuántas advertencias tengo?", "answer": "3 por defecto. Con la recompensa sube a 4." }
+  ]
+}
