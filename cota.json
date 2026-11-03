@@ -1,11 +1,9 @@
 {
   "meta": {
     "teamName": "C.O.T.A.",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "language": "es",
-    "theme": "reinos de fantasía mágica medieval",
-    "lastUpdated": "2026-11-03",
-    "author": "Staff de C.O.T.A."
+    "theme": "reinos de fantasía mágica medieval"
   },
   "identity": {
     "name": "C.O.T.A.",
@@ -32,59 +30,34 @@
   },
   "races": [
     {
-      "id": "sirenas",
-      "name": "Sirenas",
-      "kingdom": "hadalith",
-      "element": "agua",
-      "blessing": "Belleza eterna y cambio de forma",
+      "id": "sirenas", "name": "Sirenas", "kingdom": "hadalith", "element": "agua", "blessing": "Belleza eterna y cambio de forma",
       "description": "Los hijos del océano y la luna. Criaturas híbridas entre humanos y seres marinos, capaces de vivir en tierra y agua sin complicación alguna debido a su habilidad de cambiar de forma.",
       "traits": ["Híbridos", "Respiran bajo el agua", "Cambiaformas"]
     },
     {
-      "id": "hadas",
-      "name": "Hadas",
-      "kingdom": "avalon",
-      "element": "tierra",
-      "blessing": "Naturaleza y magia",
+      "id": "hadas", "name": "Hadas", "kingdom": "avalon", "element": "tierra", "blessing": "Naturaleza y magia",
       "description": "Los hijos de la tierra y las plantas. Maestros en cualquier tipo de hechizo, desde los más simples hasta los más mortales. Poseen el don de volar debido a las preciosas alas otorgadas por la madre tierra.",
       "traits": ["Vuelan", "Maestras en hechizos", "Alas naturales"]
     },
     {
-      "id": "fenix",
-      "name": "Fénix",
-      "kingdom": "emberia",
-      "element": "fuego",
-      "blessing": "Fuerza colosal y renacimiento",
+      "id": "fenix", "name": "Fénix", "kingdom": "emberia", "element": "fuego", "blessing": "Fuerza colosal y renacimiento",
       "description": "Los hijos nacidos de las cenizas. Su bendición es el cuidado del gran ave Phoenix. Tienen una fuerza increíble, equivalente a la de 10 humanos normales. Llevan dentro la llama del Phoenix.",
       "traits": ["Fuerza extrema", "Llama interior", "Siempre se levantan"]
     },
     {
-      "id": "dragones",
-      "name": "Dragones",
-      "kingdom": "bryrius",
-      "element": "aire",
-      "blessing": "Sangre draconiana y piel dura",
+      "id": "dragones", "name": "Dragones", "kingdom": "bryrius", "element": "aire", "blessing": "Sangre draconiana y piel dura",
       "description": "Los hijos de las escamas y la lava. Tienen un poco de sangre draconiana, lo que hace su piel más dura. Entienden el idioma draconiano. Los más experimentados pueden transformarse en Dragones o semi Dragones.",
       "traits": ["Piel dura", "Hablan draconiano", "Metamorfosis parcial"]
     },
     {
-      "id": "astrales",
-      "name": "Seres astrales",
-      "kingdom": "elyndra",
-      "element": "luz astral",
-      "blessing": "Caminar entre las nubes",
+      "id": "astrales", "name": "Seres astrales", "kingdom": "elyndra", "element": "luz astral", "blessing": "Caminar entre las nubes",
       "description": "Hijos de las estrellas, nacidos del alba. Tienen alas de luz y cuerpos etéreos. Sus ojos fueron hechos para mirar el cielo y leer sus señales. Los más experimentados pueden convertirse en formas de pura luz.",
       "traits": ["Alas de luz", "Cuerpos etéreos", "Visión celestial"]
     }
   ],
   "kingdoms": [
     {
-      "id": "hadalith",
-      "name": "Hadalith",
-      "mark": "La Marca del Abismo",
-      "element": "Agua",
-      "monarchTitle": "el/la monarca",
-      "guardian": "El Leviathan",
+      "id": "hadalith", "name": "Hadalith", "mark": "La Marca del Abismo", "element": "Agua", "monarchTitle": "el/la monarca", "guardian": "El Leviathan",
       "tagline": "La nación entre la tierra y el agua.",
       "description": "Hadalith es la nación entre la tierra y el agua. A simple vista parecería un continente pequeño, el más pequeño de todos visto en un mapa, pero la realidad es que es gigante: el 70% de su territorio está por debajo del agua, donde se encuentran sus grandes ciudades y toda su población.",
       "lore": "Su monarca sonríe siempre, habla con voz suave y recibe a los extranjeros con cortesía. Su Marca es una ola que se cierra sobre un ojo abierto. Toda sirena y tritón esconden un secreto oscuro: usan su belleza para engañar y manipular a sus presas. Su fuente de alimento no son los humanos, pero sí son su juguete favorito.",
@@ -92,24 +65,16 @@
       "territory": "70% bajo el agua",
       "visuals": {
         "hero": { "url": "https://i.pinimg.com/1200x/3e/f5/f6/3ef5f685e044c83453d592ee4c6b85de.jpg" },
-        "background": { "url": "https://i.pinimg.com/736x/33/bd/ea/33bdea7d68f07162660c17099fd4a951.jpg" },
         "illustration": { "url": "https://i.pinimg.com/736x/54/38/00/543800f9446c5b6b6efe15b455d84972.jpg" },
-        "emblem": { "url": "https://i.pinimg.com/736x/ce/d5/11/ced511cf10b499ac8471e0b6e64dff9c.jpg" },
         "gallery": [
-          {"url":"https://i.pinimg.com/736x/5b/f7/68/5bf7686d0e73f3ad27b8a7898a2e0fc7.jpg"},
-          {"url":"https://i.pinimg.com/736x/d2/61/32/d26132f090c8041b9c95466d89387042.jpg"},
-          {"url":"https://i.pinimg.com/736x/66/4f/87/664f87241faca74457ad750f88c5127e.jpg"}
-        ],
-        "decorative": { "url": "https://i.pinimg.com/736x/11/79/f2/1179f20bdf15ef9eea01f23f8a3e8963.jpg" }
+          { "url": "https://i.pinimg.com/736x/5b/f7/68/5bf7686d0e73f3ad27b8a7898a2e0fc7.jpg" },
+          { "url": "https://i.pinimg.com/736x/d2/61/32/d26132f090c8041b9c95466d89387042.jpg" },
+          { "url": "https://i.pinimg.com/736x/66/4f/87/664f87241faca74457ad750f88c5127e.jpg" }
+        ]
       }
     },
     {
-      "id": "avalon",
-      "name": "Avalon",
-      "mark": "La Marca de la Raíz",
-      "element": "Tierra",
-      "monarchTitle": "el/la monarca",
-      "guardian": "Centauros y grifos",
+      "id": "avalon", "name": "Avalon", "mark": "La Marca de la Raíz", "element": "Tierra", "monarchTitle": "el/la monarca", "guardian": "Centauros y grifos",
       "tagline": "El reino más vasto en poder y conocimiento mágico.",
       "description": "Avalon ocupa el continente con más vegetación. Sus ciudades se encuentran en los árboles gigantes que crecen por toda su extensión. Las hadas son criaturas tranquilas y pacíficas, pero cuando se trata de un enemigo son de las más mortales.",
       "lore": "Su monarca debe ser querido y justo. Su Marca es una hoja con espinas. Es una nación custodiada por todas las criaturas terrestres y aéreas. Atacan sin piedad y tienen conocimiento suficiente para destruir a su objetivo como si nada.",
@@ -117,24 +82,16 @@
       "territory": "Árboles gigantes",
       "visuals": {
         "hero": { "url": "https://i.pinimg.com/736x/4a/6e/e8/4a6ee8e96601342fded75600c10a0cc9.jpg" },
-        "background": { "url": "https://i.pinimg.com/736x/00/1b/5d/001b5d881bac67e223dc58597df57694.jpg" },
         "illustration": { "url": "https://i.pinimg.com/736x/d7/a2/cd/d7a2cda34b34d89011fe7f1ad32d2384.jpg" },
-        "emblem": { "url": "https://i.pinimg.com/736x/0f/7e/37/0f7e37c31fac9c8cf5a50a0bf07831dc.jpg" },
         "gallery": [
-          {"url":"https://i.pinimg.com/736x/54/64/40/546440ff8cceb3018bf9df54dff18725.jpg"},
-          {"url":"https://i.pinimg.com/1200x/c2/b1/ae/c2b1aeae1a80fd8c7052df62a722d71b.jpg"},
-          {"url":"https://i.pinimg.com/1200x/21/63/74/216374e94cdc1fcdc968d2d48c5d70d8.jpg"}
-        ],
-        "decorative": { "url": "https://i.pinimg.com/736x/9b/d5/72/9bd5728efebee85eb5d9eddfa490c214.jpg" }
+          { "url": "https://i.pinimg.com/736x/54/64/40/546440ff8cceb3018bf9df54dff18725.jpg" },
+          { "url": "https://i.pinimg.com/1200x/c2/b1/ae/c2b1aeae1a80fd8c7052df62a722d71b.jpg" },
+          { "url": "https://i.pinimg.com/1200x/21/63/74/216374e94cdc1fcdc968d2d48c5d70d8.jpg" }
+        ]
       }
     },
     {
-      "id": "emberia",
-      "name": "Emberia",
-      "mark": "La Marca de la Ceniza",
-      "element": "Fuego",
-      "monarchTitle": "el/la monarca",
-      "guardian": "El gran Phoenix",
+      "id": "emberia", "name": "Emberia", "mark": "La Marca de la Ceniza", "element": "Fuego", "monarchTitle": "el/la monarca", "guardian": "El gran Phoenix",
       "tagline": "La nación nacida de las cenizas.",
       "description": "Emberia es custodiada las 24 horas del día, los 7 días de la semana, por el gran ave Phoenix, que descansa dentro de su cueva debajo del castillo real. Su territorio es increíblemente grande y sus estructuras son grandes y fuertes.",
       "lore": "Su monarca debe ser firme y decidido. Su Marca es una llama con una pluma dentro, y no se apaga nunca. Los nacidos de las cenizas son personas amables. Todos son leales y se ayudan unos a otros. No importa cuántas veces se caigan: siempre se levantan. Tienen la fuerza de 10 hombres musculosos juntos, incluso los niños y las mujeres.",
@@ -142,24 +99,16 @@
       "territory": "Cueva del Phoenix",
       "visuals": {
         "hero": { "url": "https://i.pinimg.com/1200x/87/61/6d/87616de1d1ca8cb574704291f1dba82b.jpg" },
-        "background": { "url": "https://i.pinimg.com/736x/ce/d4/f7/ced4f76231a239c7f2eb35da972d1301.jpg" },
         "illustration": { "url": "https://i.pinimg.com/736x/0e/da/6e/0eda6ea43e08c201c8548595fcef9bed.jpg" },
-        "emblem": { "url": "https://i.pinimg.com/736x/a7/00/ef/a700ef43d4b55db50a938e5be1bc3c86.jpg" },
         "gallery": [
-          {"url":"https://i.pinimg.com/1200x/dd/46/1b/dd461b9a3a9bb333e078afe096cb7907.jpg"},
-          {"url":"https://i.pinimg.com/1200x/1c/29/30/1c2930c76e8c04916739a5e690454826.jpg"},
-          {"url":"https://i.pinimg.com/736x/ef/55/66/ef5566206a025d6fe9b412a2cb1b1193.jpg"}
-        ],
-        "decorative": { "url": "https://i.pinimg.com/1200x/9a/93/a9/9a93a9aa43424e91df778d37600c0f19.jpg" }
+          { "url": "https://i.pinimg.com/1200x/dd/46/1b/dd461b9a3a9bb333e078afe096cb7907.jpg" },
+          { "url": "https://i.pinimg.com/1200x/1c/29/30/1c2930c76e8c04916739a5e690454826.jpg" },
+          { "url": "https://i.pinimg.com/736x/ef/55/66/ef5566206a025d6fe9b412a2cb1b1193.jpg" }
+        ]
       }
     },
     {
-      "id": "bryrius",
-      "name": "Bryrius",
-      "mark": "La Marca del Yunque",
-      "element": "Aire",
-      "monarchTitle": "Consejo de clanes (República)",
-      "guardian": "Grandes dragones ancestros",
+      "id": "bryrius", "name": "Bryrius", "mark": "La Marca del Yunque", "element": "Aire", "monarchTitle": "Consejo de clanes (República)", "guardian": "Grandes dragones ancestros",
       "tagline": "La nación de las escamas y las montañas altas.",
       "description": "Los dragones formaron su territorio en la punta más alta del cielo. Se cuenta que salieron del infierno a la tierra para llevar todo a la ruina. La realidad es que son criaturas tranquilas, con un poder colosal que había estado en las manos equivocadas.",
       "lore": "Actualmente, el reino se encuentra sin monarca, pues la anterior reina falleció sin herederos. El reino pudo superar esto con el surgimiento de una república, regida por la unión de los diversos clanes dracónicos. La Marca de Bryrius es una escama partida por un rayo. No tiene dueño fijo.",
@@ -167,24 +116,16 @@
       "territory": "Montañas altas",
       "visuals": {
         "hero": { "url": "https://i.pinimg.com/736x/6e/8c/a0/6e8ca08ae2b60ec29f43e2f11bc49d0e.jpg" },
-        "background": { "url": "https://i.pinimg.com/736x/3e/fb/10/3efb10c357fce35a12f191ded1053af8.jpg" },
         "illustration": { "url": "https://i.pinimg.com/736x/51/97/a1/5197a1f215360a9564b99df3d969e258.jpg" },
-        "emblem": { "url": "https://i.pinimg.com/736x/35/af/b3/35afb3d2d8a28283aa53bf836faaff7c.jpg" },
         "gallery": [
-          {"url":"https://i.pinimg.com/736x/1b/14/b7/1b14b70309f29d8cc32929dd38dae917.jpg"},
-          {"url":"https://i.pinimg.com/736x/ad/e1/2f/ade12f65dc59b8d090b8060a500f0e93.jpg"},
-          {"url":"https://i.pinimg.com/736x/3d/08/ab/3d08ab3e311c4d5d8663d44acd7351e7.jpg"}
-        ],
-        "decorative": { "url": "" }
+          { "url": "https://i.pinimg.com/736x/1b/14/b7/1b14b70309f29d8cc32929dd38dae917.jpg" },
+          { "url": "https://i.pinimg.com/736x/ad/e1/2f/ade12f65dc59b8d090b8060a500f0e93.jpg" },
+          { "url": "https://i.pinimg.com/736x/3d/08/ab/3d08ab3e311c4d5d8663d44acd7351e7.jpg" }
+        ]
       }
     },
     {
-      "id": "elyndra",
-      "name": "Elyndra",
-      "mark": "La Marca del Albor",
-      "element": "Luz Astral",
-      "monarchTitle": "El Querubín (Misterioso)",
-      "guardian": "Ángeles y Seraphines",
+      "id": "elyndra", "name": "Elyndra", "mark": "La Marca del Albor", "element": "Luz Astral", "monarchTitle": "El Querubín (Misterioso)", "guardian": "Ángeles y Seraphines",
       "tagline": "El quinto reino, nacido de las estrellas.",
       "description": "Pasaron 50 años desde la separación. Entonces, una noche, el cielo se abrió y de las estrellas descendieron los seres astrales. Llegaron a las montañas flotantes que solo ellos podían alcanzar. Allí formaron Elyndra.",
       "lore": "Tenían alas de luz, cuerpos etéreos. Su bendición es caminar entre las nubes y ver lo que otros no ven. Su monarca, nadie conoce su aspecto. Su Marca es una estrella con alas de luz. Dependiendo de su estatus, pueden ser ángeles, Seraphines, y su monarca es un Querubín.",
@@ -192,43 +133,18 @@
       "territory": "Montañas flotantes",
       "visuals": {
         "hero": { "url": "https://i.pinimg.com/736x/14/4d/24/144d2400582abfe4db2f8c57f0e84bda.jpg" },
-        "background": { "url": "https://i.pinimg.com/736x/1d/8e/90/1d8e907f3d56e9b58b9859f0977c2360.jpg" },
         "illustration": { "url": "https://i.pinimg.com/736x/77/75/da/7775da2cf07c5c64ec8030d2d0701b52.jpg" },
-        "emblem": { "url": "https://i.pinimg.com/1200x/27/c3/23/27c32350439ed6bf83933b2acd0c6391.jpg" },
         "gallery": [
-          {"url":"https://i.pinimg.com/736x/0a/31/ed/0a31ed8c8c9b19a580b783220cd56e33.jpg"},
-          {"url":"https://i.pinimg.com/1200x/d5/0d/b9/d50db9e52e5070a1aa7c6c48f96d6a99.jpg"},
-          {"url":"https://i.pinimg.com/736x/59/ce/87/59ce87fe7256b725475be4c50cc185ae.jpg"}
-        ],
-        "decorative": { "url": "" }
+          { "url": "https://i.pinimg.com/736x/0a/31/ed/0a31ed8c8c9b19a580b783220cd56e33.jpg" },
+          { "url": "https://i.pinimg.com/1200x/d5/0d/b9/d50db9e52e5070a1aa7c6c48f96d6a99.jpg" },
+          { "url": "https://i.pinimg.com/736x/59/ce/87/59ce87fe7256b725475be4c50cc185ae.jpg" }
+        ]
       }
     }
   ],
   "roles": {
     "general": [
-      { "name": "Agricultor/a o Granjero/a", "icon": "wheat" },
-      { "name": "Alquimista", "icon": "flask" },
-      { "name": "Sanador/a", "icon": "herb" },
-      { "name": "Bibliotecari@", "icon": "book" },
-      { "name": "Mensajer@", "icon": "letter" },
-      { "name": "Mercader", "icon": "scale" },
-      { "name": "Espía", "icon": "eye" },
-      { "name": "Arquitecto/a", "icon": "compass" },
-      { "name": "Obrero/a", "icon": "hammer" },
-      { "name": "Herrero/a", "icon": "anvil" },
-      { "name": "Carpintero/a", "icon": "saw" },
-      { "name": "Sastre", "icon": "scissors" },
-      { "name": "Panadero/a", "icon": "bread" },
-      { "name": "Carnicero/a", "icon": "cleaver" },
-      { "name": "Cazador/a", "icon": "bow" },
-      { "name": "Artesano/a", "icon": "chisel" },
-      { "name": "Artista escénico", "icon": "mask" },
-      { "name": "Pintor/a", "icon": "palette" },
-      { "name": "Profesor/a", "icon": "chalkboard" },
-      { "name": "Criada/Sirviente/Mayordomo", "icon": "bell" },
-      { "name": "Ladrón/a", "icon": "dagger" },
-      { "name": "Sin oficio", "icon": "dash" },
-      { "name": "Soldado/Guerrero", "icon": "sword", "restricted": ["bryrius", "elyndra"] }
+      { "name": "Agricultor/a o Granjero/a", "icon": "wheat" }, { "name": "Alquimista", "icon": "flask" }, { "name": "Sanador/a", "icon": "herb" }, { "name": "Bibliotecari@", "icon": "book" }, { "name": "Mensajer@", "icon": "letter" }, { "name": "Mercader", "icon": "scale" }, { "name": "Espía", "icon": "eye" }, { "name": "Arquitecto/a", "icon": "compass" }, { "name": "Obrero/a", "icon": "hammer" }, { "name": "Herrero/a", "icon": "anvil" }, { "name": "Carpintero/a", "icon": "saw" }, { "name": "Sastre", "icon": "scissors" }, { "name": "Panadero/a", "icon": "bread" }, { "name": "Carnicero/a", "icon": "cleaver" }, { "name": "Cazador/a", "icon": "bow" }, { "name": "Artesano/a", "icon": "chisel" }, { "name": "Artista escénico", "icon": "mask" }, { "name": "Pintor/a", "icon": "palette" }, { "name": "Profesor/a", "icon": "chalkboard" }, { "name": "Criada/Sirviente/Mayordomo", "icon": "bell" }, { "name": "Ladrón/a", "icon": "dagger" }, { "name": "Sin oficio", "icon": "dash" }, { "name": "Soldado/Guerrero", "icon": "sword", "restricted": ["bryrius", "elyndra"] }
     ],
     "kingdomSpecific": {
       "hadalith": [ { "name": "Cantante de mareas (magia musical)", "icon": "wave-note" }, { "name": "Guardia del Leviatán", "icon": "trident" } ],
@@ -243,17 +159,7 @@
     ]
   },
   "groups": [
-    { "name": "INGRESO", "type": "staff", "description": "Bienvenida a nuevos miembros." },
-    { "name": "PRESENTACIONES", "type": "roleplay", "description": "Presenta a tu personaje." },
-    { "name": "GENERAL", "type": "staff", "description": "Conversación general y anuncios." },
-    { "name": "ROLEPLAY", "type": "roleplay", "description": "Rol largo y detallado." },
-    { "name": "PARALELOS", "type": "roleplay", "description": "Tramas alternativas." },
-    { "name": "LETTERS", "type": "roleplay", "description": "Cartas entre personajes." },
-    { "name": "DFF ROL", "type": "roleplay", "description": "Coordinación de roles y tramas." },
-    { "name": "+18", "type": "adult", "description": "Contenido adulto." },
-    { "name": "OFF", "type": "ooc", "description": "Charla casual como usuarios." },
-    { "name": "REACTIONS", "type": "ooc", "description": "Reacciones, memes y contenido ligero." },
-    { "name": "ACTIVIDADES", "type": "staff", "description": "Juegos, dinámicas y retos." }
+    { "name": "INGRESO", "type": "staff", "description": "Bienvenida a nuevos miembros." }, { "name": "PRESENTACIONES", "type": "roleplay", "description": "Presenta a tu personaje." }, { "name": "GENERAL", "type": "staff", "description": "Conversación general y anuncios." }, { "name": "ROLEPLAY", "type": "roleplay", "description": "Rol largo y detallado." }, { "name": "PARALELOS", "type": "roleplay", "description": "Tramas alternativas." }, { "name": "LETTERS", "type": "roleplay", "description": "Cartas entre personajes." }, { "name": "DFF ROL", "type": "roleplay", "description": "Coordinación de roles y tramas." }, { "name": "+18", "type": "adult", "description": "Contenido adulto." }, { "name": "OFF", "type": "ooc", "description": "Charla casual como usuarios." }, { "name": "REACTIONS", "type": "ooc", "description": "Reacciones, memes y contenido ligero." }, { "name": "ACTIVIDADES", "type": "staff", "description": "Juegos, dinámicas y retos." }
   ],
   "rules": {
     "general": [
