@@ -295,13 +295,13 @@
     {"url":"https://i.pinimg.com/1200x/d5/0d/b9/d50db9e52e5070a1aa7c6c48f96d6a99.jpg","alt":"Astrónomos leyendo el cielo","credit":""},
     {"url":"https://i.pinimg.com/736x/59/ce/87/59ce87fe7256b725475be4c50cc185ae.jpg","alt":"Mensajeros astrales","credit":""}
   ],
-  "decorative": {
-    "url": "https://i.pinimg.com/736x/2d/42/fe/2d42fe7e3bf9a6020e4bc9c1b2cc8a77.jpg",
-    "alt": "Ornamento de estrellas",
-    "credit": ""
-  }
-}
-      ],
+       "decorative": {
+        "url": "URL_DE_LA_IMAGEN",
+        "alt": "Ornamento de estrellas",
+        "credit": ""
+      }
+    }
+  ],
   "roles": {
     "general": [
       { "name": "Agricultor/a o Granjero/a", "icon": "wheat" },
