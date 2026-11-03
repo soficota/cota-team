@@ -383,7 +383,7 @@ a {
 }
 
 /* ==========================================================
-   Estructura y Portada
+   Estructura y Portada (MEJORADA ÉPICA)
    ========================================================== */
 main {
   max-width: 1440px;
@@ -402,32 +402,42 @@ main {
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-shell {
-  min-height: 500px;
+  min-height: 550px;
   border-radius: 40px;
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   padding: 60px clamp(28px, 6vw, 88px);
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+  /* Fondo celestial profundo */
+  background: radial-gradient(circle at 70% 50%, rgba(255, 253, 251, 1) 0%, rgba(248, 243, 240, 1) 60%, rgba(235, 225, 220, 1) 100%);
   border: 1px solid var(--line);
-  box-shadow: var(--shadow-lg);
+  box-shadow: inset 0 0 80px rgba(255,255,255,0.5), var(--shadow-lg);
 }
 
 body.dark .hero-shell {
-  background: linear-gradient(135deg, rgba(38,36,42,0.9), rgba(38,36,42,0.4));
+  background: radial-gradient(circle at 70% 50%, rgba(48, 44, 51, 1) 0%, rgba(38, 36, 42, 1) 60%, rgba(26, 24, 29, 1) 100%);
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.3), var(--shadow-lg);
+}
+
+/* Resplandor mágico de fondo */
+.hero-shell::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(247, 217, 140, 0.15) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-copy {
@@ -437,138 +447,230 @@ body.dark .hero-shell {
 }
 
 .eyebrow, .panel-kicker {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   color: var(--gold);
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
+  text-shadow: 0 2px 10px rgba(185, 149, 84, 0.3);
 }
 
 .eyebrow-line {
   display: inline-block;
-  width: 27px;
-  height: 1px;
-  background: var(--gold);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
   vertical-align: middle;
-  margin-right: 9px;
+  margin-right: 12px;
 }
 
 .hero-copy h1, .page-heading h1 {
-  font: 500 clamp(38px, 5.2vw, 68px)/1.12 var(--display);
+  font: 600 clamp(42px, 5.5vw, 76px)/1.1 var(--display);
   letter-spacing: -0.03em;
-  margin: 22px 0 17px;
+  margin: 24px 0 20px;
   color: var(--ink);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .hero-copy h1 em, .page-heading h1 em {
   font-family: var(--quote);
   font-weight: 400;
-  color: var(--gold);
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-right: 10px;
+  filter: drop-shadow(0 4px 10px rgba(185, 149, 84, 0.2));
 }
 
 .hero-lead {
-  max-width: 440px;
+  max-width: 460px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.9;
+  margin-bottom: 36px;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 32px;
+}
+
+/* Botón primario con brillo de metal */
+.button-primary {
+  background: linear-gradient(135deg, #e8c36a, #b99554 40%, #d4af37);
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 15px rgba(185, 149, 84, 0.4), inset 0 1px 2px rgba(255,255,255,0.5);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.button-primary:hover {
+  background: linear-gradient(135deg, #f7d98c, #b99554 60%, #f7d98c);
+  box-shadow: 0 8px 30px rgba(185, 149, 84, 0.7), inset 0 1px 2px rgba(255,255,255,0.8);
+  transform: translateY(-3px);
 }
 
 .hero-footnote {
-  margin-top: 44px;
+  margin-top: 48px;
   color: var(--muted);
-  font: italic 14px var(--quote);
+  font: italic 15px var(--quote);
+  opacity: 0.8;
 }
 
 .small-star {
   color: var(--gold);
-  font-size: 20px;
-  margin-right: 8px;
+  font-size: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+  text-shadow: 0 0 10px var(--gold);
 }
 
+/* ==========================================================
+   El Emblema Mágico (Hero Art)
+   ========================================================== */
 .hero-art {
-  height: 400px;
+  height: 450px;
   position: relative;
   display: grid;
   place-items: center;
+  z-index: 1;
 }
 
+/* Halo de luz detrás del escudo */
+.hero-art::before {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(247,217,140,0.4) 30%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulseHalo 4s ease-in-out infinite alternate;
+}
+
+body.dark .hero-art::before {
+  background: radial-gradient(circle, rgba(247,217,140,0.2) 0%, rgba(247,217,140,0.05) 30%, transparent 70%);
+}
+
+@keyframes pulseHalo {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* El escudo */
 .crest {
   width: 260px;
   height: 310px;
   clip-path: polygon(50% 0, 91% 14%, 88% 70%, 50% 100%, 12% 70%, 9% 14%);
-  background: linear-gradient(145deg, #fff8e7, #d9c5a1 55%, #fff1d0);
-  padding: 8px;
-  filter: drop-shadow(0 25px 35px rgba(120, 91, 69, 0.25));
+  background: linear-gradient(145deg, #ffffff, #f7d98c 40%, #b99554 80%, #8a6d3b);
+  padding: 4px;
+  filter: drop-shadow(0 20px 40px rgba(80, 50, 20, 0.4));
   z-index: 2;
   animation: floatCrest 6s ease-in-out infinite;
+  position: relative;
 }
 
 @keyframes floatCrest {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
 }
 
 .crest-inner {
   height: 100%;
   clip-path: polygon(50% 0, 91% 14%, 88% 70%, 50% 100%, 12% 70%, 9% 14%);
-  border: 1px solid rgba(148, 113, 68, 0.5);
-  background: radial-gradient(circle at 50% 36%, #fffdf5, #f0e1c7 70%);
+  background: radial-gradient(circle at 50% 30%, #ffffff, #fdf8f0 50%, #e6d5ba 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: #796348;
+  color: #4a3525;
+  box-shadow: inset 0 0 40px rgba(185, 149, 84, 0.4);
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* Reflejo de cristal en el escudo */
+.crest-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, transparent 100%);
+  clip-path: polygon(50% 0, 91% 14%, 88% 50%, 12% 50%, 9% 14%);
+  pointer-events: none;
 }
 
 .crest-crown {
-  font-size: 54px;
+  font-size: 65px;
   line-height: 1;
+  background: linear-gradient(to bottom, #f7d98c, #b99554);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.2));
+  margin-bottom: 8px;
 }
 
 .crest-name {
-  font: 700 28px var(--display);
-  letter-spacing: 0.19em;
-  margin-top: 16px;
+  font: 700 30px var(--display);
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 4px rgba(255,255,255,0.8);
 }
 
 .crest-sub {
-  font: 11px var(--body);
-  letter-spacing: 0.18em;
-  margin-top: 6px;
+  font: 700 11px var(--body);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+  color: #8a6d3b;
+  text-transform: uppercase;
 }
 
 .crest-divider {
-  font-size: 16px;
-  color: var(--gold);
-  margin-top: 22px;
+  font-size: 18px;
+  color: #b99554;
+  margin-top: 24px;
+  text-shadow: 0 0 10px rgba(185, 149, 84, 0.5);
 }
 
+/* ==========================================================
+   Anillos y Órbitas Mágicas
+   ========================================================== */
 .orbit {
   position: absolute;
-  border: 1px solid rgba(174, 145, 119, 0.35);
+  border: 1px dashed rgba(185, 149, 84, 0.4);
   border-radius: 50%;
-  width: 350px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
   transform: rotate(-25deg);
-  animation: spinSlow 30s linear infinite;
+  animation: spinSlow 40s linear infinite;
 }
 
+.orbit::before, .orbit::after {
+  content: '';
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 3px rgba(185, 149, 84, 0.8);
+}
+.orbit::before { top: -4px; left: 50%; }
+.orbit::after { bottom: -4px; left: 50%; }
+
 .orbit-b {
-  width: 430px;
-  height: 260px;
+  width: 460px;
+  height: 280px;
   transform: rotate(45deg);
-  border-style: dashed;
-  opacity: 0.6;
-  animation: spinSlowReverse 40s linear infinite;
+  border: 1px solid rgba(185, 149, 84, 0.2);
+  animation: spinSlowReverse 30s linear infinite;
+}
+
+.orbit-b::before, .orbit-b::after {
+  width: 6px; height: 6px;
+  background: var(--rose);
+  box-shadow: 0 0 12px 2px rgba(215, 167, 184, 0.8);
 }
 
 @keyframes spinSlow { 100% { transform: rotate(335deg); } }
@@ -576,35 +678,58 @@ body.dark .hero-shell {
 
 .hero-star {
   position: absolute;
-  right: 15%;
-  top: 8%;
+  right: 10%;
+  top: 5%;
   color: var(--gold);
-  font-size: 37px;
-  animation: pulseStar 2.5s infinite;
+  font-size: 40px;
+  animation: pulseStar 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(185, 149, 84, 0.8));
 }
 
 @keyframes pulseStar {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.4; transform: scale(0.8) rotate(45deg); }
 }
 
+/* Etiquetas de los Reinos (Cristales flotantes) */
 .orbit-label {
   position: absolute;
-  font: 600 9px var(--display);
-  letter-spacing: 0.14em;
-  color: var(--muted);
-  background: var(--paper);
-  padding: 6px 10px;
+  font: 700 10px var(--display);
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
   border-radius: 20px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(185, 149, 84, 0.3);
+  box-shadow: 0 4px 15px rgba(185, 149, 84, 0.15), inset 0 0 10px rgba(255,255,255,0.5);
+  transition: all 0.3s;
+  z-index: 3;
 }
 
-.label-water { top: 17%; left: 5%; }
-.label-earth { top: 30%; right: -2%; }
-.label-fire { bottom: 17%; right: 10%; }
-.label-air { bottom: 15%; left: 4%; }
-.label-star { top: 3%; left: 43%; }
+body.dark .orbit-label {
+  background: rgba(38, 36, 42, 0.7);
+  border-color: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255,255,255,0.05);
+}
+
+.orbit-label:hover {
+  transform: scale(1.1) translateY(-3px);
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(185, 149, 84, 0.4);
+}
+
+.label-water { top: 20%; left: 2%; animation: floatLabel 5s ease-in-out infinite alternate; }
+.label-earth { top: 35%; right: -5%; animation: floatLabel 6s ease-in-out infinite alternate-reverse; }
+.label-fire { bottom: 20%; right: 5%; animation: floatLabel 4.5s ease-in-out infinite alternate; }
+.label-air { bottom: 15%; left: 0%; animation: floatLabel 5.5s ease-in-out infinite alternate-reverse; }
+.label-star { top: -2%; left: 42%; animation: floatLabel 6.5s ease-in-out infinite alternate; }
+
+@keyframes floatLabel {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
 
 /* ==========================================================
    Estadísticas y Encabezados de Sección
