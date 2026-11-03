@@ -510,11 +510,6 @@
       "description": "Contenido adulto."
     },
     {
-      "name": "OFF",
-      "type": "ooc",
-      "description": "Charla casual como usuarios."
-    },
-    {
       "name": "REACTIONS",
       "type": "ooc",
       "description": "Reacciones, memes y contenido ligero."
