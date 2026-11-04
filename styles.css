@@ -2067,185 +2067,128 @@ body.modal-open {
   }
 }
 /* ==========================================================
-   LÍNEA TEMPORAL ESTILO GRIMORIO (Anti-selección y Libro)
+   LÍNEA TEMPORAL ESTILO ANIME / GACHA (UI Moderna)
    ========================================================== */
 
-/* El contenedor principal simula el lomo del libro */
+/* Contenedor principal */
 .timeline-list {
   display: flex !important;
   flex-direction: column !important;
   gap: 20px !important;
-  margin-top: 50px !important;
-  padding: 10px 10px 10px 40px !important; /* Espacio para el lomo */
+  margin-top: 40px !important;
+  padding: 0 10px !important;
   position: relative !important;
-  user-select: none !important; /* Evita que se seleccione el texto */
+  user-select: none !important;
   -webkit-user-select: none !important;
-  -webkit-tap-highlight-color: transparent !important; /* Quita el cuadro azul en móvil */
+  -webkit-tap-highlight-color: transparent !important;
 }
 
-/* El "lomo" del libro (Línea central oscura con broches) */
+/* Línea central de luz suave (punteada y brillante) */
 .timeline-list::before {
   content: '' !important;
   position: absolute !important;
-  left: 20px !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  width: 12px !important;
-  background: #2c2429 !important; /* Color cuero oscuro */
-  border-radius: 6px !important;
-  box-shadow: 
-    inset 2px 0 5px rgba(255,255,255,0.1), 
-    inset -2px 0 5px rgba(0,0,0,0.5),
-    0 0 15px rgba(185, 149, 84, 0.3) !important;
+  left: 24px !important;
+  top: 10px !important;
+  bottom: 10px !important;
+  width: 2px !important;
+  background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--rose) 80%, transparent) !important;
+  border-radius: 2px !important;
+  opacity: 0.5 !important;
   z-index: 0 !important;
 }
 
-/* Costuras doradas en el lomo */
-.timeline-list::after {
-  content: '' !important;
-  position: absolute !important;
-  left: 25px !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  width: 2px !important;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--gold),
-    var(--gold) 8px,
-    transparent 8px,
-    transparent 16px
-  ) !important;
-  opacity: 0.5 !important;
-  z-index: 1 !important;
-}
-
-/* Tarjeta estilo página de pergamino */
+/* Tarjeta flotante (Estilo Aplicación) */
 .timeline-item {
   display: flex !important;
   position: relative !important;
-  padding-left: 20px !important;
-  z-index: 2 !important;
-  /* Animación de entrada como si se abriera una página */
-  animation: pageOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+  padding-left: 50px !important;
+  z-index: 1 !important;
   opacity: 0;
-  transform-origin: left center;
-  cursor: pointer;
+  transform: translateY(20px);
+  animation: floatIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
 }
 
 .timeline-item:nth-child(1) { animation-delay: 0.1s !important; }
-.timeline-item:nth-child(2) { animation-delay: 0.25s !important; }
-.timeline-item:nth-child(3) { animation-delay: 0.4s !important; }
-.timeline-item:nth-child(4) { animation-delay: 0.55s !important; }
-.timeline-item:nth-child(5) { animation-delay: 0.7s !important; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s !important; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s !important; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s !important; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s !important; }
 
-@keyframes pageOpen {
-  0% { opacity: 0; transform: perspective(600px) rotateY(-30deg) translateX(-20px); }
-  100% { opacity: 1; transform: perspective(600px) rotateY(0deg) translateX(0); }
+@keyframes floatIn {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* El contenido de la página */
-.timeline-content {
-  background: linear-gradient(135deg, #fffdfb, #f4ece1) !important; /* Color pergamino */
-  border: 1px solid rgba(185, 149, 84, 0.4) !important;
-  border-left: 4px solid var(--gold) !important; /* Unión al lomo */
-  border-radius: 4px 16px 16px 4px !important; /* Esquinas de página */
-  padding: 24px !important;
-  box-shadow: 
-    4px 4px 15px rgba(0, 0, 0, 0.08),
-    inset 0 0 30px rgba(185, 149, 84, 0.05) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  transition: all 0.3s ease !important;
-  width: 100% !important;
-}
-
-/* Modo oscuro para el pergamino */
-body.dark .timeline-content {
-  background: linear-gradient(135deg, #2a2528, #1e1b1d) !important;
-  border-color: rgba(212, 175, 55, 0.3) !important;
-  box-shadow: 
-    4px 4px 15px rgba(0, 0, 0, 0.4),
-    inset 0 0 30px rgba(0, 0, 0, 0.5) !important;
-}
-
-/* Efecto al tocar (Móvil) o pasar el ratón (PC) */
-.timeline-item:active .timeline-content,
-.timeline-item:hover .timeline-content {
-  transform: translateX(10px) scale(0.98) !important; /* Se presiona hacia adentro */
-  box-shadow: 
-    8px 8px 25px rgba(185, 149, 84, 0.15),
-    inset 0 0 30px rgba(185, 149, 84, 0.1) !important;
-}
-
-/* La esquina doblada del pergamino */
-.timeline-content::after {
+/* Puntito en la línea (Estilo Nodo de Mapa) */
+.timeline-item::before {
   content: '' !important;
   position: absolute !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  width: 30px !important;
-  height: 30px !important;
-  background: linear-gradient(135deg, transparent 50%, rgba(185, 149, 84, 0.2) 50%) !important;
-  border-radius: 0 0 16px 0 !important;
-  box-shadow: -2px -2px 5px rgba(0,0,0,0.05) !important;
-}
-
-/* El broche (Estrella en el lomo) */
-.timeline-item::before {
-  content: '✦' !important;
-  position: absolute !important;
-  left: -12px !important; /* Centrado en el lomo */
-  top: 24px !important;
-  width: 26px !important;
-  height: 26px !important;
-  background: #1a1517 !important;
-  border: 2px solid var(--gold) !important;
+  left: 16px !important;
+  top: 30px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background: var(--paper-solid) !important;
+  border: 3px solid var(--gold) !important;
   border-radius: 50% !important;
-  display: grid !important;
-  place-items: center !important;
-  font-size: 12px !important;
-  color: var(--gold) !important;
-  z-index: 3 !important;
-  box-shadow: 0 0 10px rgba(185, 149, 84, 0.8) !important;
+  z-index: 2 !important;
+  box-shadow: 0 0 15px rgba(185, 149, 84, 0.6) !important;
+  transition: all 0.3s !important;
 }
 
-/* Número romano grabado */
-.timeline-number {
-  position: absolute !important;
-  right: 10px !important;
-  bottom: 0px !important;
-  font-family: var(--display) !important;
-  font-size: 80px !important;
-  font-weight: 900 !important;
-  color: var(--gold) !important;
-  opacity: 0.1 !important;
-  line-height: 1 !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
+/* El contenido de la tarjeta */
+.timeline-content {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(185, 149, 84, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  width: 100% !important;
+  position: relative !important;
 }
 
-/* Sello del año */
+body.dark .timeline-content {
+  background: rgba(38, 36, 42, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Efecto al tocar / pasar el ratón */
+.timeline-item:active .timeline-content,
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 0 15px 35px rgba(185, 149, 84, 0.15), inset 0 0 0 1px rgba(185, 149, 84, 0.4) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark .timeline-item:active .timeline-content,
+body.dark .timeline-item:hover .timeline-content {
+  background: rgba(48, 44, 51, 0.9) !important;
+}
+
+.timeline-item:active::before,
+.timeline-item:hover::before {
+  background: var(--gold) !important;
+  transform: scale(1.2) !important;
+}
+
+/* Etiqueta del Año (Estilo Botón de App) */
 .timeline-item .year {
   display: inline-block !important;
-  position: relative !important;
-  z-index: 1 !important;
   font-family: var(--body) !important;
-  font-size: 10px !important;
+  font-size: 11px !important;
   font-weight: 700 !important;
-  color: #fff !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  background: var(--gold) !important;
-  padding: 4px 12px !important;
-  border-radius: 4px !important; /* Cuadrado como un sello */
+  color: var(--gold) !important;
+  background: rgba(185, 149, 84, 0.15) !important;
+  padding: 6px 14px !important;
+  border-radius: 50px !important; /* Muy redondeado */
   margin-bottom: 12px !important;
-  box-shadow: 2px 2px 0 rgba(0,0,0,0.2) !important;
+  letter-spacing: 0.05em !important;
 }
 
-/* Textos */
+/* Títulos */
 .timeline-item h3 {
-  position: relative !important;
-  z-index: 1 !important;
   font-family: var(--display) !important;
   font-size: 20px !important;
   font-weight: 700 !important;
@@ -2254,40 +2197,41 @@ body.dark .timeline-content {
   line-height: 1.3 !important;
 }
 
+/* Texto */
 .timeline-item p {
-  position: relative !important;
-  z-index: 1 !important;
   font-size: 14px !important;
   color: var(--muted) !important;
   line-height: 1.7 !important;
   margin: 0 !important;
 }
 
-/* Ajustes específicos para celular */
+/* Ocultar los números romanos gigantes que habíamos puesto */
+.timeline-number {
+  display: none !important;
+}
+
+/* Ajustes para celular (Márgenes y tamaños) */
 @media (max-width: 820px) {
   .timeline-list {
-    padding-left: 30px !important;
+    padding-left: 0 !important;
   }
   .timeline-list::before {
-    left: 10px !important;
-    width: 10px !important;
-  }
-  .timeline-list::after {
     left: 14px !important;
   }
   .timeline-item {
-    padding-left: 20px !important;
+    padding-left: 40px !important;
   }
   .timeline-item::before {
-    left: -13px !important; /* Ajuste para el lomo más pequeño */
-    width: 22px !important;
-    height: 22px !important;
-    font-size: 10px !important;
+    left: 6px !important;
+    top: 26px !important;
+    width: 14px !important;
+    height: 14px !important;
   }
   .timeline-content {
-    padding: 20px 16px !important;
+    padding: 20px !important;
+    border-radius: 20px !important;
   }
-  .timeline-number {
-    font-size: 60px !important;
+  .timeline-item h3 {
+    font-size: 18px !important;
   }
 }
