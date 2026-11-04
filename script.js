@@ -307,13 +307,32 @@
   function renderGroups() {
     const el = $('#groupsContent');
     if (!el) return;
-    el.innerHTML = data.groups.map(g => `
-      <article class="group-card">
-        <span class="group-kind">${safe(g.type)}</span>
-        <h3>${safe(g.name)}</h3>
-        <p>${safe(g.description)}</p>
-      </article>
-    `).join('');
+
+    el.innerHTML = data.groups.map(g => {
+      // Asignar color según el tipo de grupo
+      let accentColor = '#b99554'; // Dorado por defecto
+      if (g.type === 'roleplay') accentColor = '#d7a7b8'; // Rosa
+      if (g.type === 'ooc') accentColor = '#b9a8ca'; // Lavanda
+      if (g.type === 'adult') accentColor = '#cc5555'; // Rojo
+      if (g.type === 'staff') accentColor = '#7ba8c8'; // Celeste
+
+      const hasImage = g.visuals?.hero?.url;
+      const bgStyle = hasImage ? `background-image: url('${g.visuals.hero.url}');` : '';
+
+      return `
+        <article class="group-card-mega" style="--g-accent: ${accentColor}">
+          <div class="group-cover-mega" style="${bgStyle}">
+            <div class="group-cover-overlay"></div>
+            ${!hasImage ? `<span class="group-glyph-mega">✦</span>` : ''}
+          </div>
+          <div class="group-info-mega">
+            <span class="group-badge-mega">${safe(g.type)}</span>
+            <h3>${safe(g.name)}</h3>
+            <p>${safe(g.description)}</p>
+          </div>
+        </article>
+      `;
+    }).join('');
   }
 
   function renderRules() { drawRules(selectedRule); }
