@@ -2067,159 +2067,179 @@ body.modal-open {
   }
 }
 /* ==========================================================
-   LÍNEA TEMPORAL MÁGICA (ESTILO GACHA / CRISTAL)
+   LÍNEA TEMPORAL ÉPICA "MAPA ESTELAR" (Estilo Gacha)
    ========================================================== */
 
-/* Contenedor principal */
+/* Fondo estelar del contenedor */
 .timeline-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 30px !important;
+  gap: 40px !important;
   margin-top: 50px !important;
-  padding: 10px !important;
+  padding: 40px 10px !important;
   position: relative !important;
   user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
+  background: radial-gradient(circle at center, rgba(185, 149, 84, 0.05) 0%, transparent 70%) !important;
+  border-radius: 30px !important;
 }
 
-/* Línea central de energía brillante */
+/* La línea central brillante (Más gruesa y con textura) */
 .timeline-list::before {
   content: '' !important;
   position: absolute !important;
-  left: 35px !important;
-  top: 10px !important;
-  bottom: 10px !important;
-  width: 4px !important;
-  background: linear-gradient(to bottom, transparent, var(--gold) 10%, var(--rose) 90%, transparent) !important;
-  border-radius: 4px !important;
-  box-shadow: 0 0 15px rgba(185, 149, 84, 0.8) !important;
+  left: 50% !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--rose) 80%, transparent) !important;
+  transform: translateX(-50%) !important;
+  box-shadow: 0 0 20px 2px rgba(185, 149, 84, 0.5) !important;
   z-index: 0 !important;
 }
 
-/* Tarjeta de cristal */
+/* Tarjetas alternadas (Zig-Zag en PC) */
 .timeline-item {
   display: flex !important;
   position: relative !important;
-  padding-left: 70px !important;
+  width: 50% !important;
+  padding: 0 40px !important;
   z-index: 1 !important;
   opacity: 0;
   transform: translateY(30px);
-  animation: floatIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+  animation: floatIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
+/* Izquierda */
+.timeline-item:nth-child(odd) {
+  align-self: flex-start !important;
+  justify-content: flex-end !important;
+  text-align: right !important;
+}
+
+/* Derecha */
+.timeline-item:nth-child(even) {
+  align-self: flex-end !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+/* Delays escalonados */
 .timeline-item:nth-child(1) { animation-delay: 0.1s !important; }
-.timeline-item:nth-child(2) { animation-delay: 0.2s !important; }
-.timeline-item:nth-child(3) { animation-delay: 0.3s !important; }
-.timeline-item:nth-child(4) { animation-delay: 0.4s !important; }
-.timeline-item:nth-child(5) { animation-delay: 0.5s !important; }
+.timeline-item:nth-child(2) { animation-delay: 0.25s !important; }
+.timeline-item:nth-child(3) { animation-delay: 0.4s !important; }
+.timeline-item:nth-child(4) { animation-delay: 0.55s !important; }
+.timeline-item:nth-child(5) { animation-delay: 0.7s !important; }
 
 @keyframes floatIn {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* El nodo (Estrella mágica en la línea) */
+/* El Sello Mágico (Nodo Central) */
 .timeline-item::before {
-  content: '✦' !important;
+  content: '✧' !important;
   position: absolute !important;
-  left: 21px !important;
-  top: 24px !important;
-  width: 32px !important;
-  height: 32px !important;
+  top: 30px !important;
+  width: 40px !important;
+  height: 40px !important;
   background: var(--paper-solid) !important;
   border: 2px solid var(--gold) !important;
   border-radius: 50% !important;
   display: grid !important;
   place-items: center !important;
-  font-size: 14px !important;
+  font-size: 20px !important;
   color: var(--gold) !important;
-  z-index: 2 !important;
-  box-shadow: 0 0 20px rgba(185, 149, 84, 0.8), inset 0 0 10px rgba(185, 149, 84, 0.4) !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  z-index: 3 !important;
+  box-shadow: 0 0 20px rgba(185, 149, 84, 0.8), inset 0 0 10px rgba(185, 149, 84, 0.3) !important;
+  animation: rotateSeal 10s linear infinite !important;
 }
 
-/* El contenido de la tarjeta (Glassmorphism y Volumen) */
+@keyframes rotateSeal {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Posicionamiento del sello según el lado */
+.timeline-item:nth-child(odd)::before {
+  right: -20px !important;
+}
+.timeline-item:nth-child(even)::before {
+  left: -20px !important;
+}
+
+/* La Tarjeta (Estilo Cristal Holográfico) */
 .timeline-content {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 230, 0.7)) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 230, 0.6)) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(185, 149, 84, 0.3) !important;
-  border-radius: 20px !important;
-  padding: 28px 30px !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 24px !important;
+  padding: 30px !important;
   box-shadow: 
-    0 10px 30px -10px rgba(185, 149, 84, 0.3),
-    inset 0 0 20px rgba(255, 255, 255, 0.8) !important;
+    0 15px 35px -5px rgba(185, 149, 84, 0.2),
+    inset 0 0 0 1px rgba(185, 149, 84, 0.3),
+    inset 0 0 30px rgba(185, 149, 84, 0.05) !important;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   width: 100% !important;
   position: relative !important;
-  overflow: hidden !important; /* Para el icono de fondo */
+  overflow: hidden !important;
 }
 
 body.dark .timeline-content {
-  background: linear-gradient(135deg, rgba(38, 36, 42, 0.9), rgba(30, 25, 30, 0.8)) !important;
+  background: linear-gradient(135deg, rgba(38, 36, 42, 0.9), rgba(30, 25, 30, 0.6)) !important;
   border-color: rgba(212, 175, 55, 0.2) !important;
   box-shadow: 
-    0 10px 30px -10px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(212, 175, 55, 0.05) !important;
+    0 15px 35px -5px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.2),
+    inset 0 0 30px rgba(212, 175, 55, 0.05) !important;
 }
 
-/* Icono gigante de fondo (Marca de agua mágica) */
-.timeline-content::after {
-  content: '❧'; /* Puedes cambiarlo por ✦, ♕, etc. */
-  position: absolute !important;
-  right: -10px !important;
-  bottom: -20px !important;
-  font-size: 120px !important;
-  color: var(--gold) !important;
-  opacity: 0.06 !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
-  transform: rotate(-15deg) !important;
-  transition: all 0.4s !important;
-}
-
-/* Hover / Active (Toque en celular) */
+/* Brillo al pasar el ratón / tocar */
 .timeline-item:active .timeline-content,
 .timeline-item:hover .timeline-content {
-  transform: translateY(-5px) scale(1.01) !important;
+  transform: translateY(-8px) scale(1.02) !important;
   box-shadow: 
-    0 20px 40px -10px rgba(185, 149, 84, 0.4),
-    inset 0 0 20px rgba(255, 255, 255, 1) !important;
-  border-color: var(--gold) !important;
+    0 25px 50px -10px rgba(185, 149, 84, 0.4),
+    inset 0 0 0 2px var(--gold),
+    inset 0 0 40px rgba(185, 149, 84, 0.15) !important;
 }
 
-body.dark .timeline-item:active .timeline-content,
-body.dark .timeline-item:hover .timeline-content {
-  box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.7),
-    inset 0 0 20px rgba(212, 175, 55, 0.1) !important;
+/* Símbolo de fondo GIGANTE (Elemento decorativo) */
+.timeline-content::after {
+  content: '❖'; /* Un rombo tipo gema */
+  position: absolute !important;
+  top: 50% !important;
+  font-size: 150px !important;
+  color: var(--gold) !important;
+  opacity: 0.05 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  transform: translateY(-50%) !important;
+  transition: all 0.5s !important;
 }
 
-.timeline-item:active::before,
-.timeline-item:hover::before {
-  background: var(--gold) !important;
-  color: #fff !important;
-  transform: scale(1.15) rotate(90deg) !important;
-  box-shadow: 0 0 30px rgba(185, 149, 84, 1) !important;
-}
+/* Posicionar el símbolo del lado opuesto */
+.timeline-item:nth-child(odd) .timeline-content::after { left: -20px !important; }
+.timeline-item:nth-child(even) .timeline-content::after { right: -20px !important; }
 
 .timeline-item:hover .timeline-content::after {
-  opacity: 0.12 !important;
-  transform: rotate(0deg) scale(1.1) !important;
+  opacity: 0.1 !important;
+  transform: translateY(-50%) scale(1.1) rotate(15deg) !important;
 }
 
-/* Etiqueta del Año (Brillante) */
+/* Etiqueta del Año (Flotante) */
 .timeline-item .year {
   display: inline-block !important;
   font-family: var(--body) !important;
   font-size: 11px !important;
   font-weight: 800 !important;
   color: #fff !important;
-  background: linear-gradient(135deg, var(--gold), var(--rose)) !important;
+  background: linear-gradient(135deg, var(--gold), #d7a7b8) !important;
   padding: 6px 16px !important;
-  border-radius: 50px !important;
-  margin-bottom: 14px !important;
-  letter-spacing: 0.1em !important;
-  box-shadow: 0 4px 10px rgba(185, 149, 84, 0.3) !important;
+  border-radius: 4px 12px 12px 12px !important; /* Forma de etiqueta */
+  margin-bottom: 16px !important;
+  letter-spacing: 0.15em !important;
+  box-shadow: 0 4px 15px rgba(185, 149, 84, 0.4) !important;
   position: relative !important;
   z-index: 1 !important;
 }
@@ -2227,49 +2247,78 @@ body.dark .timeline-item:hover .timeline-content {
 /* Títulos */
 .timeline-item h3 {
   font-family: var(--display) !important;
-  font-size: 22px !important;
+  font-size: 26px !important;
   font-weight: 700 !important;
   color: var(--ink) !important;
-  margin: 0 0 10px !important;
-  line-height: 1.3 !important;
+  margin: 0 0 12px !important;
+  line-height: 1.2 !important;
   position: relative !important;
   z-index: 1 !important;
+  text-shadow: 0 2px 4px rgba(255,255,255,0.5) !important;
+}
+
+body.dark .timeline-item h3 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
 }
 
 /* Texto */
 .timeline-item p {
-  font-size: 14.5px !important;
+  font-size: 15px !important;
   color: var(--muted) !important;
-  line-height: 1.7 !important;
+  line-height: 1.8 !important;
   margin: 0 !important;
   position: relative !important;
   z-index: 1 !important;
 }
 
-/* Ajustes para celular */
+/* ==========================================================
+   MÓVIL: Se vuelve una sola columna a la izquierda
+   ========================================================== */
 @media (max-width: 820px) {
   .timeline-list {
-    padding-left: 0 !important;
+    padding: 20px 0 !important;
   }
+  
   .timeline-list::before {
-    left: 20px !important;
+    left: 30px !important;
   }
+
   .timeline-item {
-    padding-left: 50px !important;
+    width: 100% !important;
+    padding: 0 0 0 70px !important;
+    align-self: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
   }
-  .timeline-item::before {
-    left: 8px !important;
-    width: 26px !important;
-    height: 26px !important;
-    font-size: 12px !important;
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    align-self: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
   }
+
+  .timeline-item:nth-child(odd)::before,
+  .timeline-item:nth-child(even)::before {
+    left: 10px !important;
+    top: 25px !important;
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 16px !important;
+  }
+
   .timeline-content {
-    padding: 20px !important;
+    padding: 24px !important;
   }
-  .timeline-content::after {
-    font-size: 80px !important;
-  }
+
   .timeline-item h3 {
-    font-size: 19px !important;
+    font-size: 22px !important;
+  }
+
+  /* En móvil el rombo de fondo se va a la derecha */
+  .timeline-item .timeline-content::after {
+    left: auto !important;
+    right: -10px !important;
+    font-size: 100px !important;
   }
 }
