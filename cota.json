@@ -468,56 +468,67 @@
       }
     ]
   },
-  "groups": [
+   "groups": [
     {
       "name": "INGRESO",
       "type": "staff",
-      "description": "Bienvenida a nuevos miembros."
+      "description": "Bienvenida a nuevos miembros.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/92/34/25/923425873f59f7b2946945d1d74d40be.jpg" } }
     },
     {
       "name": "PRESENTACIONES",
       "type": "roleplay",
-      "description": "Presenta a tu personaje."
+      "description": "Presenta a tu personaje.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/31/d0/29/31d029a561ddd8d5c7f12d1c56a4c52f.jpg" } }
     },
     {
       "name": "GENERAL",
-      "type": "staff",
-      "description": "Conversación general y anuncios."
+      "type": "roleplay",
+      "description": "Conversación general y anuncios.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/e2/ca/e2/e2cae273b20db4938b5da645e71728dd.jpg" } }
     },
     {
       "name": "ROLEPLAY",
       "type": "roleplay",
-      "description": "Rol largo y detallado."
+      "description": "Rol largo y detallado.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/11/51/af/1151af34ab52bde018038798868333ab.jpg" } }
     },
     {
       "name": "PARALELOS",
       "type": "roleplay",
-      "description": "Tramas alternativas."
+      "description": "Tramas alternativas.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/67/42/c0/6742c0b9899fc0178ba1cd291fb3d193.jpg" } }
     },
     {
       "name": "LETTERS",
       "type": "roleplay",
-      "description": "Cartas entre personajes."
+      "description": "Cartas entre personajes.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/89/7e/9f/897e9fb23044bb0084e858edd2b74bf1.jpg" } }
     },
     {
       "name": "DFF ROL",
       "type": "roleplay",
-      "description": "Coordinación de roles y tramas."
+      "description": "Coordinación de roles y tramas.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/c6/bf/45/c6bf45c8837eb92cd829bcce15a1cb79.jpg" } }
     },
     {
       "name": "+18",
       "type": "adult",
-      "description": "Contenido adulto."
+      "description": "Contenido adulto.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/1200x/1c/34/c2/1c34c2cc23df30d0e37366de348cc948.jpg" } }
     },
+    {
     {
       "name": "REACTIONS",
       "type": "ooc",
-      "description": "Reacciones, memes y contenido ligero."
+      "description": "Reacciones, memes y contenido ligero.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/a1/6f/5f/a16f5fcdf8c461edfe12b9e9e3d06c51.jpg" } }
     },
     {
       "name": "ACTIVIDADES",
       "type": "staff",
-      "description": "Juegos, dinámicas y retos."
+      "description": "Juegos, dinámicas y retos.",
+      "visuals": { "hero": { "url": "https://i.pinimg.com/736x/c1/18/5c/c1185c1f97838d326be49da8501e3bfc.jpg" } }
     }
   ],
   "rules": {
