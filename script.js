@@ -88,7 +88,7 @@
     }
   }
 
-  function renderHistory() {
+    function renderHistory() {
     const mythEl = $('#creationMyth');
     if (mythEl) {
       mythEl.innerHTML = isPending(data.lore.creationMyth)
@@ -98,11 +98,16 @@
 
     const timelineEl = $('#timelineList');
     if (timelineEl) {
-      timelineEl.innerHTML = (data.lore.timeline || []).map(item => `
+      const romanos = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+      
+      timelineEl.innerHTML = (data.lore.timeline || []).map((item, index) => `
         <div class="timeline-item">
-          <span class="year">${safe(item.year)}</span>
-          <h3>${safe(item.title)}</h3>
-          ${isPending(item.description) ? pendingBlock('Descripción pendiente.') : `<p>${safe(item.description)}</p>`}
+          <div class="timeline-number">${romanos[index] || index + 1}</div>
+          <div class="timeline-content">
+            <span class="year">${safe(item.year)}</span>
+            <h3>${safe(item.title)}</h3>
+            ${isPending(item.description) ? pendingBlock('Descripción pendiente.') : `<p>${safe(item.description)}</p>`}
+          </div>
         </div>
       `).join('') || emptyState('Todavía no hay eventos en la línea temporal.');
     }
