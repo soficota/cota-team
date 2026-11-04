@@ -530,74 +530,112 @@
       "visuals": { "hero": { "url": "https://i.pinimg.com/736x/c1/18/5c/c1185c1f97838d326be49da8501e3bfc.jpg" } }
     }
   ],
-  "rules": {
-    "general": [
-      {
-        "title": "Lee las descripciones",
-        "description": "Al entrar a cada grupo, lee su descripción para entender cómo participar."
-      },
-      {
-        "title": "Respeto ante todo",
-        "description": "No se permiten insultos, discriminación, acoso ni comentarios ofensivos."
-      },
-      {
-        "title": "Roles y personajes",
-        "description": "Mantén coherencia con el mundo y separa a tu personaje de ti. Conflictos personales quedan fuera."
-      },
-      {
-        "title": "Contenido y organización",
-        "description": "Evita spam y temas fuera de lugar. Usa cada grupo para su función."
-      },
-      {
-        "title": "Participación",
-        "description": "Las actividades son voluntarias, pero te alentamos a participar."
-      },
-      {
-        "title": "Consulta a admins",
-        "description": "Si algo te incomoda, contacta al staff."
-      },
-      {
-        "title": "Sanciones",
-        "description": "Habrá advertencias o expulsión según la gravedad de la falta."
-      }
-    ],
-    "onRol": [
-      {
-        "title": "Solo en personaje",
-        "description": "No hables como usuario (fuera de personaje) en este chat."
-      },
-      {
-        "title": "Coherencia",
-        "description": "Sé fiel a la personalidad e historia de tu personaje."
-      },
-      {
-        "title": "Contenido apropiado",
-        "description": "Roles casuales aquí. Para explícito ve a +18. Para largo ve a ROLEPLAY."
-      },
-      {
-        "title": "Cero spam",
-        "description": "No abuses de stickers ni mensajes fuera de contexto."
-      }
-    ],
-    "off": [
-      {
-        "title": "Fuera de personaje",
-        "description": "Aquí puedes hablar como usuario, coordinar tramas y compartir ideas."
-      },
-      {
-        "title": "Privacidad",
-        "description": "No compartas datos personales sensibles tuyos ni de otros."
-      },
-      {
-        "title": "Respeto",
-        "description": "Cero insultos, burlas o discriminación."
-      },
-      {
-        "title": "Conducta",
-        "description": "Mantén un ambiente agradable para todos."
-      }
-    ]
-  },
+   "rules": [
+    {
+      "id": "general",
+      "title": "Generales",
+      "icon": "✦",
+      "items": [
+        { "title": "Lee las descripciones", "description": "Al entrar a cada grupo, lee su descripción para entender cómo participar." },
+        { "title": "Respeto ante todo", "description": "No se permiten insultos, discriminación, acoso ni comentarios ofensivos." },
+        { "title": "Roles y personajes", "description": "Mantén coherencia con el mundo y separa a tu personaje de ti. Conflictos personales quedan fuera." },
+        { "title": "Contenido y organización", "description": "Evita spam y temas fuera de lugar. Usa cada grupo para su función." },
+        { "title": "Participación", "description": "Las actividades son voluntarias, pero te alentamos a participar." },
+        { "title": "Consulta a admins", "description": "Si algo te incomoda, contacta al staff." },
+        { "title": "Sanciones", "description": "Habrá advertencias o expulsión según la gravedad de la falta." }
+      ]
+    },
+    {
+      "id": "onRol",
+      "title": "ON ROL",
+      "icon": "🎭",
+      "items": [
+        { "title": "Solo en personaje", "description": "Recuerda que este grupo es ON ROL: No está permitido hablar como usuario (fuera de personaje), incluso en pláticas casuales." },
+        { "title": "Coherencia", "description": "Mantén la personalidad, historia y comportamientos de tu personaje lo más fieles posible al canon. Evita contradicciones o acciones que no tengan sentido." },
+        { "title": "Contenido apropiado", "description": "Mantén los roles casuales y no explícitos. Para rol largo está el grupo de ROLEPLAY y para rol explícito está +18." },
+        { "title": "Cero spam", "description": "No se permite el uso excesivo de stickers, mensajes fuera de contexto o exceso de mensajes off rol. Mantén el ambiente sano, creativo y divertido." }
+      ]
+    },
+    {
+      "id": "paralelos",
+      "title": "Paralelos",
+      "icon": "🪞",
+      "items": [
+        { "title": "Entretenimiento", "description": "Este espacio está dedicado a dinámicas de roleplay y retos, fuera o dentro de la temática del Team." },
+        { "title": "Seguir la temática", "description": "Sigan siempre la temática de ESTE grupo, cumplan el reto hasta el final. Ideas nuevas en privado. No abusar del OFF-ROL." },
+        { "title": "Parejas y tramas", "description": "Las parejas del GENERAL no son oficiales aquí. Al terminar la temática, los roles/parejas NO INFLUYEN en el GENERAL ORIGINAL." },
+        { "title": "Repetición", "description": "Las temáticas pueden repetirse de vez en cuando." },
+        { "title": "Explicación ON-ROL", "description": "Heizou ha descubierto unas cavernas bajo la plaza principal cuyos espejismos reflejan realidades alternas. Al verte reflejado en las piedras, las situaciones podrían ser muy diferentes... eres tú, pero a la vez, no. ¿Por qué no curiosear?" }
+      ]
+    },
+    {
+      "id": "ingreso",
+      "title": "Ingreso",
+      "icon": "🚪",
+      "items": [
+        { "title": "Canal de Fichas", "description": "Favor de unirse al canal adjunto: https://whatsapp.com/channel/0029VbD0QoCLikg9CgNrv013. ¡Pregunta por la lista de disponibles!" },
+        { "title": "En Lobby", "description": "No ocupados pero reservados: Scaramouche." }
+      ]
+    },
+    {
+      "id": "nsfw",
+      "title": "+18",
+      "icon": "🔞",
+      "items": [
+        { "title": "Contenido explícito", "description": "Este grupo está destinado a roles con contenido sexual explícito." },
+        { "title": "Edad obligatoria", "description": "Antes de iniciar cualquier rol, es obligatorio especificar la edad de los participantes." },
+        { "title": "Bajo su responsabilidad", "description": "Aquí habrá contenido NSFW, entren bajo su propia responsabilidad. Principalmente diviértanse y disfruten." }
+      ]
+    },
+    {
+      "id": "actividades",
+      "title": "Actividades",
+      "icon": "☕",
+      "items": [
+        { "title": "Organización", "description": "Aquí se organizan actividades para los integrantes del grupo." },
+        { "title": "Participación", "description": "Tu participación es importante para fomentar la interacción y conocernos mejor. Mantente atent@ a los anuncios. (NO ABUSAR DEL OFF)" },
+        { "title": "Banco de Estrellas", "description": "Regístrate en: https://melodic-cendol-89bdbb.netlify.app/ para sumar estrellas por juegos. Escribe 'DESEO ABRIR MI BANCO DE ESTRELLAS' mencionando a un admin. Es OBLIGATORIO para sumar puntos." }
+      ]
+    },
+    {
+      "id": "roleplay",
+      "title": "Roleplay",
+      "icon": "📜",
+      "items": [
+        { "title": "Rol largo y formal", "description": "Este es el grupo destinado a roles largos, formales y planificados acorde a la temática." },
+        { "title": "Coherencia", "description": "Tomen en cuenta sus reinos, ocupaciones y trasfondo. Mantengan una escritura coherente, legible y fiel a su personaje." }
+      ]
+    },
+    {
+      "id": "presentacion",
+      "title": "Presentación",
+      "icon": "🖼️",
+      "items": [
+        { "title": "Darse a conocer", "description": "¡Este es el espacio para saludar a los nuevos miembros!" },
+        { "title": "Formato", "description": "Envía la presentación de tu personaje incluyendo una imagen, especificando el reino al que pertenece y su ocupación. Eres libre de decorar a tu gusto." }
+      ]
+    },
+    {
+      "id": "letters",
+      "title": "Letters",
+      "icon": "✉️",
+      "items": [
+        { 
+          "title": "Plantilla de Carta", 
+          "description": "　　　　　　　　　✉️ ─ letter\n　　　　　　　　　from `reino`\n\n── ✦ @ `nombre` ✦*·˚·\n\n❦  ╎  m ╎ d ╎ y ⏤ ʟᴇᴛᴛᴇʀ   ₊˚  ✧ ˚  ₊\n\n`descripción ─`\n\n________\n\nRespuestas:\n\n　　　　　　　　　✉️ ─ reply\n　　　　　　　　　To `nombre`\n\n── ✦ @ `tunombre` ✦*·˚·\n\n╲  ˖˖❝   `respuesta ─`  ⋮   ꒷  ˖❞"
+        }
+      ]
+    },
+    {
+      "id": "ngl",
+      "title": "NGL React",
+      "icon": "💬",
+      "items": [
+        { "title": "Nuestros NGL", "description": "Nicole /Varessa: https://ngl.link/sofi_soft1 | Capitano / Valeriy: https://ngl.link/ham.lin" },
+        { "title": "Juegos de reacciones", "description": "Un admin publicará una imagen o situación con varias opciones. Solo debes responder con la opción que te agrade a través de reacciones. Esto es para divertirnos." }
+      ]
+    }
+  ],
   "activities": [
     {
       "name": "Retos de rol",
