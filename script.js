@@ -404,12 +404,24 @@
   function renderRewards() {
     const el = $('#rewardsContent');
     if (!el) return;
-    el.innerHTML = data.rewards.map(r => `
-      <article class="reward-card">
-        <span class="eyebrow">RECOMPENSA</span>
-        <h3>${safe(r.name)}</h3>
-        ${isPending(r.description) ? pendingBlock('Condiciones pendientes de completar.') : `<p>${safe(r.description)}</p>`}
-        <span class="points">Duración: ${safe(r.duration)}</span>
+
+    // Asignar iconos únicos a cada recompensa
+    const icons = ['👑', '🛡️', '⚖️', '🎭'];
+
+    el.innerHTML = data.rewards.map((r, index) => `
+      <article class="reward-card-mega">
+        <div class="reward-holo"></div>
+        <div class="reward-content">
+          <div class="reward-icon-wrap">
+            <div class="reward-icon">${icons[index] || '🎁'}</div>
+          </div>
+          <div class="reward-rarity">✦ Recompensa Oficial ✦</div>
+          <h3>${safe(r.name)}</h3>
+          <p>${safe(r.description)}</p>
+          <div class="reward-duration">
+            <span>Duración:</span> ${safe(r.duration)}
+          </div>
+        </div>
       </article>
     `).join('');
   }
