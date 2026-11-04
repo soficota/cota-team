@@ -2608,3 +2608,120 @@ body.dark .mega-tag {
     padding: 24px;
   }
 }
+/* ==========================================================
+   GRUPOS DEL TEAM (Tarjetas Premium)
+   ========================================================== */
+
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Tarjeta Base */
+.group-card-mega {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-solid);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  z-index: 1;
+}
+
+/* Efecto al pasar el ratón */
+.group-card-mega:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 20px var(--g-accent);
+  border-color: var(--g-accent);
+}
+
+/* Imagen de Portada */
+.group-cover-mega {
+  height: 140px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: var(--paper-2); /* Fondo por si no hay imagen */
+  display: grid;
+  place-items: center;
+}
+
+/* Degradado para que la imagen se funda con el fondo de la tarjeta */
+.group-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 20%, var(--paper-solid) 100%);
+}
+
+body.dark .group-cover-overlay {
+  background: linear-gradient(to bottom, transparent 20%, #1e1b1d 100%);
+}
+
+/* Icono por defecto si no hay imagen */
+.group-glyph-mega {
+  font-size: 50px;
+  color: var(--g-accent);
+  opacity: 0.3;
+  transform: translateY(-10px);
+}
+
+/* Información del grupo */
+.group-info-mega {
+  padding: 0 24px 24px;
+  position: relative;
+  z-index: 2;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Etiqueta de Categoría (Roleplay, Staff, etc.) */
+.group-badge-mega {
+  align-self: flex-start;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--g-accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Título del grupo */
+.group-info-mega h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.2;
+  transition: color 0.3s;
+}
+
+.group-card-mega:hover .group-info-mega h3 {
+  color: var(--g-accent);
+}
+
+/* Descripción */
+.group-info-mega p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Modo Oscuro */
+body.dark .group-card-mega {
+  background: #1e1b1d;
+  border-color: rgba(255, 255, 255, 0.05);
+}
