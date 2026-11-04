@@ -391,12 +391,28 @@
   function renderActivities() {
     const el = $('#activitiesContent');
     if (!el) return;
-    el.innerHTML = data.activities.map(a => `
-      <article class="activity-card">
-        <span class="eyebrow">ACTIVIDAD</span>
-        <h3>${safe(a.name)}</h3>
-        ${isPending(a.description) ? pendingBlock('Descripción pendiente de completar.') : `<p>${safe(a.description)}</p>`}
-        <span class="points">${safe(a.points)} puntos</span>
+
+    // Iconos temáticos para cada actividad
+    const activityIcons = ['⚔️', '✉️', '🎲', '✍️', '🎨'];
+
+    el.innerHTML = data.activities.map((a, index) => `
+      <article class="activity-card-premium">
+        <div class="activity-glow"></div>
+        
+        <div class="activity-header">
+          <div class="activity-icon">${activityIcons[index] || '✨'}</div>
+          <div class="activity-points-badge">
+            <span class="points-star">✦</span>
+            <span class="points-num">${safe(a.points)}</span>
+            <span class="points-label">PTS</span>
+          </div>
+        </div>
+        
+        <div class="activity-body">
+          <span class="activity-type">MISIÓN ACTIVA</span>
+          <h3>${safe(a.name)}</h3>
+          <p>${safe(a.description)}</p>
+        </div>
       </article>
     `).join('');
   }
