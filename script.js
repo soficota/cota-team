@@ -215,52 +215,62 @@
     modal.hidden = false;
   }
 
-  function renderRaces() {
+   function renderRaces() {
     const el = $('#racesGrid');
     if (!el) return;
     
-    // Iconos para cada raza
+    // Iconos SVG para que se vean profesionales
     const raceIcons = {
-      sirenas: '∽', // Onda/Agua
-      hadas: '❧',   // Hoja/Naturaleza
-      fenix: '♨',   // Fuego/Fénix
-      dragones: '⌁',// Viento/Dragón
-      astrales: '✧' // Estrella/Luz
+      sirenas: '∽', 
+      hadas: '❧',   
+      fenix: '♨',   
+      dragones: '⌁', 
+      astrales: '✧' 
     };
 
     el.innerHTML = data.races.map(r => {
       const c = kingdomColor(r.kingdom) || { accent: '#b99554', light: '#fdf8f0', deep: '#3e3945' };
       const icon = raceIcons[r.id] || '✦';
+      const kingdomName = kingdomById(r.kingdom)?.name || r.kingdom;
       
       return `
-        <article class="race-card-premium" style="--race-accent: ${c.accent}; --race-light: ${c.light}; --race-deep: ${c.deep};">
-          <div class="race-glow"></div>
+        <article class="race-card-mega" style="--k-accent: ${c.accent}; --k-light: ${c.light}; --k-deep: ${c.deep};">
+          <!-- Borde animado -->
+          <div class="mega-border"></div>
           
-          <div class="race-header">
-            <div class="race-icon">${icon}</div>
-            <div class="race-titles">
-              <span class="race-kingdom">${safe(kingdomById(r.kingdom)?.name || '')} · ${safe(r.element)}</span>
-              <h3>${safe(r.name)}</h3>
-            </div>
-          </div>
+          <!-- Marca de agua de fondo -->
+          <div class="mega-watermark">${safe(kingdomName)}</div>
           
-          <div class="race-body">
-            <p class="race-description">${isPending(r.description) ? 'Descripción pendiente de completar.' : safe(r.description)}</p>
-            
-            <div class="race-blessing-box">
-              <span class="blessing-label">Bendición</span>
-              <span class="blessing-text">${safe(r.blessing)}</span>
+          <div class="mega-content">
+            <div class="mega-header">
+              <div class="mega-icon-wrap">
+                <div class="mega-icon">${icon}</div>
+              </div>
+              <div class="mega-titles">
+                <span class="mega-element">${safe(r.element)}</span>
+                <h3>${safe(r.name)}</h3>
+                <span class="mega-kingdom">${safe(kingdomName)}</span>
+              </div>
             </div>
             
-            <div class="race-traits">
-              ${r.traits.map(t => `<span class="trait-tag">${safe(t)}</span>`).join('')}
+            <p class="mega-desc">${isPending(r.description) ? 'Descripción pendiente de completar.' : safe(r.description)}</p>
+            
+            <div class="mega-blessing">
+              <div class="mega-blessing-icon">✦</div>
+              <div>
+                <span class="mega-b-label">Bendición</span>
+                <span class="mega-b-text">${safe(r.blessing)}</span>
+              </div>
+            </div>
+            
+            <div class="mega-traits">
+              ${r.traits.map(t => `<span class="mega-tag">${safe(t)}</span>`).join('')}
             </div>
           </div>
         </article>
       `;
     }).join('');
   }
-
   function roleGlyph(icon) {
     const map = { wheat:'✣', flask:'⚗', herb:'✚', book:'▤', letter:'✉', scale:'⚖', eye:'◎', compass:'⌖', hammer:'⚒', anvil:'◇', saw:'⌁', scissors:'✂', bread:'◒', cleaver:'⌑', bow:'⌒', chisel:'◆', mask:'◉', palette:'◈', chalkboard:'▧', bell:'♧', dagger:'†', dash:'—', sword:'⚔', 'wave-note':'♫', trident:'♆', leaf:'❧', flower:'❀', flame:'♨', wing:'⌁', shield:'⬡', star:'✧', feather:'❋' };
     return map[icon] || '✦';
