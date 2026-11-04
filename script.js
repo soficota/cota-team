@@ -218,15 +218,47 @@
   function renderRaces() {
     const el = $('#racesGrid');
     if (!el) return;
-    el.innerHTML = data.races.map(r => `
-      <article class="race-card">
-        <span class="eyebrow">${safe(kingdomById(r.kingdom)?.name || '')} · ${safe(r.element)}</span>
-        <h3>${safe(r.name)}</h3>
-        ${isPending(r.description) ? pendingBlock('La descripción de esta raza se completará después.') : `<p>${safe(r.description)}</p>`}
-        <p class="race-blessing"><b>Bendición:</b> ${safe(r.blessing)}</p>
-        <div class="tag-list">${r.traits.map(t => `<span class="tag">${safe(t)}</span>`).join('')}</div>
-      </article>
-    `).join('');
+    
+    // Iconos para cada raza
+    const raceIcons = {
+      sirenas: '∽', // Onda/Agua
+      hadas: '❧',   // Hoja/Naturaleza
+      fenix: '♨',   // Fuego/Fénix
+      dragones: '⌁',// Viento/Dragón
+      astrales: '✧' // Estrella/Luz
+    };
+
+    el.innerHTML = data.races.map(r => {
+      const c = kingdomColor(r.kingdom) || { accent: '#b99554', light: '#fdf8f0', deep: '#3e3945' };
+      const icon = raceIcons[r.id] || '✦';
+      
+      return `
+        <article class="race-card-premium" style="--race-accent: ${c.accent}; --race-light: ${c.light}; --race-deep: ${c.deep};">
+          <div class="race-glow"></div>
+          
+          <div class="race-header">
+            <div class="race-icon">${icon}</div>
+            <div class="race-titles">
+              <span class="race-kingdom">${safe(kingdomById(r.kingdom)?.name || '')} · ${safe(r.element)}</span>
+              <h3>${safe(r.name)}</h3>
+            </div>
+          </div>
+          
+          <div class="race-body">
+            <p class="race-description">${isPending(r.description) ? 'Descripción pendiente de completar.' : safe(r.description)}</p>
+            
+            <div class="race-blessing-box">
+              <span class="blessing-label">Bendición</span>
+              <span class="blessing-text">${safe(r.blessing)}</span>
+            </div>
+            
+            <div class="race-traits">
+              ${r.traits.map(t => `<span class="trait-tag">${safe(t)}</span>`).join('')}
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
   }
 
   function roleGlyph(icon) {
