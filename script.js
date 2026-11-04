@@ -335,21 +335,57 @@
     }).join('');
   }
 
-  function renderRules() { drawRules(selectedRule); }
+  function renderRules() {
+    const tabsContainer = $('#rulesTabs');
+    if (!tabsContainer) return;
 
-  function drawRules(type) {
+    // Crear las pestañas dinámicamente
+    tabsContainer.innerHTML = data.rules.map((rule, index) => `
+      <button class="filter-chip ${index === 0 ? 'active' : ''}" type="button" data-rule="${rule.id}">
+        ${rule.title}
+      </button>
+    `).join('');
+
+    // Seleccionar la primera por defecto
+    if (data.rules.length > 0) {
+      selectedRule = data.rules[0].id;
+      drawRules(selectedRule);
+    }
+  }
+
+  function drawRules(ruleId) {
     const el = $('#rulesContent');
     if (!el) return;
-    const list = data.rules[type] || [];
-    el.innerHTML = list.map(r => `
-      <article class="rule-item">
-        <div class="rule-mark">✦</div>
-        <div>
-          <h3>${safe(r.title)}</h3>
-          ${isPending(r.description) ? pendingBlock('El staff añadirá aquí la explicación de esta norma.') : `<p>${safe(r.description)}</p>`}
-        </div>
-      </article>
-    `).join('');
+    
+    const category = data.rules.find(r => r.id === ruleId);
+    if (!category) return;
+
+    // Generar el HTML de las reglas
+    el.innerHTML = category.items.map(r => {
+      // Si es la plantilla de cartas, le damos un estilo especial (pre-formateado)
+      if (ruleId === 'letters' && r.title === 'Plantilla de Carta') {
+        return `
+          <article class="rule-item letter-rule">
+            <div class="rule-mark">✉️</div>
+            <div style="width: 100%;">
+              <h3>${safe(r.title)}</h3>
+              <div class="letter-template">${safe(r.description)}</div>
+            </div>
+          </article>
+        `;
+      }
+      
+      // Reglas normales
+      return `
+        <article class="rule-item">
+          <div class="rule-mark">${category.icon}</div>
+          <div>
+            <h3>${safe(r.title)}</h3>
+            <p>${safe(r.description)}</p>
+          </div>
+        </article>
+      `;
+    }).join('');
   }
 
   function renderActivities() {
