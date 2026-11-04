@@ -2067,44 +2067,144 @@ body.modal-open {
   }
 }
 /* ==========================================================
-   PARCHE DE EMERGENCIA: ARREGLO DE LÍNEA TEMPORAL
+   LÍNEA TEMPORAL ÉPICA Y ANIMADA (Reemplaza el parche anterior)
    ========================================================== */
 
+/* Arreglo de estructura para evitar el texto aplastado */
 .timeline-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 30px !important;
-  margin-top: 30px !important;
+  gap: 35px !important;
+  margin-top: 40px !important;
   padding-left: 20px !important;
   position: relative !important;
 }
 
-.timeline-item {
-  display: block !important; /* Elimina la cuadrícula que aplasta el texto */
-  position: relative !important;
-  padding-left: 50px !important;
-  margin-bottom: 20px !important;
+/* Línea vertical con flujo mágico */
+.timeline-list::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 24px !important;
+  top: 10px !important;
+  bottom: 10px !important;
+  width: 3px !important;
+  background: linear-gradient(to bottom, var(--gold) 0%, var(--rose) 50%, var(--gold) 100%) !important;
+  background-size: 100% 200% !important;
+  animation: flowLine 3s linear infinite !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 15px rgba(185, 149, 84, 0.4) !important;
 }
 
+@keyframes flowLine {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+/* Contenedor de cada evento */
+.timeline-item {
+  display: block !important;
+  position: relative !important;
+  padding: 15px 15px 15px 55px !important;
+  margin-bottom: 15px !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Animación de entrada deslizante */
+.view.active .timeline-item {
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  opacity: 0;
+}
+.view.active .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.view.active .timeline-item:nth-child(2) { animation-delay: 0.25s; }
+.view.active .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+.view.active .timeline-item:nth-child(4) { animation-delay: 0.55s; }
+.view.active .timeline-item:nth-child(5) { animation-delay: 0.7s; }
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Efecto Hover en el bloque */
+.timeline-item:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+  transform: translateX(10px) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+body.dark .timeline-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* El punto de la línea (Estrella que palpita) */
+.timeline-item::before {
+  content: '✦' !important;
+  position: absolute !important;
+  left: 14px !important;
+  top: 18px !important;
+  width: 22px !important;
+  height: 22px !important;
+  background: var(--paper-solid) !important;
+  border: 2px solid var(--gold) !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 10px !important;
+  color: var(--gold) !important;
+  z-index: 2 !important;
+  animation: pulseMarker 2s infinite !important;
+  transition: all 0.4s !important;
+}
+
+@keyframes pulseMarker {
+  0% { box-shadow: 0 0 0 0 rgba(185, 149, 84, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(185, 149, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(185, 149, 84, 0); }
+}
+
+.timeline-item:hover::before {
+  background: var(--gold) !important;
+  color: #fff !important;
+  transform: scale(1.2) rotate(180deg) !important;
+  animation: none !important;
+  box-shadow: 0 0 20px rgba(185, 149, 84, 0.8) !important;
+}
+
+/* Textos y Etiquetas */
 .timeline-item .year {
   display: inline-block !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
   font-weight: 700 !important;
   color: var(--gold) !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
   background: rgba(185, 149, 84, 0.1) !important;
   padding: 6px 14px !important;
   border-radius: 20px !important;
+  border: 1px solid rgba(185, 149, 84, 0.2) !important;
+  transition: all 0.3s !important;
+}
+
+.timeline-item:hover .year {
+  background: var(--gold) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(185, 149, 84, 0.4) !important;
 }
 
 .timeline-item h3 {
   display: block !important;
   font-family: var(--display) !important;
   font-size: 24px !important;
-  margin: 10px 0 !important;
+  margin: 5px 0 12px !important;
   color: var(--ink) !important;
   width: 100% !important;
+  transition: color 0.3s !important;
+}
+
+.timeline-item:hover h3 {
+  color: var(--gold) !important;
 }
 
 .timeline-item p {
@@ -2115,10 +2215,10 @@ body.modal-open {
   font-size: 15px !important;
   line-height: 1.8 !important;
   text-align: justify !important;
-  white-space: normal !important; /* Rompe cualquier columna forzada */
+  white-space: normal !important;
 }
 
-/* Letra capital para el mito */
+/* Letra capital mágica */
 .creation-card .prose::first-letter {
   font-family: var(--display) !important;
   font-size: 4.5em !important;
@@ -2129,4 +2229,11 @@ body.modal-open {
   margin-top: 8px !important;
   color: var(--gold) !important;
   text-shadow: 0 4px 15px rgba(185, 149, 84, 0.4) !important;
+}
+
+/* Ajuste para que en móviles no haya scroll horizontal por el hover */
+@media (max-width: 820px) {
+  .timeline-item:hover {
+    transform: translateX(4px) !important;
+  }
 }
